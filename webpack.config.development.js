@@ -1,37 +1,39 @@
 /* eslint-disable */
 
-var path = require("path");
-var webpack = require("webpack");
-var assign = require("object-assign");
+var path = require('path');
+var webpack = require('webpack');
+var assign = require('object-assign');
 
-var config = require("./webpack.config");
+var config = require('./webpack.config');
 
 config.devtool = 'cheap-module-eval-source-map';
 
 config.output = assign(config.output, {
-  publicPath: "/"
+  publicPath: '/'
 });
 
-config.plugins = config.plugins.concat([
-  new webpack.NoEmitOnErrorsPlugin()
-]);
+config.plugins = config.plugins.concat([new webpack.NoEmitOnErrorsPlugin()]);
 
 config.module.rules[0] = {
   test: /\.(js|jsx)$/,
   exclude: /node_modules/,
-  loader: "babel-loader",
+  loader: 'babel-loader',
   query: {
     plugins: [
       [
-        "react-transform", {
-          transforms: [{
-            transform: "react-transform-hmr",
-            imports: ["react"],
-            locals: ["module"]
-          }, {
-            transform: "react-transform-catch-errors",
-            imports: ["react", "redbox-react"]
-          }]
+        'react-transform',
+        {
+          transforms: [
+            {
+              transform: 'react-transform-hmr',
+              imports: ['react'],
+              locals: ['module']
+            },
+            {
+              transform: 'react-transform-catch-errors',
+              imports: ['react', 'redbox-react']
+            }
+          ]
         }
       ]
     ]

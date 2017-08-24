@@ -7,6 +7,7 @@
     "prebuild": "npm run clean",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
     "clean": "rimraf dist",
+    "format": "prettier \"webpack.*.js\" \"src/**/*.js\"  \"themes/**/*.js\" --write --single-quote",
     "lint": "eslint --ext .js,.jsx .",
     "deploy": "npm run clean & npm run build && surge -p dist",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --port 3000 --content-base dist --config webpack.config.development.js"
@@ -17,7 +18,9 @@
     "normalize.css": "3.0.3",
     "react": "15.4.2",
     "react-dom": "15.4.2",
-    "spectacle": "^2.2.0"
+    "react-icons": "^2.2.5",
+    "spectacle": "^2.2.0",
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -50,6 +53,7 @@
     "markdown-loader": "^0.1.7",
     "node-libs-browser": "^0.5.3",
     "object-assign": "~4.1.1",
+    "prettier": "^1.5.3",
     "raw-loader": "^0.5.1",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.4",
