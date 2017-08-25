@@ -15,11 +15,16 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "emojione": "2.2.5",
     "normalize.css": "3.0.3",
+    "prism-themes": "PrismJS/prism-themes",
     "react": "15.4.2",
     "react-dom": "15.4.2",
+    "react-emojione": "^3.1.10",
     "react-icons": "^2.2.5",
+    "react-svg-emojione": "^1.2.0",
     "spectacle": "^2.2.0",
+    "spectacle-code-slide": "^0.4.0",
     "styled-components": "^2.1.2"
   },
   "devDependencies": {
@@ -55,6 +60,7 @@
     "object-assign": "~4.1.1",
     "prettier": "^1.5.3",
     "raw-loader": "^0.5.1",
+    "react-svg-loader": "^1.1.1",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.2.0",

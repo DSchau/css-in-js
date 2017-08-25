@@ -37,7 +37,8 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader'],
-        include: __dirname
+        include: __dirname,
+        exclude: [path.join(__dirname, 'assets')]
       },
       {
         test: /\.md$/,
@@ -46,7 +47,10 @@ module.exports = {
       {
         test: /\..+$/,
         loader: 'raw-loader',
-        include: path.join(__dirname, 'assets/quotes')
+        include: [
+          path.join(__dirname, 'assets/code'),
+          path.join(__dirname, 'assets/quotes')
+        ]
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -54,7 +58,13 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
+        loaders: ['babel-loader', 'react-svg-loader'],
+        include: [path.join(__dirname, 'node_modules/emojione')]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+        exclude: path.join(__dirname, 'node_modules/emojione')
       }
     ]
   }
