@@ -4,7 +4,7 @@
   "description": "ReactJS Powered Presentation Framework",
   "main": "dist/bundle.js",
   "scripts": {
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean && node scripts/images.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
     "clean": "rimraf dist",
     "format": "prettier \"webpack.*.js\" \"src/**/*.js\"  \"themes/**/*.js\" --write --single-quote",

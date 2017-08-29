@@ -13,12 +13,12 @@ import TwitterIcon from 'react-icons/lib/fa/twitter';
 import GithubIcon from 'react-icons/lib/fa/github';
 
 const images = {
-  titleSlide: require('./assets/images/title-slide.jpg'),
+  titleSlide: require('./assets/images/title-slide-optimized.jpeg'),
   opiLogo: require('./assets/images/object-partners.svg'),
-  opiMn: require('./assets/images/opi-mn.jpg'),
-  me: require('./assets/images/me.jpg'),
-  nebraskaActual: require('./assets/images/nebraska-actual.jpg'),
-  nebraskaPerception: require('./assets/images/nebraska-perception.jpg'),
+  opiMn: require('./assets/images/opi-mn-optimized.jpeg'),
+  me: require('./assets/images/me-optimized.jpeg'),
+  nebraskaActual: require('./assets/images/nebraska-actual-optimized.jpeg'),
+  nebraskaPerception: require('./assets/images/nebraska-perception-optimized.jpeg'),
 };
 
 preloader(images);

@@ -16,8 +16,8 @@ import { Button, QuoteSlide } from 'components';
 import { CODE_BACKGROUND } from 'style';
 
 const images = {
-  dodds: require('./assets/images/kent-c-dodds.jpg'),
-  hardStuff: require('./assets/images/hard-stuff.jpg')
+  dodds: require('./assets/images/kent-c-dodds-optimized.jpeg'),
+  hardStuff: require('./assets/images/hard-stuff-optimized.jpeg')
 };
 
 const snippets = {

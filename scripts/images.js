@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const sharp = require('sharp');
 const glob = require('glob');
 
@@ -10,24 +11,44 @@ const getFiles = src => {
       }
       resolve(files);
     });
-  });
+  })
+    .then(files => {
+      return files.filter(file => file.indexOf('-optimized') === -1)
+    });
 };
 
 const writeFile = ({
   file,
-  quality = 65,
-  size = 950,
+  quality = 75,
+  size = 1250,
 }) => {
   const [name, extension] = file.split('/').pop().split('.');
   const image = sharp(file);
 
   return image.metadata()
     .then(metadata => {
+      const fileName = file.replace(name, `${name}-optimized`);
+      let stream;
       if (metadata.width > size) {
-        console.log(`Updated ${file}`);
-        return image[extension]({ quality }).toFile(file);
+        stream = image.resize(size)[extension]({ quality }).toFile(fileName);
+      } else {
+        stream = new Promise(resolve => {
+          return image.toBuffer()
+            .then(buffer => {
+              fs.writeFile(fileName, buffer, 'binary', (err, data) => {
+                resolve();
+              });
+            });
+
+        });
       }
-      return metadata;
+      return stream
+        .then(() => {
+          console.log(`Updated ${fileName}`);
+        })
+        .catch(err => {
+          console.error(err);
+        });
     })
 };
 
