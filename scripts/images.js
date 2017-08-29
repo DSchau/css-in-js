@@ -16,14 +16,19 @@ const getFiles = src => {
 const writeFile = ({
   file,
   quality = 65,
-  size = 900,
+  size = 950,
 }) => {
   const [name, extension] = file.split('/').pop().split('.');
-  let stream = sharp(file).resize(size);
+  const image = sharp(file);
 
-  console.log(name, extension);
-
-  // return stream[extension]({ quality }).toFile(file);
+  return image.metadata()
+    .then(metadata => {
+      if (metadata.width > size) {
+        console.log(`Updated ${file}`);
+        return image[extension]({ quality }).toFile(file);
+      }
+      return metadata;
+    })
 };
 
 getFiles(path.resolve('src'))
