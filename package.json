@@ -1,6 +1,6 @@
 {
-  "name": "spectacle-boilerplate",
-  "version": "1.0.1",
+  "name": "css-in-js-presentation",
+  "version": "1.0.0",
   "description": "ReactJS Powered Presentation Framework",
   "main": "dist/bundle.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "clean": "rimraf dist",
     "format": "prettier \"webpack.*.js\" \"src/**/*.js\"  \"themes/**/*.js\" --write --single-quote",
     "lint": "eslint --ext .js,.jsx .",
-    "deploy": "npm run clean & npm run build && surge -p dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --port 3000 --content-base dist --no-info --config webpack.config.development.js"
   },
   "author": "",

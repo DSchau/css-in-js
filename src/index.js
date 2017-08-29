@@ -15,7 +15,6 @@ import SlideDeck from './slides/';
 
 import 'normalize.css';
 import 'spectacle/lib/themes/default/index.css';
-// import 'prism-themes/themes/prism-darcula.css';
 
 const theme = createTheme({
   primary: "#FF6138",

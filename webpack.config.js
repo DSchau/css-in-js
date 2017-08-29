@@ -42,7 +42,7 @@ module.exports = {
         include: __dirname,
         exclude: [
           path.join(__dirname, 'assets'),
-          /.*assets\/.*/
+          /assets\//
         ]
       },
       {
@@ -50,17 +50,16 @@ module.exports = {
         loader: 'html-loader!markdown-loader?gfm=false'
       },
       {
-        test: /\..+$/,
+        test: /\.(css|js|raw)$/,
         loader: 'raw-loader',
         include: [
           path.join(__dirname, 'assets/code'),
           path.join(__dirname, 'assets/quotes'),
-          /.*assets\/.*/
+          /assets\//
+        ],
+        exclude: [
+          path.join(__dirname, 'node_modules/emojione')
         ]
-      },
-      {
-        test: /\.raw$/,
-        loader: 'raw-loader'
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -73,7 +72,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+        loader: 'url-loader?limit=8192&mimetype=image/svg+xml',
         exclude: path.join(__dirname, 'node_modules/emojione')
       }
     ]
