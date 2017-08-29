@@ -27,7 +27,7 @@ const theme = createTheme({
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} theme={theme} progress="bar" transitionDuration={500}>
+      <Deck transition={["slide"]} theme={theme} progress="bar" transitionDuration={500}>
         {SlideDeck()}
       </Deck>
     );

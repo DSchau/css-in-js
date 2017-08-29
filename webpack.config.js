@@ -67,7 +67,14 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loaders: ['babel-loader', 'react-svg-loader'],
+        loaders: [
+          {
+            loader: 'svg-react-loader',
+            options: {
+              name: 'EmojioneIcon'
+            }
+          }
+        ],
         include: [path.join(__dirname, 'node_modules/emojione')]
       },
       {
