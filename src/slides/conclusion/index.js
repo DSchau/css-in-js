@@ -16,3 +16,11 @@ export const ThankYou = () => null;
 ThankYou.Props = {
   bgImage: images.thankYou
 }
+
+export const Attributions = () => (
+  null
+);
+
+export const Links = () => (
+  null
+);

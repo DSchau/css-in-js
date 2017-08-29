@@ -13,25 +13,32 @@ import TwitterIcon from 'react-icons/lib/fa/twitter';
 import GithubIcon from 'react-icons/lib/fa/github';
 
 const images = {
-  titleSlide: require('assets/images/title-slide.jpg'),
-  opiLogo: require('assets/images/object-partners.svg'),
-  opiMn: require('assets/images/opi-mn.jpg'),
-  me: require('assets/images/me.jpg'),
-  nebraskaActual: require('assets/images/nebraska-actual.jpg'),
-  nebraskaPerception: require('assets/images/nebraska-perception.jpg'),
+  titleSlide: require('./assets/images/title-slide.jpg'),
+  opiLogo: require('./assets/images/object-partners.svg'),
+  opiMn: require('./assets/images/opi-mn.jpg'),
+  me: require('./assets/images/me.jpg'),
+  nebraskaActual: require('./assets/images/nebraska-actual.jpg'),
+  nebraskaPerception: require('./assets/images/nebraska-perception.jpg'),
 };
 
 preloader(images);
 
 export const Intro = () => (
-  <Layout>
-    <Fill style={{ paddingRight: 20 }}>
-      <Heading size={1} caps fit textFont="Bitter">CSS in JS</Heading>
-    </Fill>
-    <Fill margin={10}>
-      <Heading size={4} textColor="primary" textAlign="left">Benefits, Drawbacks, and Tools</Heading>
-    </Fill>
-  </Layout>
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between'
+  }}>
+    <Layout>
+      <Fill style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingRight: 20 }}>
+        <Heading size={1} caps fit textFont="Bitter">CSS in JS</Heading>
+      </Fill>
+      <Fill margin={10}>
+        <Heading size={4} textColor="primary" textAlign="left">Benefits, Drawbacks, and Tools</Heading>
+      </Fill>
+    </Layout>
+  </div>
 );
 
 Intro.Props = {
@@ -39,19 +46,11 @@ Intro.Props = {
   bgDarken: 0.5
 };
 
+/* TODO: Add back for Thunderplains
 export const Sponsors = () => (
   <Heading size={2} caps fit>Sponsors</Heading>
 );
-
-export const ObjectPartners = () => (
-  <Image src={images.opiLogo} />
-);
-
-ObjectPartners.Props = {
-  bgImage: images.opiMn,
-  bgDarken: 0.8
-};
-
+*/
 export const AboutMe = () => (
   <Layout>
     <Fill style={{
@@ -79,16 +78,26 @@ export const AboutMe = () => (
   </Layout>
 );
 
-export const NebraskaPerception = {
-  Props: {
-    bgImage: images.nebraskaPerception,
-    bgDarken: 0.2
-  }
+export const ObjectPartners = () => (
+  <Image src={images.opiLogo} />
+);
+
+ObjectPartners.Props = {
+  bgImage: images.opiMn,
+  bgDarken: 0.8
 };
 
-export const NebraskaActual = {
-  Props: {
-    bgImage: images.nebraskaActual,
-    bgDarken: 0.2
-  }
-};
+
+// export const NebraskaPerception = {
+//   Props: {
+//     bgImage: images.nebraskaPerception,
+//     bgDarken: 0.2
+//   }
+// };
+
+// export const NebraskaActual = {
+//   Props: {
+//     bgImage: images.nebraskaActual,
+//     bgDarken: 0.2
+//   }
+// };

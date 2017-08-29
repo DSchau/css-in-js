@@ -24,7 +24,9 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      assets: path.join(__dirname, 'assets')
+      assets: path.join(__dirname, 'assets'),
+      components: path.join(__dirname, 'src/components'),
+      style: path.join(__dirname, 'src/style')
     }
   },
   module: {
@@ -38,7 +40,10 @@ module.exports = {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader'],
         include: __dirname,
-        exclude: [path.join(__dirname, 'assets')]
+        exclude: [
+          path.join(__dirname, 'assets'),
+          /.*assets\/.*/
+        ]
       },
       {
         test: /\.md$/,
@@ -49,8 +54,13 @@ module.exports = {
         loader: 'raw-loader',
         include: [
           path.join(__dirname, 'assets/code'),
-          path.join(__dirname, 'assets/quotes')
+          path.join(__dirname, 'assets/quotes'),
+          /.*assets\/.*/
         ]
+      },
+      {
+        test: /\.raw$/,
+        loader: 'raw-loader'
       },
       {
         test: /\.(png|jpe?g|gif)$/,
