@@ -30,9 +30,10 @@ const snippets = {
 
 preloader(images);
 
-export const TheProblems = () => (
-  <Heading size={1} fit caps>The problems with CSS</Heading>
-);
+export const TheProblems = () =>
+  <Heading size={1} fit caps>
+    The problems with CSS
+  </Heading>;
 
 TheProblems.Props = {
   bgColor: 'secondary'
@@ -41,7 +42,9 @@ TheProblems.Props = {
 export const FirstButton = () => {
   return (
     <div>
-      <Button backgroundColor="#3ecf8e" color="white">Ooooh-wee. Look at me!</Button>
+      <Button backgroundColor="#3ecf8e" color="white">
+        Ooooh-wee. Look at me!
+      </Button>
       <CodePane
         lang="css"
         source={snippets.cssOne}
@@ -51,7 +54,7 @@ export const FirstButton = () => {
         }}
       />
     </div>
-  )
+  );
 };
 
 FirstButton.Props = {
@@ -71,7 +74,7 @@ export const SecondButton = () => {
         }}
       />
     </div>
-  )
+  );
 };
 
 SecondButton.Props = {
@@ -81,7 +84,9 @@ SecondButton.Props = {
 export const ThirdButton = () => {
   return (
     <div>
-      <Button fontSize="1rem" textTransform="lowercase">Ooooh-wee. Look at me!</Button>
+      <Button fontSize="1rem" textTransform="lowercase">
+        Ooooh-wee. Look at me!
+      </Button>
       <CodePane
         lang="css"
         source={snippets.cssThree}
@@ -91,7 +96,7 @@ export const ThirdButton = () => {
         }}
       />
     </div>
-  )
+  );
 };
 
 ThirdButton.Props = {
@@ -101,7 +106,14 @@ ThirdButton.Props = {
 export const FourthButton = () => {
   return (
     <div>
-      <Button fontSize="1rem" textTransform="lowercase" backgroundHoverColor="#7795f8" hoverColor="white">Ooooh-wee. Look at me!</Button>
+      <Button
+        fontSize="1rem"
+        textTransform="lowercase"
+        backgroundHoverColor="#7795f8"
+        hoverColor="white"
+      >
+        Ooooh-wee. Look at me!
+      </Button>
       <CodePane
         lang="css"
         source={snippets.cssFour}
@@ -111,7 +123,7 @@ export const FourthButton = () => {
         }}
       />
     </div>
-  )
+  );
 };
 
 FourthButton.Props = {
@@ -127,7 +139,7 @@ export const TheGlobals = {
       snippets.cssThree,
       snippets.cssFour
     ].join('\n'),
-    lang: "css",
+    lang: 'css',
     ranges: [
       { title: 'Our clean CSS' },
       { loc: [14, 15], title: '...is no so longer so clean' },
@@ -142,17 +154,14 @@ export const TheGlobals = {
   }
 };
 
-export const ButWait = () => (
-  <Heading size={1} fit caps>But Wait&hellip;</Heading>
-);
+export const ButWait = () =>
+  <Heading size={1} fit caps>
+    But Wait&hellip;
+  </Heading>;
 
-export const Bem = () => (
+export const Bem = () =>
   <div>
-    <CodePane
-      lang="css"
-      source={snippets.bem}
-      textSize={20}
-    />
+    <CodePane lang="css" source={snippets.bem} textSize={20} />
     <CodePane
       lang="css"
       source={`.Block__element--modifier {}`}
@@ -161,8 +170,7 @@ export const Bem = () => (
         marginTop: 12
       }}
     />
-  </div>
-);
+  </div>;
 
 Bem.Props = {
   bgColor: CODE_BACKGROUND
@@ -177,17 +185,28 @@ export const Run = class extends React.Component {
     const props = {
       height: 256,
       width: 256,
-      ...(this.state.flipped ? {
-        transform: `scale(-1, 1)`
-      } : {})
+      ...(this.state.flipped
+        ? {
+            transform: `scale(-1, 1)`
+          }
+        : {})
     };
-    return <Person onClick={() => this.setState({ flipped: !this.state.flipped })}{...props} />
+    return (
+      <Person
+        onClick={() => this.setState({ flipped: !this.state.flipped })}
+        {...props}
+      />
+    );
   }
-}
+};
 
-export const HardStuff = () => (
-  <QuoteSlide quote={require('./assets/quotes/automation.raw')} image={images.dodds} author="Kent C. Dodds" to="https://twitter.com/kentcdodds/status/899709586663452672" />
-);
+export const HardStuff = () =>
+  <QuoteSlide
+    quote={require('./assets/quotes/automation.raw')}
+    image={images.dodds}
+    author="Kent C. Dodds"
+    to="https://twitter.com/kentcdodds/status/899709586663452672"
+  />;
 
 HardStuff.Props = {
   bgImage: images.hardStuff,

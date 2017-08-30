@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Heading
-} from 'spectacle';
+import { Heading } from 'spectacle';
 
 import preloader from 'spectacle/lib/utils/preloader';
 
@@ -15,12 +13,8 @@ export const ThankYou = () => null;
 
 ThankYou.Props = {
   bgImage: images.thankYou
-}
+};
 
-export const Attributions = () => (
-  null
-);
+export const Attributions = () => null;
 
-export const Links = () => (
-  null
-);
+export const Links = () => null;

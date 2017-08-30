@@ -12,12 +12,12 @@ import { extent, max } from 'd3-array';
 function genLines(num) {
   return new Array(num).fill(1).map(() => {
     return genDateValue(25);
-  })
+  });
 }
 
 const series = genLines(12);
 const data = series.reduce((rec, d) => {
-  return rec.concat(d)
+  return rec.concat(d);
 }, []);
 
 // accessors
@@ -35,7 +35,6 @@ export class NpmDownloads extends Component {
 
   async componentDidMount() {
     // const { libraries = [] } = this.props;
-
     // const statistics = await Promise.all(
     //   libraries
     //     .map(library =>
@@ -50,25 +49,27 @@ export class NpmDownloads extends Component {
     //         data: collected.npm
     //       }))
     //   });
-    
     // this.setState({
     //   statistics
     // });
   }
 
   render() {
-    const { height = window.innerHeight / 1.5, width = window.innerWidth / 1.5 } = this.props;
+    const {
+      height = window.innerHeight / 1.5,
+      width = window.innerWidth / 1.5
+    } = this.props;
     const xMax = width;
     const yMax = height / 8;
 
     // scales
     const xScale = scaleTime({
       range: [0, xMax],
-      domain: extent(data, x),
+      domain: extent(data, x)
     });
     const yScale = scaleLinear({
       range: [yMax, 0],
-      domain: [0, max(data, y)],
+      domain: [0, max(data, y)]
     });
 
     return (
@@ -83,14 +84,9 @@ export class NpmDownloads extends Component {
         />
         {series.map((d, i) => {
           const offset = i * yMax / 2;
-          const curve = i % 2 == 0
-            ? curveMonotoneX
-            : undefined;
+          const curve = i % 2 == 0 ? curveMonotoneX : undefined;
           return (
-            <Group
-              key={`lines-${i}`}
-              top={offset}
-            >
+            <Group key={`lines-${i}`} top={offset}>
               <LinePath
                 data={d}
                 xScale={xScale}

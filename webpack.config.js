@@ -40,10 +40,7 @@ module.exports = {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader'],
         include: __dirname,
-        exclude: [
-          path.join(__dirname, 'assets'),
-          /assets\//
-        ]
+        exclude: [path.join(__dirname, 'assets'), /assets\//]
       },
       {
         test: /\.md$/,
@@ -57,9 +54,7 @@ module.exports = {
           path.join(__dirname, 'assets/quotes'),
           /assets\//
         ],
-        exclude: [
-          path.join(__dirname, 'node_modules/emojione')
-        ]
+        exclude: [path.join(__dirname, 'node_modules/emojione')]
       },
       {
         test: /\.(png|jpe?g|gif)$/,

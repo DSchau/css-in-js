@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Heading,
-  Fill,
-  Image,
-  Layout,
-  Link
-} from 'spectacle';
+import { Heading, Fill, Image, Layout, Link } from 'spectacle';
 
 import preloader from 'spectacle/lib/utils/preloader';
 
@@ -18,28 +12,40 @@ const images = {
   opiMn: require('./assets/images/opi-mn-optimized.jpeg'),
   me: require('./assets/images/me-optimized.jpeg'),
   nebraskaActual: require('./assets/images/nebraska-actual-optimized.jpeg'),
-  nebraskaPerception: require('./assets/images/nebraska-perception-optimized.jpeg'),
+  nebraskaPerception: require('./assets/images/nebraska-perception-optimized.jpeg')
 };
 
 preloader(images);
 
-export const Intro = () => (
-  <div style={{
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between'
-  }}>
+export const Intro = () =>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      justifyContent: 'space-between'
+    }}
+  >
     <Layout>
-      <Fill style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingRight: 20 }}>
-        <Heading size={1} caps fit textFont="Bitter">CSS in JS</Heading>
+      <Fill
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingRight: 20
+        }}
+      >
+        <Heading size={1} caps fit textFont="Bitter">
+          CSS in JS
+        </Heading>
       </Fill>
       <Fill margin={10}>
-        <Heading size={4} textColor="primary" textAlign="left">Benefits, Drawbacks, and Tools</Heading>
+        <Heading size={4} textColor="primary" textAlign="left">
+          Benefits, Drawbacks, and Tools
+        </Heading>
       </Fill>
     </Layout>
-  </div>
-);
+  </div>;
 
 Intro.Props = {
   bgImage: images.titleSlide,
@@ -51,42 +57,48 @@ export const Sponsors = () => (
   <Heading size={2} caps fit>Sponsors</Heading>
 );
 */
-export const AboutMe = () => (
+export const AboutMe = () =>
   <Layout>
-    <Fill style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'flex-start',
-      flexDirection: 'column',
-      paddingRight: 20
-    }}>
-      <Heading size={2} caps fit>Who?</Heading>
+    <Fill
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        flexDirection: 'column',
+        paddingRight: 20
+      }}
+    >
+      <Heading size={2} caps fit>
+        Who?
+      </Heading>
       <Heading size={6} style={{ display: 'flex' }}>
         <TwitterIcon color="white" style={{ display: 'inline-block' }} />
-        <Link href="https://twitter.com/schaudustin" textColor="white">schaudustin</Link>
+        <Link href="https://twitter.com/schaudustin" textColor="white">
+          schaudustin
+        </Link>
       </Heading>
       <Heading size={6} style={{ display: 'flex' }}>
         <GithubIcon color="white" style={{ display: 'inline-block' }} />
-        <Link href="https://github.com/dschau" textColor="white">dschau</Link>
+        <Link href="https://github.com/dschau" textColor="white">
+          dschau
+        </Link>
       </Heading>
     </Fill>
-    <Fill style={{
-      maxWidth: '40%'
-    }}>
+    <Fill
+      style={{
+        maxWidth: '40%'
+      }}
+    >
       <Image src={images.me} style={{ borderRadius: 400 }} />
     </Fill>
-  </Layout>
-);
+  </Layout>;
 
-export const ObjectPartners = () => (
-  <Image src={images.opiLogo} />
-);
+export const ObjectPartners = () => <Image src={images.opiLogo} />;
 
 ObjectPartners.Props = {
   bgImage: images.opiMn,
   bgDarken: 0.8
 };
-
 
 // export const NebraskaPerception = {
 //   Props: {

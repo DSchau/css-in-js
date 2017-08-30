@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
-import {
-  Appear,
-  CodePane,
-  Fill,
-  Heading,
-  Layout,
-  S
-} from 'spectacle';
+import { Appear, CodePane, Fill, Heading, Layout, S } from 'spectacle';
 
 import WtfFace from 'emojione/assets/svg/1f616.svg';
-import Ambivalence from 'emojione/assets/svg/1f612.svg'
+import Ambivalence from 'emojione/assets/svg/1f612.svg';
 import CrossArms from 'emojione/assets/svg/1f645-1f3fb.svg';
 import HeartEyes from 'emojione/assets/svg/1f60d.svg';
 
@@ -19,11 +12,9 @@ const snippets = {
   inlineStyles: require('./assets/snippets/inline-styles.js')
 };
 
-export const FromHere = () => (
-  <WtfFace height={256} width={256} />
-);
+export const FromHere = () => <WtfFace height={256} width={256} />;
 
-export const ToHere = () => (
+export const ToHere = () =>
   <Layout>
     <Fill>
       <Ambivalence height={256} width={256} />
@@ -33,28 +24,30 @@ export const ToHere = () => (
         <HeartEyes height={256} width={256} />
       </Fill>
     </Appear>
-  </Layout>
-);
+  </Layout>;
 
-export const NotBroken = () => (
-  <Heading size={1} textColor="primary" caps fit>CSS is not Broken</Heading>
-);
+export const NotBroken = () =>
+  <Heading size={1} textColor="primary" caps fit>
+    CSS is not Broken
+  </Heading>;
 
 NotBroken.Props = {
   bgColor: 'secondary'
 };
 
-export const ButMaybeItIs = () => (
-  <Heading size={1} textColor="primary" caps fit><S type="italic">Maybe</S> we can do better</Heading>
-);
+export const ButMaybeItIs = () =>
+  <Heading size={1} textColor="primary" caps fit>
+    <S type="italic">Maybe</S> we can do better
+  </Heading>;
 
 ButMaybeItIs.Props = {
   bgColor: 'secondary'
-}
+};
 
-export const IsNot = () => (
-  <Heading size={1} fit caps>What it is <S type="italic">not</S></Heading>
-);
+export const IsNot = () =>
+  <Heading size={1} fit caps>
+    What it is <S type="italic">not</S>
+  </Heading>;
 
 IsNot.Props = {
   bgColor: 'secondary'
@@ -68,86 +61,90 @@ export const InlineStyles = class extends Component {
     return (
       <div onClick={() => this.setState({ count: this.state.count + 1 })}>
         <CodePane lang="jsx" source={snippets.inlineStyles} textSize={18} />
-        {
-          this.state.count > 0 && <div style={{
-            position: 'absolute',
-            top: '50%',
-            left: 0,
-            right: 0,
-            transform: `translateY(-50%)`
-          }}>
+        {this.state.count > 0 &&
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: 0,
+              right: 0,
+              transform: `translateY(-50%)`
+            }}
+          >
             {this.state.count >= 1 && <CrossArms height={256} width={256} />}
-          </div>
-        }
+          </div>}
       </div>
     );
   }
-}
+};
 
 InlineStyles.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const Is = () => (
-  <Heading size={1} fit caps>What it <S type="italic">is</S></Heading>
-);
+export const Is = () =>
+  <Heading size={1} fit caps>
+    What it <S type="italic">is</S>
+  </Heading>;
 
 Is.Props = {
   bgColor: 'secondary'
 };
 
-export const Abstractions = () => (
-  <Heading size={2} textFont="bitter" fit caps>Abstractions upon CSS</Heading>
-);
-
-export const ScopedStyles = () => (
-  <Heading size={2} textFont="bitter" fit caps>True Encapsulation</Heading>
-);
-
-export const Powerful = () => (
-  <Heading size={2} textFont="bitter" fit caps>A more powerful CSS</Heading>
-);
-
-export const RealStyles = () => (
-  <Heading size={2} textFont="bitter" fit caps><S type="italic">Real</S> Stylesheets</Heading>
-);
-
-export const ComponentStyling = () => (
+export const Abstractions = () =>
   <Heading size={2} textFont="bitter" fit caps>
-    {
-      'Component Styling Solution'
-        .split(' ')
-        .map(word => {
-          const first = word.slice(0, 1);
-          const rest = word.slice(1);
+    Abstractions upon CSS
+  </Heading>;
 
-          return (
-            <span key={word}>
-              <S type="underline">{first}</S>
-              <span>{rest} </span>
-            </span>
-          );
-        })
-    }
-  </Heading>
-);
-
-export const JavaScriptStyling = () => (
+export const ScopedStyles = () =>
   <Heading size={2} textFont="bitter" fit caps>
-    {
-      'JavaScript Styling Solution'
-        .split(' ')
-        .map(word => {
-          const first = word.slice(0, 1);
-          const rest = word.slice(1);
+    True Encapsulation
+  </Heading>;
 
-          return (
-            <span key={word}>
-              <S type="underline">{first}</S>
-              <span>{rest} </span>
-            </span>
-          );
-        })
-    }
-  </Heading>
-);
+export const Powerful = () =>
+  <Heading size={2} textFont="bitter" fit caps>
+    A more powerful CSS
+  </Heading>;
+
+export const RealStyles = () =>
+  <Heading size={2} textFont="bitter" fit caps>
+    <S type="italic">Real</S> Stylesheets
+  </Heading>;
+
+export const ComponentStyling = () =>
+  <Heading size={2} textFont="bitter" fit caps>
+    {'Component Styling Solution'.split(' ').map(word => {
+      const first = word.slice(0, 1);
+      const rest = word.slice(1);
+
+      return (
+        <span key={word}>
+          <S type="underline">
+            {first}
+          </S>
+          <span>
+            {rest}{' '}
+          </span>
+        </span>
+      );
+    })}
+  </Heading>;
+
+export const JavaScriptStyling = () =>
+  <Heading size={2} textFont="bitter" fit caps>
+    {'JavaScript Styling Solution'.split(' ').map(word => {
+      const first = word.slice(0, 1);
+      const rest = word.slice(1);
+
+      return (
+        <span key={word}>
+          <S type="underline">
+            {first}
+          </S>
+          <span>
+            {rest}{' '}
+          </span>
+        </span>
+      );
+    })}
+  </Heading>;

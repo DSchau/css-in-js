@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  SlideSet,
-  Slide
-} from 'spectacle';
+import { SlideSet, Slide } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
 
 import * as Intro from './intro/';
@@ -21,27 +18,23 @@ export default function makeSlides() {
     Problems,
     Libraries,
     Conclusion
-  ]
-    .map((Slides, rootIndex) => {
-      return (
-        <SlideSet key={rootIndex}>
-          {
-            Object.keys(Slides)
-              .map((key, index) => {
-                const Content = Slides[key];
-                const iteratorKey = `${rootIndex}-${index}`;
-                if (Content.Props && Content.Props.code) {
-                  const { ranges = [], ...props } = Content.Props;
-                  return <CodeSlide key={iteratorKey} ranges={ranges} {...props} />
-                }
-                return (
-                  <Slide key={iteratorKey} {...Content.Props || Content.props}>
-                    {typeof Content === 'function' && <Content />}
-                  </Slide>
-                );
-              })
+  ].map((Slides, rootIndex) => {
+    return (
+      <SlideSet key={rootIndex}>
+        {Object.keys(Slides).map((key, index) => {
+          const Content = Slides[key];
+          const iteratorKey = `${rootIndex}-${index}`;
+          if (Content.Props && Content.Props.code) {
+            const { ranges = [], ...props } = Content.Props;
+            return <CodeSlide key={iteratorKey} ranges={ranges} {...props} />;
           }
-        </SlideSet>
-      );
-    });
+          return (
+            <Slide key={iteratorKey} {...Content.Props || Content.props}>
+              {typeof Content === 'function' && <Content />}
+            </Slide>
+          );
+        })}
+      </SlideSet>
+    );
+  });
 }
