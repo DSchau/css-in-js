@@ -129,8 +129,12 @@ export const TheGlobals = {
     ].join('\n'),
     lang: "css",
     ranges: [
-      { loc: [0, 9], title: 'Our clean CSS' },
-      { loc: [14, 15], title: '...is no so longer clean' }
+      { title: 'Our clean CSS' },
+      { loc: [14, 15], title: '...is no so longer so clean' },
+      { loc: [18, 19] },
+      { loc: [23, 24] },
+      { loc: [28, 29] },
+      { title: 'Globals!' }
     ],
     style: {
       fontSize: 24
