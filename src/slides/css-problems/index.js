@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
+  Appear,
   BlockQuote,
   CodePane,
   Heading,
@@ -8,11 +9,11 @@ import {
   Layout,
   Link
 } from 'spectacle';
-import CodeSlide from 'spectacle-code-slide';
+
 import Person from 'emojione/assets/svg/1f3c3-1f3fb.svg';
 
 import preloader from 'spectacle/lib/utils/preloader';
-import { Button, QuoteSlide } from 'components';
+import { Button, ButtonLink, QuoteSlide } from 'components';
 import { CODE_BACKGROUND } from 'style';
 
 const images = {
@@ -25,6 +26,9 @@ const snippets = {
   cssTwo: require('./assets/snippets/button-2.css'),
   cssThree: require('./assets/snippets/button-3.css'),
   cssFour: require('./assets/snippets/button-4.css'),
+  buttonLink: require('./assets/snippets/button-link.html'),
+  cssFive: require('./assets/snippets/button-5.css'),
+  cssSix: require('./assets/snippets/button-6.css'),
   bem: require('./assets/snippets/bem.css')
 };
 
@@ -141,18 +145,56 @@ export const TheGlobals = {
     ].join('\n'),
     lang: 'css',
     ranges: [
-      { title: 'Our clean CSS' },
+      { title: 'Our clean CSS', loc: [0, 0] },
       { loc: [14, 15], title: '...is no so longer so clean' },
       { loc: [18, 19] },
       { loc: [23, 24] },
       { loc: [28, 29] },
-      { title: 'Globals!' }
+      { title: 'Globals!', loc: [0, 0] }
     ],
     style: {
       fontSize: 24
     }
   }
 };
+
+export const GlobalProblems = class GlobalProblems extends Component {
+  static Props = {
+    bgColor: CODE_BACKGROUND
+  };
+
+  state = {
+    clicks: 0
+  };
+
+  render() {
+    const style = this.state.clicks > 0 ? { color: this.state.clicks === 1 ? 'white' : 'blue' , backgroundColor: this.state.clicks === 1 ? 'blue' : 'white' } : {};
+    return (
+      <div onClick={() => this.setState({ clicks: this.state.clicks + 1 })}>
+        <ButtonLink href="https://google.com" {...style}>Click me to do something wicked awesome</ButtonLink>
+        <CodePane
+          lang="html"  
+          source={snippets.buttonLink.replace(/(secondary)/, this.state.clicks > 1 ? '$1 inverted' : '$1')}
+          textSize={20}
+        />
+        <Appear>
+          <CodePane
+            lang="css"
+            source={snippets.cssFive}
+            textSize={20}
+          />
+        </Appear>
+        <Appear>
+          <CodePane
+            lang="css"
+            source={snippets.cssSix}
+            textSize={20}
+          />
+        </Appear>
+      </div>
+    );
+  }
+}
 
 export const ButWait = () =>
   <Heading size={1} fit caps>

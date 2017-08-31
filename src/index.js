@@ -14,10 +14,12 @@ import SlideDeck from './slides/';
 import 'normalize.css';
 import 'spectacle/lib/themes/default/index.css';
 
+import { PRIMARY, SECONDARY } from 'style';
+
 const theme = createTheme(
   {
-    primary: '#FF6138',
-    secondary: '#002635'
+    primary: PRIMARY,
+    secondary: SECONDARY
   },
   {
     primary: { name: 'Montserrat', googleFont: true, styles: ['400', '700i'] },

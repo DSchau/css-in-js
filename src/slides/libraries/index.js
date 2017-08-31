@@ -5,7 +5,7 @@ import StyledComponentsEmoji from 'emojione/assets/svg/1f485-1f3fb.svg';
 import GlamorousEmoji from 'emojione/assets/svg/1f484.svg';
 import EmotionEmoji from 'emojione/assets/svg/26a1.svg';
 
-import { NpmDownloads } from 'components';
+import { LibraryPayload, NpmDownloads } from 'components';
 
 import { CODE_BACKGROUND } from 'style';
 
@@ -76,3 +76,9 @@ EmotionExample.Props = {
 
 export const LibraryDownloadCount = () =>
   <NpmDownloads libraries={['styled-components']} />;
+
+export const PayloadSizeChart = () => <LibraryPayload />
+
+PayloadSizeChart.Props = {
+  bgColor: 'secondary'
+};

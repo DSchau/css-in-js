@@ -2,11 +2,13 @@ import React from 'react';
 import { SlideSet, Slide } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
 
-import * as Intro from './intro/';
-import * as Definition from './definition/';
-import * as Problems from './problems/';
-import * as Libraries from './libraries/';
-import * as Conclusion from './conclusion/';
+import * as Intro from './intro';
+import * as Definition from './definition';
+import * as CSSProblems from './css-problems';
+import * as Libraries from './libraries';
+import * as Theming from './theming';
+import * as Drawbacks from './drawbacks';
+import * as Conclusion from './conclusion';
 
 /*
  * This is pretty dirty... but YOLO
@@ -15,8 +17,10 @@ export default function makeSlides() {
   return [
     Intro,
     Definition,
-    Problems,
+    CSSProblems,
     Libraries,
+    Theming,
+    Drawbacks,
     Conclusion
   ].map((Slides, rootIndex) => {
     return (

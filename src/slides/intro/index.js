@@ -1,10 +1,12 @@
 import React from 'react';
-import { Heading, Fill, Image, Layout, Link } from 'spectacle';
+import { Heading, Fill, Layout, Link } from 'spectacle';
 
 import preloader from 'spectacle/lib/utils/preloader';
 
 import TwitterIcon from 'react-icons/lib/fa/twitter';
 import GithubIcon from 'react-icons/lib/fa/github';
+
+import { Image } from 'components';
 
 const images = {
   titleSlide: require('./assets/images/title-slide-optimized.jpeg'),
@@ -72,13 +74,13 @@ export const AboutMe = () =>
         Who?
       </Heading>
       <Heading size={6} style={{ display: 'flex' }}>
-        <TwitterIcon color="white" style={{ display: 'inline-block' }} />
+        <TwitterIcon color="white" style={{ display: 'inline-block', marginRight: 8 }} />
         <Link href="https://twitter.com/schaudustin" textColor="white">
           schaudustin
         </Link>
       </Heading>
       <Heading size={6} style={{ display: 'flex' }}>
-        <GithubIcon color="white" style={{ display: 'inline-block' }} />
+        <GithubIcon color="white" style={{ display: 'inline-block', marginRight: 8 }} />
         <Link href="https://github.com/dschau" textColor="white">
           dschau
         </Link>

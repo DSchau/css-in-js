@@ -17,11 +17,26 @@
   dependencies:
     d3-shape "^1.0.6"
 
+"@vx/gradient@^0.0.136":
+  version "0.0.136"
+  resolved "https://registry.yarnpkg.com/@vx/gradient/-/gradient-0.0.136.tgz#753ec19d028e3769b884f671b88dd906135e5d08"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.5.7"
+
 "@vx/group@0.0.136", "@vx/group@^0.0.136":
   version "0.0.136"
   resolved "https://registry.yarnpkg.com/@vx/group/-/group-0.0.136.tgz#595211c7b04b7ba52824c07f9204f0c1b7e1da36"
   dependencies:
     classnames "^2.2.5"
+
+"@vx/legend@^0.0.136":
+  version "0.0.136"
+  resolved "https://registry.yarnpkg.com/@vx/legend/-/legend-0.0.136.tgz#61cf346be1e46da007c4ccd78348b7f507c438de"
+  dependencies:
+    "@vx/group" "0.0.136"
+    classnames "^2.2.5"
+    prop-types "^15.5.10"
 
 "@vx/mock-data@^0.0.136":
   version "0.0.136"
@@ -5058,6 +5073,10 @@ pluralize@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
 
+polished@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-1.6.2.tgz#648960fcf8b9a50f0109ce72378684585694ad6c"
+
 portfinder@^1.0.9:
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
@@ -5373,7 +5392,7 @@ prop-types@15.5.8:
   dependencies:
     fbjs "^0.8.9"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
   dependencies:

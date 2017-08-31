@@ -3,10 +3,11 @@ import {
   BlockQuote,
   Cite,
   Fill,
-  Image,
   Layout,
   Quote as QuoteComponent
 } from 'spectacle';
+
+import { Image } from '../Image';
 
 const Author = ({ author, to }) => {
   return (
@@ -39,10 +40,10 @@ export class QuoteSlide extends Component {
     }
     return (
       <Layout>
-        <Fill style={{ display: 'flex', maxWidth: '50%' }}>
+        <Fill style={{ maxWidth: '40%' }}>
           <Image
             src={image}
-            style={{ height: 300, width: 300, borderRadius: 300 }}
+            style={{ borderRadius: 300 }}
           />
         </Fill>
         <Fill style={{ display: 'flex', alignItems: 'center' }}>

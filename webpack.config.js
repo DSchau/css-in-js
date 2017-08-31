@@ -47,7 +47,7 @@ module.exports = {
         loader: 'html-loader!markdown-loader?gfm=false'
       },
       {
-        test: /\.(css|js|raw)$/,
+        test: /\.(css|js|raw|html)$/,
         loader: 'raw-loader',
         include: [
           path.join(__dirname, 'assets/code'),
