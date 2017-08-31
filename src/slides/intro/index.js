@@ -95,23 +95,26 @@ export const AboutMe = () =>
     </Fill>
   </Layout>;
 
-export const ObjectPartners = () => <Image src={images.opiLogo} />;
+export const ObjectPartners = () => <Image src={images.opiLogo} style={{ width: '100%' }} />;
 
 ObjectPartners.Props = {
   bgImage: images.opiMn,
   bgDarken: 0.8
 };
 
-// export const NebraskaPerception = {
-//   Props: {
-//     bgImage: images.nebraskaPerception,
-//     bgDarken: 0.2
-//   }
-// };
+/*
+ * TODO: Add back for Thunderplains
+export const NebraskaPerception = {
+  Props: {
+    bgImage: images.nebraskaPerception,
+    bgDarken: 0.2
+  }
+};
 
-// export const NebraskaActual = {
-//   Props: {
-//     bgImage: images.nebraskaActual,
-//     bgDarken: 0.2
-//   }
-// };
+export const NebraskaActual = {
+  Props: {
+    bgImage: images.nebraskaActual,
+    bgDarken: 0.2
+  }
+};
+*/
