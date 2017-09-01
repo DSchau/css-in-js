@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
 import { Appear, CodePane, Fill, Heading, Layout, S } from 'spectacle';
 
-import WtfFace from 'emojione/assets/svg/1f616.svg';
-import Ambivalence from 'emojione/assets/svg/1f612.svg';
+import preloader from 'spectacle/lib/utils/preloader';
+
 import CrossArms from 'emojione/assets/svg/1f645-1f3fb.svg';
-import HeartEyes from 'emojione/assets/svg/1f60d.svg';
 
 import { CODE_BACKGROUND } from 'style';
+
+const images = {
+  k: 'https://media.giphy.com/media/10sXTCdlsdKn8k/giphy.gif'
+};
+
+preloader(images);
 
 const snippets = {
   inlineStyles: require('./assets/snippets/inline-styles.js')
 };
 
-export const FromHere = () => <WtfFace height={256} width={256} />;
+export const BenefitsIntro = () => null;
 
-export const ToHere = () =>
-  <Layout>
-    <Fill>
-      <Ambivalence height={256} width={256} />
-    </Fill>
-    <Appear>
-      <Fill>
-        <HeartEyes height={256} width={256} />
-      </Fill>
-    </Appear>
-  </Layout>;
+BenefitsIntro.Props = {
+  bgImage: images.k
+};
 
 export const NotBroken = () =>
   <Heading size={1} textColor="primary" caps fit>

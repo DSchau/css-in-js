@@ -6,6 +6,10 @@ const Link = styled.a`
   background-color: ${props => props.backgroundColor || 'white'};
 `;
 
-export function ButtonLink({ children, href, ...rest}) {
-  return <Link href={href} {...rest}>{children}</Link>
+export function ButtonLink({ children, href, ...rest }) {
+  return (
+    <Link href={href} {...rest}>
+      {children}
+    </Link>
+  );
 }

@@ -1,7 +1,11 @@
 import React from 'react';
-import { Heading, Fill, Layout, Link } from 'spectacle';
+import { Appear, Heading, Fill, Layout, Link } from 'spectacle';
 
 import preloader from 'spectacle/lib/utils/preloader';
+
+import WtfFace from 'emojione/assets/svg/1f616.svg';
+import Ambivalence from 'emojione/assets/svg/1f612.svg';
+import HeartEyes from 'emojione/assets/svg/1f60d.svg';
 
 import TwitterIcon from 'react-icons/lib/fa/twitter';
 import GithubIcon from 'react-icons/lib/fa/github';
@@ -74,13 +78,19 @@ export const AboutMe = () =>
         Who?
       </Heading>
       <Heading size={6} style={{ display: 'flex' }}>
-        <TwitterIcon color="white" style={{ display: 'inline-block', marginRight: 8 }} />
+        <TwitterIcon
+          color="white"
+          style={{ display: 'inline-block', marginRight: 8 }}
+        />
         <Link href="https://twitter.com/schaudustin" textColor="white">
           schaudustin
         </Link>
       </Heading>
       <Heading size={6} style={{ display: 'flex' }}>
-        <GithubIcon color="white" style={{ display: 'inline-block', marginRight: 8 }} />
+        <GithubIcon
+          color="white"
+          style={{ display: 'inline-block', marginRight: 8 }}
+        />
         <Link href="https://github.com/dschau" textColor="white">
           dschau
         </Link>
@@ -95,7 +105,8 @@ export const AboutMe = () =>
     </Fill>
   </Layout>;
 
-export const ObjectPartners = () => <Image src={images.opiLogo} style={{ width: '100%' }} />;
+export const ObjectPartners = () =>
+  <Image src={images.opiLogo} style={{ width: '100%' }} />;
 
 ObjectPartners.Props = {
   bgImage: images.opiMn,
@@ -118,3 +129,17 @@ export const NebraskaActual = {
   }
 };
 */
+
+export const FromHere = () => <WtfFace height={256} width={256} />;
+
+export const ToHere = () =>
+  <Layout>
+    <Fill>
+      <Ambivalence height={256} width={256} />
+    </Fill>
+    <Appear>
+      <Fill>
+        <HeartEyes height={256} width={256} />
+      </Fill>
+    </Appear>
+  </Layout>;

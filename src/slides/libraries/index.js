@@ -77,7 +77,7 @@ EmotionExample.Props = {
 export const LibraryDownloadCount = () =>
   <NpmDownloads libraries={['styled-components']} />;
 
-export const PayloadSizeChart = () => <LibraryPayload />
+export const PayloadSizeChart = () => <LibraryPayload />;
 
 PayloadSizeChart.Props = {
   bgColor: 'secondary'

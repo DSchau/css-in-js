@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Heading,
-  Link,
-  List,
-  ListItem
-} from 'spectacle';
+import { Heading, Link, List, ListItem } from 'spectacle';
 import GlobeIcon from 'react-icons/lib/fa/globe';
 
 import preloader from 'spectacle/lib/utils/preloader';
@@ -17,45 +12,58 @@ const images = {
 
 preloader(images);
 
-export const Attributions = () => (
+export const Attributions = () =>
   <div>
-    <Heading size={3} textColor="secondary" caps>Attributions</Heading>
+    <Heading size={3} textColor="secondary" caps>
+      Attributions
+    </Heading>
     <List style={{ listStyleType: 'none', padding: 0 }}>
-      {
+      {[
         [
-          ['https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660', 'A Unified Styling Language'],
-          ['http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/', 'Writing your styles in JS ≠ writing inline styles']
+          'https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660',
+          'A Unified Styling Language'
+        ],
+        [
+          'http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/',
+          'Writing your styles in JS ≠ writing inline styles'
         ]
-          .map(([href, description]) => {
-            return <ListItem key={description}>
-              <GlobeIcon color="white" style={{ marginRight: 8 }} />
-              <Link href={href} textColor="white">{description}</Link>
-            </ListItem>;
-          })
-      }
+      ].map(([href, description]) => {
+        return (
+          <ListItem key={description}>
+            <GlobeIcon color="white" style={{ marginRight: 8 }} />
+            <Link href={href} textColor="white">
+              {description}
+            </Link>
+          </ListItem>
+        );
+      })}
     </List>
-  </div>
-);
+  </div>;
 
-export const Links = () => (
+export const Links = () =>
   <div>
-    <Heading size={3} textColor="secondary" caps>Requisite Links</Heading>
+    <Heading size={3} textColor="secondary" caps>
+      Requisite Links
+    </Heading>
     <List style={{ listStyleType: 'none', padding: 0 }}>
-      {
+      {[
+        ['https://github.com/DSchau/css-in-js-presentation', 'Slidedeck Repo'],
         [
-          ['https://github.com/DSchau/css-in-js-presentation', 'Slidedeck Repo'],
-          ['https://dschau.github.io/css-in-js-playground/', 'CSS in JS Playground'],
+          'https://dschau.github.io/css-in-js-playground/',
+          'CSS in JS Playground'
         ]
-          .map(([href, description]) => {
-            return <ListItem key={description}>
-              <GlobeIcon color="white" style={{ marginRight: 8 }} />
-              <Link href={href} textColor="white">{description}</Link>
-            </ListItem>;
-          })
-      }
+      ].map(([href, description]) => {
+        return (
+          <ListItem key={description}>
+            <GlobeIcon color="white" style={{ marginRight: 8 }} />
+            <Link href={href} textColor="white">
+              {description}
+            </Link>
+          </ListItem>
+        );
+      })}
     </List>
-  </div>
-);
+  </div>;
 
 export const Questions = class extends Component {
   static Props = {
@@ -64,8 +72,18 @@ export const Questions = class extends Component {
 
   state = {
     current: 0,
-    all: ['Questions', 'Preguntas', '问题', 'Fragen', '質問', 'quaestiones', 'pytania', 'вопросов', 'الأسئلة']
-  }
+    all: [
+      'Questions',
+      'Preguntas',
+      '问题',
+      'Fragen',
+      '質問',
+      'quaestiones',
+      'pytania',
+      'вопросов',
+      'الأسئلة'
+    ]
+  };
 
   componentDidMount() {
     setInterval(() => {
@@ -79,10 +97,13 @@ export const Questions = class extends Component {
 
   render() {
     const text = this.state.all[this.state.current];
-    return <Heading size={1} caps textColor="black">{text}?</Heading>
+    return (
+      <Heading size={1} caps textColor="black">
+        {text}?
+      </Heading>
+    );
   }
-}
-
+};
 
 export const FinTheEndThatsAllFolks = () => null;
 

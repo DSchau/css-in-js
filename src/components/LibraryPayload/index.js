@@ -57,16 +57,16 @@ export const LibraryPayload = ({
   const xScale = scaleBand({
     rangeRound: [0, xMax],
     domain: data.map(x),
-    padding: 0.4,
+    padding: 0.4
   });
   const yScale = scaleLinear({
     rangeRound: [yMax, 0],
-    domain: [0, max(data, y)],
+    domain: [0, max(data, y)]
   });
 
   return (
     <svg width={width} height={height}>
-      <LinearGradient id="bg" from={PRIMARY} to={darken(0.15, PRIMARY)}/>
+      <LinearGradient id="bg" from={PRIMARY} to={darken(0.15, PRIMARY)} />
       <rect
         x={0}
         y={0}
@@ -103,4 +103,4 @@ export const LibraryPayload = ({
       />
     </svg>
   );
-}
+};

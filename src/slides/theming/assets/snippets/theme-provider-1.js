@@ -12,8 +12,11 @@ const theme = {
   current: 'light'
 };
 
-const Container = glamorous.main({
-  display: 'flex'
-}, ({ theme }) => ({
-  backgroundColor: theme[theme.current].background
-}));
+const Container = glamorous.main(
+  {
+    display: 'flex'
+  },
+  ({ theme }) => ({
+    backgroundColor: theme[theme.current].background
+  })
+);

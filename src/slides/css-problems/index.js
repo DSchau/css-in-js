@@ -5,20 +5,23 @@ import {
   CodePane,
   Heading,
   Fill,
-  Image,
   Layout,
   Link
 } from 'spectacle';
 
 import Person from 'emojione/assets/svg/1f3c3-1f3fb.svg';
+import PersonThinking from 'emojione/assets/svg/1f914.svg';
 
 import preloader from 'spectacle/lib/utils/preloader';
-import { Button, ButtonLink, QuoteSlide } from 'components';
+import { Button, ButtonLink, Image, QuoteSlide } from 'components';
 import { CODE_BACKGROUND } from 'style';
 
 const images = {
   dodds: require('./assets/images/kent-c-dodds-optimized.jpeg'),
-  hardStuff: require('./assets/images/hard-stuff-optimized.jpeg')
+  hardStuff: require('./assets/images/hard-stuff-optimized.jpeg'),
+  cssModules: require('./assets/images/css-modules-optimized.png'),
+  shadowDom: require('./assets/images/shadow-dom-optimized.jpeg'),
+  shadowDomCanIUse: require('./assets/images/shadow-dom-can-i-use-optimized.png')
 };
 
 const snippets = {
@@ -168,33 +171,36 @@ export const GlobalProblems = class GlobalProblems extends Component {
   };
 
   render() {
-    const style = this.state.clicks > 0 ? { color: this.state.clicks === 1 ? 'white' : 'blue' , backgroundColor: this.state.clicks === 1 ? 'blue' : 'white' } : {};
+    const style =
+      this.state.clicks > 0
+        ? {
+            color: this.state.clicks === 1 ? 'white' : 'blue',
+            backgroundColor: this.state.clicks === 1 ? 'blue' : 'white'
+          }
+        : {};
     return (
       <div onClick={() => this.setState({ clicks: this.state.clicks + 1 })}>
-        <ButtonLink href="https://google.com" {...style}>Click me to do something wicked awesome</ButtonLink>
+        <ButtonLink href="https://google.com" {...style}>
+          Click me to do something wicked awesome
+        </ButtonLink>
         <CodePane
-          lang="html"  
-          source={snippets.buttonLink.replace(/(secondary)/, this.state.clicks > 1 ? '$1 inverted' : '$1')}
+          lang="html"
+          source={snippets.buttonLink.replace(
+            /(secondary)/,
+            this.state.clicks > 1 ? '$1 inverted' : '$1'
+          )}
           textSize={20}
         />
         <Appear>
-          <CodePane
-            lang="css"
-            source={snippets.cssFive}
-            textSize={20}
-          />
+          <CodePane lang="css" source={snippets.cssFive} textSize={20} />
         </Appear>
         <Appear>
-          <CodePane
-            lang="css"
-            source={snippets.cssSix}
-            textSize={20}
-          />
+          <CodePane lang="css" source={snippets.cssSix} textSize={20} />
         </Appear>
       </div>
     );
   }
-}
+};
 
 export const ButWait = () =>
   <Heading size={1} fit caps>
@@ -253,4 +259,43 @@ export const HardStuff = () =>
 HardStuff.Props = {
   bgImage: images.hardStuff,
   bgDarken: 0.5
+};
+
+export const Alternatives = () =>
+  <Layout>
+    <Fill>
+      <Image src={images.cssModules} />
+    </Fill>
+    <Fill>
+      <Image src={images.shadowDom} />
+    </Fill>
+  </Layout>;
+
+Alternatives.Props = {
+  bgColor: 'secondary'
+};
+
+export const ShadowDomSupport = class extends Component {
+  state = {
+    clicked: false
+  };
+  render() {
+    return (
+      <div onClick={() => this.setState({ clicked: true })}>
+        <Image src={images.shadowDomCanIUse} />
+        {this.state.clicked &&
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: 0,
+              right: 0,
+              transform: `translateY(-50%)`
+            }}
+          >
+            <PersonThinking height={256} width={256} />
+          </div>}
+      </div>
+    );
+  }
 };

@@ -3,8 +3,9 @@ import { SlideSet, Slide } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
 
 import * as Intro from './intro';
-import * as Definition from './definition';
 import * as CSSProblems from './css-problems';
+import * as Definition from './definition';
+import * as Benefits from './benefits';
 import * as Libraries from './libraries';
 import * as Theming from './theming';
 import * as Drawbacks from './drawbacks';
@@ -16,8 +17,9 @@ import * as Conclusion from './conclusion';
 export default function makeSlides() {
   return [
     Intro,
-    Definition,
     CSSProblems,
+    Definition,
+    Benefits,
     Libraries,
     Theming,
     Drawbacks,
