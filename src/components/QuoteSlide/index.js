@@ -4,15 +4,16 @@ import {
   Cite,
   Fill,
   Layout,
+  Link,
   Quote as QuoteComponent
 } from 'spectacle';
 
 import { Image } from '../Image';
 
-const Author = ({ author, to }) => {
+const Author = ({ author, to: href }) => {
   return (
     <Cite>
-      {author}
+      <Link href={href} textColor="white">{author}</Link>
     </Cite>
   );
 };

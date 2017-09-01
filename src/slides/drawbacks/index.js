@@ -8,6 +8,7 @@ import { Image, QuoteSlide } from 'components';
 const images = {
   notScrapeable: require('./assets/images/not-scrapeable-optimized.jpeg'),
   editorTooling: require('./assets/images/editor-tooling-optimized.png'),
+  nail: require('./assets/images/nail-optimized.jpeg'),
   max: require('./assets/images/max-stoiber-optimized.jpeg')
 };
 
@@ -82,7 +83,8 @@ export const NotScrapeable = () =>
   </Layout>;
 
 NotScrapeable.Props = {
-  bgColor: 'secondary'
+  bgImage: images.nail,
+  bgDarken: 0.5
 };
 
 export const EditorTooling = () => <Image src={images.editorTooling} />;

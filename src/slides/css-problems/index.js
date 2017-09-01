@@ -17,6 +17,7 @@ import { Button, ButtonLink, Image, QuoteSlide } from 'components';
 import { CODE_BACKGROUND } from 'style';
 
 const images = {
+  cssImportant: require('./assets/images/css-important-optimized.jpeg'),
   dodds: require('./assets/images/kent-c-dodds-optimized.jpeg'),
   hardStuff: require('./assets/images/hard-stuff-optimized.jpeg'),
   cssModules: require('./assets/images/css-modules-optimized.png'),
@@ -200,6 +201,14 @@ export const GlobalProblems = class GlobalProblems extends Component {
       </div>
     );
   }
+};
+
+export const ImportantBatman = () => (
+  <Image src={images.cssImportant} />
+);
+
+ImportantBatman.Props = {
+  bgColor: 'secondary'
 };
 
 export const ButWait = () =>

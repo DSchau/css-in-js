@@ -24,8 +24,16 @@ export const Attributions = () =>
           'A Unified Styling Language'
         ],
         [
+          'https://speakerdeck.com/vjeux/react-css-in-js',
+          'React: CSS in JS'
+        ],
+        [
           'http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/',
           'Writing your styles in JS ≠ writing inline styles'
+        ],
+        [
+          'https://speakerdeck.com/didoo/let-there-be-peace-on-css',
+          'Let there be Peace on CSS'
         ]
       ].map(([href, description]) => {
         return (

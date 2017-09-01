@@ -17,6 +17,8 @@ const images = {
   opiLogo: require('./assets/images/object-partners.svg'),
   opiMn: require('./assets/images/opi-mn-optimized.jpeg'),
   me: require('./assets/images/me-optimized.jpeg'),
+  okc: require('./assets/images/okc-optimized.jpeg'),
+  thunderPlains: require('./assets/images/thunder-plains-optimized.png'),
   nebraskaActual: require('./assets/images/nebraska-actual-optimized.jpeg'),
   nebraskaPerception: require('./assets/images/nebraska-perception-optimized.jpeg')
 };
@@ -55,7 +57,15 @@ export const Intro = () =>
 
 Intro.Props = {
   bgImage: images.titleSlide,
-  bgDarken: 0.5
+  bgDarken: 0.5,
+  notes: `
+# Sup
+
+- 1234
+- 456
+
+## Another sup
+  `
 };
 
 /* TODO: Add back for Thunderplains
@@ -112,6 +122,15 @@ ObjectPartners.Props = {
   bgImage: images.opiMn,
   bgDarken: 0.8
 };
+
+export const ThunderPlains = () => (
+  <Image src={images.thunderPlains} />
+);
+
+ThunderPlains.Props = {
+  bgImage: images.okc,
+  bgDarken: 0.6
+}
 
 /*
  * TODO: Add back for Thunderplains
