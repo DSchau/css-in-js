@@ -1,6 +1,7 @@
 import React from 'react';
-import { SlideSet, Slide } from 'spectacle';
+import { Notes, SlideSet, Slide } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
+import marked from 'marked';
 
 import * as Intro from './intro';
 import * as CSSProblems from './css-problems';
@@ -29,13 +30,15 @@ export default function makeSlides() {
       <SlideSet key={rootIndex}>
         {Object.keys(Slides).map((key, index) => {
           const Content = Slides[key];
+          const Props = Content && Content.Props ? Content.Props : {};
           const iteratorKey = `${rootIndex}-${index}`;
-          if (Content.Props && Content.Props.code) {
+          if (Props.code) {
             const { ranges = [], ...props } = Content.Props;
             return <CodeSlide key={iteratorKey} ranges={ranges} {...props} />;
           }
           return (
             <Slide key={iteratorKey} {...Content.Props || Content.props}>
+              <Notes><div dangerouslySetInnerHTML={{ __html: marked((Props.notes || '').trim())}}/></Notes>
               {typeof Content === 'function' && <Content />}
             </Slide>
           );
