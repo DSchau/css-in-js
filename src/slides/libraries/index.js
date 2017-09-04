@@ -22,17 +22,19 @@ import { GithubStars, LibraryPayload, NpmDownloads } from 'components';
 import { Image } from 'components';
 import { CODE_BACKGROUND } from 'style';
 
+const logos = {
+  atlassian: require('./assets/images/atlassian.svg'),
+  bloomberg: require('./assets/images/bloomberg.svg'),
+  microsoft: require('./assets/images/microsoft.svg'),
+  paypal: require('./assets/images/paypal.svg'),
+  reddit: require('./assets/images/reddit.svg'),
+  target: require('./assets/images/target.svg')
+};
+
 const images = {
   mostlyReact:
     'https://thumbs.gfycat.com/RegalFlickeringAmphibian-size_restricted.gif',
-  logos: {
-    atlassian: require('./assets/images/atlassian.svg'),
-    bloomberg: require('./assets/images/bloomberg.svg'),
-    microsoft: require('./assets/images/microsoft.svg'),
-    paypal: require('./assets/images/paypal.svg'),
-    reddit: require('./assets/images/reddit.svg'),
-    target: require('./assets/images/target.svg')
-  }
+  ...logos
 };
 
 const snippets = {
@@ -185,7 +187,7 @@ PayloadSizeChart.Props = {
  * TODO: Fix this
  */
 export const Companies = () => {
-  const companies = Object.keys(images.logos);
+  const companies = Object.keys(logos);
   const split = Math.floor(companies.length / 2);
   const left = companies.splice(0, split);
   const right = companies.splice(0);
@@ -193,7 +195,7 @@ export const Companies = () => {
     <List>
       {items.map(company =>
         <ListItem key={company}>
-          <Image src={images.logos[company]} style={style} />
+          <Image src={images[company]} style={style} />
         </ListItem>
       )}
     </List>;
