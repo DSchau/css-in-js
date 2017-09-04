@@ -32,7 +32,8 @@ export const Intro = () =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'flex-start',
-      justifyContent: 'space-between'
+      justifyContent: 'center',
+      minHeight: '85vh'
     }}
   >
     <Layout>
@@ -54,6 +55,25 @@ export const Intro = () =>
         </Heading>
       </Fill>
     </Layout>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0
+      }}
+    >
+      <Link
+        href="https://dschau.github.io/css-in-js-presentation/"
+        textColor="rgba(255, 255, 255, 0.7)"
+      >
+        https://dschau.github.io/css-in-js-presentation
+      </Link>
+    </div>
   </div>;
 
 Intro.Props = {
