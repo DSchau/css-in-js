@@ -5,6 +5,7 @@ import { CODE_BACKGROUND } from 'style';
 
 const snippets = {
   props: require('./assets/snippets/props-styled-components.js'),
+  propsGlamorous: require('./assets/snippets/props-glamorous.js'),
   composition: require('./assets/snippets/composition.js'),
   animation: require('./assets/snippets/keyframes.js'),
   realCSS: require('./assets/snippets/real-css.js'),
@@ -15,7 +16,7 @@ const snippets = {
 
 export const WritingCssIntro = () =>
   <Heading size={1} fit caps textFont="Bitter">
-    Tips, Tricks, and Approaches
+    Real World Usage
   </Heading>;
 
 WritingCssIntro.Props = {
@@ -38,6 +39,20 @@ export const UsingProps = () =>
   </div>;
 
 UsingProps.Props = {
+  bgColor: CODE_BACKGROUND
+};
+
+export const UsingPropsWithGlamorous = () =>
+  <CodePane
+    lang="jsx"
+    source={snippets.propsGlamorous}
+    textSize={16}
+    style={{
+      marginTop: 12
+    }}
+  />;
+
+UsingPropsWithGlamorous.Props = {
   bgColor: CODE_BACKGROUND
 };
 

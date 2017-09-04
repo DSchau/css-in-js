@@ -18,13 +18,18 @@ const images = {
 preloader(images);
 
 const snippets = {
-  inlineStyles: require('./assets/snippets/inline-styles.js')
+  inlineStyles: require('./assets/snippets/inline-styles.js'),
+  semanticElements: require('./assets/snippets/semantic-elements.js'),
+  classNameElements: require('./assets/snippets/class-name-elements.js')
 };
 
 export const BenefitsIntro = () => null;
 
 BenefitsIntro.Props = {
-  bgImage: images.k
+  bgImage: images.k,
+  notes: `
+In an early job of mine, I was in a meeting where I said that a solution/idea wasn't good and left it at that. Another person in the meeting said something to the effect of "If you can't bring anything to the table, then don't say anything at all." Dude was a total dick, but that doesn't detract from the fact that he wasn't wrong. So now that we've illustrates some of the problems of CSS, the discussion will shift into what CSS in JS is, and how it can fix some of these aforementioned problems.  
+  `
 };
 
 export const NotBroken = () =>
@@ -123,9 +128,14 @@ InlineStyles.Props = {
 };
 
 export const Is = () =>
-  <Heading size={1} fit caps textFont="Bitter">
-    What it <S type="italic">is</S>
-  </Heading>;
+  <div>
+    <Heading size={1} fit caps textFont="Bitter">
+      What it <S type="italic">is</S>
+    </Heading>
+    <Heading size={6} caps textColor="white" textFont="Bitter">
+      (and why it matters)
+    </Heading>
+  </div>;
 
 Is.Props = {
   bgColor: 'secondary'
@@ -216,4 +226,67 @@ JavaScriptStyling.Props = {
 - It uses JavaScript to write styles
 - This leverages the full power of the JS ecosystem
   `
+};
+
+export const SemanticElements = () =>
+  <Heading size={2} fit caps>
+    Semantic Elements
+  </Heading>;
+
+export const SemanticComparison = () =>
+  <Layout style={{ width: '85vw' }}>
+    <Fill style={{ width: '50%' }}>
+      <CodePane lang="jsx" source={snippets.classNameElements} textSize={16} />
+    </Fill>
+    <Fill style={{ width: '100%' }}>
+      <CodePane lang="jsx" source={snippets.semanticElements} textSize={16} />
+    </Fill>
+  </Layout>;
+
+SemanticComparison.Props = {
+  bgColor: CODE_BACKGROUND
+};
+
+export const StyleCognitiveLoad = () => {
+  const centered = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  };
+  const arrow = '↓';
+  const VerticalHeading = ({ items }) => {
+    const len = items.length;
+    return (
+      <div>
+        {items
+          .reduce((arr, el, index) => {
+            arr = arr.concat(el).concat(index + 1 < len ? [arrow] : []);
+            return arr;
+          }, [])
+          .map((text, index) =>
+            <Heading
+              textColor="secondary"
+              size={text === arrow ? 6 : 4}
+              key={index}
+            >
+              {text}
+            </Heading>
+          )}
+      </div>
+    );
+  };
+
+  return (
+    <Layout>
+      <Fill style={centered}>
+        <VerticalHeading
+          items={['HTML', 'Class names', 'Cascading rules', 'Styles']}
+        />
+      </Fill>
+      <Fill style={centered}>
+        <VerticalHeading items={['HTML', 'Styles']} />
+      </Fill>
+    </Layout>
+  );
 };

@@ -15,6 +15,7 @@ import { Image } from 'components';
 
 const images = {
   titleSlide: require('./assets/images/title-slide-optimized.jpeg'),
+  nebraskaJs: require('./assets/images/nebraskajs.svg'),
   opiLogo: require('./assets/images/object-partners.svg'),
   opiMn: require('./assets/images/opi-mn-optimized.jpeg'),
   me: require('./assets/images/me-optimized.jpeg'),
@@ -26,6 +27,7 @@ const images = {
 
 preloader(images);
 
+// TODO: Replace nebraskaJS with Thunderplains
 export const Intro = () =>
   <div
     style={{
@@ -36,6 +38,16 @@ export const Intro = () =>
       minHeight: '85vh'
     }}
   >
+    <div
+      style={{
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        width: '100%'
+      }}
+    >
+      <Image src={images.nebraskaJs} style={{ maxHeight: 50 }} />
+    </div>
     <Layout>
       <Fill
         style={{
@@ -57,10 +69,6 @@ export const Intro = () =>
     </Layout>
     <div
       style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
         position: 'absolute',
         bottom: 0,
         left: 0,
@@ -162,6 +170,7 @@ ObjectPartners.Props = {
   `
 };
 
+// TODO: Remove for Thunderplains
 export const ThunderPlains = () => <Image src={images.thunderPlains} />;
 
 ThunderPlains.Props = {
@@ -216,6 +225,11 @@ export const ToHere = () =>
 ToHere.Props = {
   notes: `
 - My goal is to take you from that initial perception/feeling to at least understanding/slightly skeptical of the practice
-- If I'm successful, maybe even a few of you will leave and want to use/experiment with some of these technologies  
+- If I'm successful, maybe even a few of you will leave and want to use/experiment with some of these technologies
+
+## Agenda
+
+- Discussion of the problems of CSS
+- Defining what CSS in JS is, and how it can solve some of these problems
   `
 };

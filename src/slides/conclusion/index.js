@@ -10,10 +10,12 @@ import WebsiteIcon from 'react-icons/lib/md/web';
 
 import Smiley from 'emojione/assets/svg/1f642.svg';
 
+import { Image } from 'components';
+
 const images = {
   thankYou: 'https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif',
   questions: 'https://media.giphy.com/media/l4FGroaKiE5uuMBiM/giphy.gif',
-  questionsAlternate: 'https://media.giphy.com/media/sEqhGfTFcAUXm/giphy.gif'
+  feedback: require('./assets/images/feedback-optimized.png')
 };
 
 preloader(images);
@@ -151,5 +153,19 @@ export const FinTheEndThatsAllFolks = () =>
   </div>;
 
 FinTheEndThatsAllFolks.Props = {
-  bgImage: images.thankYou
+  bgImage: images.thankYou,
+  notes: `
+- Special thanks to Tim Hemmer for helping get this set up, as well as to all of the NebraskaJS coordinators
+- An extra special thanks to each of you for coming, it means a lot!
+  `
+};
+
+// TODO: Remove this slide for Thunderplains
+export const Feedback = () =>
+  <Link href="https://dustinschau.com/css-in-js-feedback" target="_blank">
+    <Image src={images.feedback} />
+  </Link>;
+
+Feedback.Props = {
+  bgColor: 'secondary'
 };
