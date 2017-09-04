@@ -75,11 +75,10 @@ SeperationOfConcerns.Props = {
   bgColor: 'secondary'
 };
 
-export const SeperationOfConcernsImage = () => (
+export const SeperationOfConcernsImage = () =>
   <div style={{ display: 'flex', alignItems: 'flex-end', height: '85vh' }}>
     <Text textSize={18}>Cristiano Rastelli</Text>
-  </div>
-);
+  </div>;
 
 SeperationOfConcernsImage.Props = {
   bgImage: images.seperationOfConcerns

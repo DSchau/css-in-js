@@ -24,9 +24,6 @@ const data = [
   }
 ];
 
-export const LibraryPayload = ({
-  height,
-  width
-}) => {
-  return <BarChart height={height} width={width} data={data} />
+export const LibraryPayload = ({ height, width }) => {
+  return <BarChart height={height} width={width} data={data} />;
 };

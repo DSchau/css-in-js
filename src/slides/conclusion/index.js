@@ -132,22 +132,22 @@ export const FinTheEndThatsAllFolks = () =>
       textColor="white"
       style={{ display: 'block' }}
     >
-      <TwitterIcon color="white" style={{ marginRight: 6 }}/>@schaudustin
+      <TwitterIcon color="white" style={{ marginRight: 6 }} />@schaudustin
     </Link>
     <Link
       href="https://github.com/dschau"
       textColor="white"
       style={{ display: 'block' }}
     >
-      <GithubIcon color="white" style={{ marginRight: 6 }}/>dschau
+      <GithubIcon color="white" style={{ marginRight: 6 }} />dschau
     </Link>
     <Link
       href="https://dustinschau.com"
       textColor="white"
       style={{ display: 'block' }}
     >
-      <WebsiteIcon color="white" style={{ marginRight: 6 }}/>website
-    </Link>  
+      <WebsiteIcon color="white" style={{ marginRight: 6 }} />website
+    </Link>
   </div>;
 
 FinTheEndThatsAllFolks.Props = {

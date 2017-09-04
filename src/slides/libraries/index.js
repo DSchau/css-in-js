@@ -12,7 +12,8 @@ import { GithubStars, LibraryPayload, NpmDownloads } from 'components';
 import { CODE_BACKGROUND } from 'style';
 
 const images = {
-  mostlyReact: 'https://thumbs.gfycat.com/RegalFlickeringAmphibian-size_restricted.gif'
+  mostlyReact:
+    'https://thumbs.gfycat.com/RegalFlickeringAmphibian-size_restricted.gif'
 };
 
 const snippets = {
@@ -33,7 +34,7 @@ LibrariesIntro.Props = {
   bgColor: 'secondary'
 };
 
-export const Caveat = () => (
+export const Caveat = () =>
   <div>
     <Heading size={2} fit caps textColor="white">
       Not <S type="italic">all</S> React
@@ -41,8 +42,7 @@ export const Caveat = () => (
     <Heading size={6} caps textColor="white">
       &hellip; but Mostly
     </Heading>
-  </div>
-)
+  </div>;
 
 Caveat.Props = {
   bgImage: images.mostlyReact,
@@ -94,14 +94,13 @@ EmotionExample.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const Polished = () => (
+export const Polished = () =>
   <div>
     <Heading size={1}>
       <Code textColor="white">polished</Code>
     </Heading>
     <PolishedEmoji height={128} width={128} />
-  </div>
-);
+  </div>;
 
 export const PolishedExample = () =>
   <CodePane lang="jsx" source={snippets.polished} textSize={20} />;
@@ -110,47 +109,54 @@ PolishedExample.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const PolishedMethods = () => (
+export const PolishedMethods = () =>
   <div>
-    {
-      require('./assets/data/polished-colors.json')
-        .map(text => <Code key={text} style={{ display: 'inline-block', marginTop: 12, marginLeft: 12 }} textColor="white">{text}</Code>)
-    }
-  </div>
-);
+    {require('./assets/data/polished-colors.json').map(text =>
+      <Code
+        key={text}
+        style={{ display: 'inline-block', marginTop: 12, marginLeft: 12 }}
+        textColor="white"
+      >
+        {text}
+      </Code>
+    )}
+  </div>;
 
 PolishedMethods.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const LibraryDownloadCount = () => (
+export const LibraryDownloadCount = () =>
   <div>
-    <Heading size={2} caps textColor="white">NPM Downloads</Heading>
+    <Heading size={2} caps textColor="white">
+      NPM Downloads
+    </Heading>
     <NpmDownloads />
-  </div>
-);
+  </div>;
 
 LibraryDownloadCount.Props = {
   bgColor: 'secondary'
 };
 
-export const GithubStarsCount = () => (
+export const GithubStarsCount = () =>
   <div>
-    <Heading size={2} caps textColor="white">Github Stars</Heading>
+    <Heading size={2} caps textColor="white">
+      Github Stars
+    </Heading>
     <GithubStars />
-  </div>
-);
+  </div>;
 
 GithubStarsCount.Props = {
   bgColor: 'secondary'
 };
 
-export const PayloadSizeChart = () => (
+export const PayloadSizeChart = () =>
   <div>
-    <Heading size={2} caps textColor="white">Library Size (kb)</Heading>
+    <Heading size={2} caps textColor="white">
+      Library Size (kb)
+    </Heading>
     <LibraryPayload />
-  </div>
-);
+  </div>;
 
 PayloadSizeChart.Props = {
   bgColor: 'secondary'

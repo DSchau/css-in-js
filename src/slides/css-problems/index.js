@@ -327,7 +327,10 @@ ItDoesNotScale.Props = {
   `
 };
 
-export const DeadCodeElimination = () => <Heading size={1} caps>Dead code Elimination</Heading>;
+export const DeadCodeElimination = () =>
+  <Heading size={1} caps>
+    Dead code Elimination
+  </Heading>;
 
 DeadCodeElimination.Props = {
   bgImage: images.deadCodeElimination,
@@ -339,7 +342,10 @@ DeadCodeElimination.Props = {
   `
 };
 
-export const SharingConstants = () => <Heading size={1} caps>Sharing Constants</Heading>;
+export const SharingConstants = () =>
+  <Heading size={1} caps>
+    Sharing Constants
+  </Heading>;
 
 SharingConstants.Props = {
   bgImage: images.sharingConstants,
@@ -360,12 +366,13 @@ SharingConstantsExample.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const FacebookProblems = () => (
+export const FacebookProblems = () =>
   <div>
     <Image src={images.cssProblemsVjeux} style={{ maxHeight: 500 }} />
-    <Heading size={6} textColor="white" textSize={14}>Christopher Chedeau</Heading>
-  </div>
-);
+    <Heading size={6} textColor="white" textSize={14}>
+      Christopher Chedeau
+    </Heading>
+  </div>;
 
 FacebookProblems.Props = {
   bgColor: 'black'

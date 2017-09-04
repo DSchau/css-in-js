@@ -28,9 +28,6 @@ const data = [
   }
 ];
 
-export const GithubStars = ({
-  height,
-  width
-}) => {
-  return <BarChart height={height} width={width} data={data} />
+export const GithubStars = ({ height, width }) => {
+  return <BarChart height={height} width={width} data={data} />;
 };

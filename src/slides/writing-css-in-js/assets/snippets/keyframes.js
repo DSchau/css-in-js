@@ -1,5 +1,5 @@
-import { keyframes, css } from 'emotion'
-import styled from 'emotion/react'
+import { keyframes, css } from 'emotion';
+import styled from 'emotion/react';
 
 const bounceHeight = 30;
 
@@ -11,7 +11,7 @@ const zoomIn = keyframes`
   to {
   	transform: scale(1)
    }
-`
+`;
 
 const Avatar = styled('img')`
   width: 96px;

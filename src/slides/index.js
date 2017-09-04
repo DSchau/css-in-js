@@ -28,7 +28,7 @@ export default function makeSlides() {
     Libraries,
     WritingCssInJs,
     Theming,
-    Benefits,    
+    Benefits,
     CSSInJsProblems,
     WrapUp,
     Conclusion

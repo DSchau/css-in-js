@@ -22,7 +22,7 @@ WritingCssIntro.Props = {
   bgColor: 'secondary'
 };
 
-export const UsingProps = () => (
+export const UsingProps = () =>
   <div>
     <Heading size={2} caps textColor="white">
       Using Props
@@ -35,16 +35,17 @@ export const UsingProps = () => (
         marginTop: 12
       }}
     />
-  </div>
-);
+  </div>;
 
 UsingProps.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const Composition = () => (
+export const Composition = () =>
   <div>
-    <Heading size={2} caps textColor="white">Composition</Heading>
+    <Heading size={2} caps textColor="white">
+      Composition
+    </Heading>
     <CodePane
       lang="jsx"
       source={snippets.composition}
@@ -53,16 +54,17 @@ export const Composition = () => (
         marginTop: 12
       }}
     />
-  </div>
-);
+  </div>;
 
 Composition.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const RealCSS = () => (
+export const RealCSS = () =>
   <div>
-    <Heading size={2} caps textColor="white">Real CSS</Heading>
+    <Heading size={2} caps textColor="white">
+      Real CSS
+    </Heading>
     <CodePane
       lang="jsx"
       source={snippets.realCSS}
@@ -71,16 +73,17 @@ export const RealCSS = () => (
         marginTop: 12
       }}
     />
-  </div>
-);
+  </div>;
 
 RealCSS.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const Animation = () => (
+export const Animation = () =>
   <div>
-    <Heading size={2} caps textColor="white">Animation</Heading>
+    <Heading size={2} caps textColor="white">
+      Animation
+    </Heading>
     <CodePane
       lang="jsx"
       source={snippets.animation}
@@ -89,8 +92,7 @@ export const Animation = () => (
         marginTop: 12
       }}
     />
-  </div>
-);
+  </div>;
 
 Animation.Props = {
   bgColor: CODE_BACKGROUND
@@ -134,7 +136,7 @@ ExternalLibraries.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const ExternalLibrariesStyled = () => 
+export const ExternalLibrariesStyled = () =>
   <CodePane
     lang="jsx"
     source={snippets.externalLibrariesStyledComponents}

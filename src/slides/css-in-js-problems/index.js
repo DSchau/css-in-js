@@ -111,8 +111,7 @@ export const SanitizationConcerns = () =>
     User input must be sanitized
   </Heading>;
 
-export const Runtime = () => (
+export const Runtime = () =>
   <Heading size={2} caps>
     Runtime Cost (for most)
-  </Heading>
-);
+  </Heading>;

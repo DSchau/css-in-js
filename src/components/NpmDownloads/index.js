@@ -20,7 +20,7 @@ const data = [
   },
   {
     name: 'aphrodite',
-    size: 98360 
+    size: 98360
   },
   {
     name: 'radium',
@@ -28,9 +28,6 @@ const data = [
   }
 ];
 
-export const NpmDownloads = ({
-  height,
-  width
-}) => {
-  return <BarChart height={height} width={width} data={data} />
+export const NpmDownloads = ({ height, width }) => {
+  return <BarChart height={height} width={width} data={data} />;
 };

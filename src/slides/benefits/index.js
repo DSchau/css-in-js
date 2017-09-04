@@ -43,16 +43,15 @@ BenefitsIntro.Props = {
   bgColor: 'secondary'
 };
 
-export const NonSemanticElement = () => (
-  <CodePane lang="jsx" source={snippets.classNameElements} textSize={16} />
-);
+export const NonSemanticElement = () =>
+  <CodePane lang="jsx" source={snippets.classNameElements} textSize={16} />;
 
 NonSemanticElement.Props = {
   bgColor: CODE_BACKGROUND
 };
 
 export const SemanticComparison = () =>
-  <CodePane lang="jsx" source={snippets.semanticElements} textSize={16} />
+  <CodePane lang="jsx" source={snippets.semanticElements} textSize={16} />;
 
 SemanticComparison.Props = {
   bgColor: CODE_BACKGROUND
@@ -60,21 +59,30 @@ SemanticComparison.Props = {
 
 export const StyleCognitiveLoad = () => {
   const centered = {
-    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
   };
   const arrow = '↓';
   const VerticalHeading = ({ items }) => {
     const len = items.length;
     return (
       <div>
-        {
-          items
-            .reduce((arr, el, index) => {
-              arr = arr.concat(el).concat(index + 1 < len ? [arrow] : []);
-              return arr;
-            }, [])
-            .map((text, index) => <Heading textColor="secondary" size={text === arrow ? 6 : 4} key={index}>{text}</Heading>)
-        }
+        {items
+          .reduce((arr, el, index) => {
+            arr = arr.concat(el).concat(index + 1 < len ? [arrow] : []);
+            return arr;
+          }, [])
+          .map((text, index) =>
+            <Heading
+              textColor="secondary"
+              size={text === arrow ? 6 : 4}
+              key={index}
+            >
+              {text}
+            </Heading>
+          )}
       </div>
     );
   };
@@ -82,18 +90,12 @@ export const StyleCognitiveLoad = () => {
   return (
     <Layout>
       <Fill style={centered}>
-        <VerticalHeading items={[
-            'HTML',
-            'Class names',
-            'Cascading rules',
-            'Styles'
-          ]} />
+        <VerticalHeading
+          items={['HTML', 'Class names', 'Cascading rules', 'Styles']}
+        />
       </Fill>
       <Fill style={centered}>
-        <VerticalHeading items={[
-          'HTML',
-          'Styles'
-        ]} />
+        <VerticalHeading items={['HTML', 'Styles']} />
       </Fill>
     </Layout>
   );

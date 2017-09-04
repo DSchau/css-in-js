@@ -70,13 +70,13 @@ export const BarChart = ({
               />
               <TextOutline
                 fontSize={16}
-                x={xScale(x(d)) + (xScale.bandwidth() / 2)}
+                x={xScale(x(d)) + xScale.bandwidth() / 2}
                 y={yMax - barHeight}
                 textAnchor={'middle'}
-                fill={"white"}
+                fill={'white'}
                 outlineStroke={`rgba(255, 255, 255, 0.5)`}
                 outlineStrokeWidth={0}
-                fontFamily={"Roboto Mono"}
+                fontFamily={'Roboto Mono'}
               >
                 {d.size}
               </TextOutline>
