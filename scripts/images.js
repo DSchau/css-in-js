@@ -27,7 +27,7 @@ const writeFile = ({
 
   return image.metadata()
     .then(metadata => {
-      const fileName = file.replace(name, `${name}-optimized`);
+      const fileName = file.replace(`${name}.${extension}`, `${name}-optimized.${extension}`);
       let stream;
       if (metadata.width > size) {
         stream = image.resize(size)[extension]({ quality }).toFile(fileName);

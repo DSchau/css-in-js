@@ -6,9 +6,7 @@ cache:
 
 script: yarn test
 
-before_deploy:
-  - yarn build
-  - ls src/slides/intro/assets/images
+before_deploy: yarn build
 deploy:
   provider: pages
   skip_cleanup: true
