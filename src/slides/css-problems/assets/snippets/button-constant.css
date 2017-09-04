@@ -1,0 +1,5 @@
+.button {
+  --main-bg-color: #7795f8;
+  /* Keep in sync with button.js */
+  background-color: var(--main-bg-color);
+}

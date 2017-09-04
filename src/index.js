@@ -23,7 +23,7 @@ const theme = createTheme(
   },
   {
     primary: { name: 'Montserrat', googleFont: true, styles: ['400', '700i'] },
-    secondary: { name: 'Bitter', googleFont: true, styles: ['400', '700'] }
+    secondary: { name: 'Bitter', googleFont: true, styles: ['400'] }
   }
 );
 

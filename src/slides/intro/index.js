@@ -9,6 +9,7 @@ import HeartEyes from 'emojione/assets/svg/1f60d.svg';
 
 import TwitterIcon from 'react-icons/lib/fa/twitter';
 import GithubIcon from 'react-icons/lib/fa/github';
+import WebsiteIcon from 'react-icons/lib/md/web';
 
 import { Image } from 'components';
 
@@ -59,12 +60,7 @@ Intro.Props = {
   bgImage: images.titleSlide,
   bgDarken: 0.5,
   notes: `
-# Sup
-
-- 1234
-- 456
-
-## Another sup
+My name is Dustin Schau, and I'm going to hopefully teach you all about CSS in JS today. We'll start with some drawbacks of CSS that led to the creation of these libraries, then discuss advantages of these libraries over CSS, and then end with some common patterns, utilities, and libraries to instrument CSS in JS. Let's get started!
   `
 };
 
@@ -105,6 +101,15 @@ export const AboutMe = () =>
           dschau
         </Link>
       </Heading>
+      <Heading size={6} style={{ display: 'flex' }}>
+        <WebsiteIcon
+          color="white"
+          style={{ display: 'inline-block', marginRight: 8 }}
+        />
+        <Link href="https://dustinschau.com" textColor="white">
+          website
+        </Link>
+      </Heading>
     </Fill>
     <Fill
       style={{
@@ -115,22 +120,39 @@ export const AboutMe = () =>
     </Fill>
   </Layout>;
 
+AboutMe.Props = {
+  notes: `
+- Frontend developer specializing in all things JavaScript
+- Done a bit of everything, whether that's jQuery, Angular, React, you name it
+- I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and/or (of course) CSS in JS
+  `
+};
+
 export const ObjectPartners = () =>
   <Image src={images.opiLogo} style={{ width: '100%' }} />;
 
 ObjectPartners.Props = {
   bgImage: images.opiMn,
-  bgDarken: 0.8
+  bgDarken: 0.8,
+  notes: `
+- I work at a great company called Object Partners
+- Specialize in JVM and frontend development of all sorts
+- About 100 consultants between here, MN, and Chicago
+- Come talk to me after if you'd like to learn more!  
+  `
 };
 
-export const ThunderPlains = () => (
-  <Image src={images.thunderPlains} />
-);
+export const ThunderPlains = () => <Image src={images.thunderPlains} />;
 
 ThunderPlains.Props = {
   bgImage: images.okc,
-  bgDarken: 0.6
-}
+  bgDarken: 0.6,
+  notes: `
+- I'll be giving this presentation at a great JS conference in Oklahoma City called Thunderplains
+- November 3rd
+- This is a bit of a dry run, so any feedback (good, bad, or otherwise) afterwards is sincerely appreciated  
+  `
+};
 
 /*
  * TODO: Add back for Thunderplains
@@ -151,6 +173,14 @@ export const NebraskaActual = {
 
 export const FromHere = () => <WtfFace height={256} width={256} />;
 
+FromHere.Props = {
+  notes: `
+- Many of you probably have a pretty negative perception of CSS in JS
+- It goes against the "seperation of concerns" that has been ingrained and regularly re-enforced
+- It feels weird, feels unclean, and feels like it's a solution looking for a problem
+  `
+};
+
 export const ToHere = () =>
   <Layout>
     <Fill>
@@ -162,3 +192,10 @@ export const ToHere = () =>
       </Fill>
     </Appear>
   </Layout>;
+
+ToHere.Props = {
+  notes: `
+- My goal is to take you from that initial perception/feeling to at least understanding/slightly skeptical of the practice
+- If I'm successful, maybe even a few of you will leave and want to use/experiment with some of these technologies  
+  `
+};

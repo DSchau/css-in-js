@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   text-transform: ${props => props.textTransform || 'uppercase'};
   transition: 175ms ease-in-out;
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-6px);
     box-shadow: 0 10px 18px rgba(0, 0, 0, .50), 0 1px 3px rgba(0, 0, 0, .08);
     background-color: ${props =>
       props.backgroundHoverColor || props.backgroundColor || 'white'};

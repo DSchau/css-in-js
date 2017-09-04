@@ -4,31 +4,31 @@ import { BarChart } from '../';
 const data = [
   {
     name: 'styled-components',
-    size: 356408
+    size: 9795
   },
   {
     name: 'glamorous',
-    size: 236465
+    size: 2346
   },
   {
     name: 'emotion',
-    size: 12704
+    size: 1532
   },
   {
     name: 'glamor',
-    size: 313051
-  },
-  {
-    name: 'aphrodite',
-    size: 98360 
+    size: 2546
   },
   {
     name: 'radium',
-    size: 268412
+    size: 5618
+  },
+  {
+    name: 'aphrodite',
+    size: 3452
   }
 ];
 
-export const NpmDownloads = ({
+export const GithubStars = ({
   height,
   width
 }) => {

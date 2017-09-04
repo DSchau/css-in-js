@@ -6,24 +6,31 @@ import marked from 'marked';
 import * as Intro from './intro';
 import * as CSSProblems from './css-problems';
 import * as Definition from './definition';
-import * as Benefits from './benefits';
 import * as Libraries from './libraries';
+import * as WritingCssInJs from './writing-css-in-js';
 import * as Theming from './theming';
-import * as Drawbacks from './drawbacks';
+import * as Benefits from './benefits';
+import * as CSSInJsProblems from './css-in-js-problems';
+import * as WrapUp from './wrap-up';
 import * as Conclusion from './conclusion';
 
 /*
  * This is pretty dirty... but YOLO
+ * All slides export a function (or an object)
+ * This slide fn/obj can contain a property called Props, that is injected
+ * into the base level <Slide> component
  */
 export default function makeSlides() {
   return [
     Intro,
     CSSProblems,
     Definition,
-    Benefits,
     Libraries,
+    WritingCssInJs,
     Theming,
-    Drawbacks,
+    Benefits,    
+    CSSInJsProblems,
+    WrapUp,
     Conclusion
   ].map((Slides, rootIndex) => {
     return (
@@ -38,7 +45,13 @@ export default function makeSlides() {
           }
           return (
             <Slide key={iteratorKey} {...Content.Props || Content.props}>
-              <Notes><div dangerouslySetInnerHTML={{ __html: marked((Props.notes || '').trim())}}/></Notes>
+              <Notes>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: marked((Props.notes || '').trim())
+                  }}
+                />
+              </Notes>
               {typeof Content === 'function' && <Content />}
             </Slide>
           );

@@ -4,6 +4,12 @@ import GlobeIcon from 'react-icons/lib/fa/globe';
 
 import preloader from 'spectacle/lib/utils/preloader';
 
+import TwitterIcon from 'react-icons/lib/fa/twitter';
+import GithubIcon from 'react-icons/lib/fa/github';
+import WebsiteIcon from 'react-icons/lib/md/web';
+
+import Smiley from 'emojione/assets/svg/1f642.svg';
+
 const images = {
   thankYou: 'https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif',
   questions: 'https://media.giphy.com/media/l4FGroaKiE5uuMBiM/giphy.gif',
@@ -23,10 +29,7 @@ export const Attributions = () =>
           'https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660',
           'A Unified Styling Language'
         ],
-        [
-          'https://speakerdeck.com/vjeux/react-css-in-js',
-          'React: CSS in JS'
-        ],
+        ['https://speakerdeck.com/vjeux/react-css-in-js', 'React: CSS in JS'],
         [
           'http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/',
           'Writing your styles in JS ≠ writing inline styles'
@@ -55,11 +58,11 @@ export const Links = () =>
     </Heading>
     <List style={{ listStyleType: 'none', padding: 0 }}>
       {[
-        ['https://github.com/DSchau/css-in-js-presentation', 'Slidedeck Repo'],
         [
           'https://dschau.github.io/css-in-js-playground/',
           'CSS in JS Playground'
-        ]
+        ],
+        ['https://github.com/DSchau/css-in-js-presentation', 'Slidedeck Repo']
       ].map(([href, description]) => {
         return (
           <ListItem key={description}>
@@ -113,7 +116,39 @@ export const Questions = class extends Component {
   }
 };
 
-export const FinTheEndThatsAllFolks = () => null;
+export const FinTheEndThatsAllFolks = () =>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      height: '85vh',
+      width: '80vw',
+      alignItems: 'flex-end',
+      justifyContent: 'flex-end'
+    }}
+  >
+    <Link
+      href="https://twitter.com/schaudustin"
+      textColor="white"
+      style={{ display: 'block' }}
+    >
+      <TwitterIcon color="white" style={{ marginRight: 6 }}/>@schaudustin
+    </Link>
+    <Link
+      href="https://github.com/dschau"
+      textColor="white"
+      style={{ display: 'block' }}
+    >
+      <GithubIcon color="white" style={{ marginRight: 6 }}/>dschau
+    </Link>
+    <Link
+      href="https://dustinschau.com"
+      textColor="white"
+      style={{ display: 'block' }}
+    >
+      <WebsiteIcon color="white" style={{ marginRight: 6 }}/>website
+    </Link>  
+  </div>;
 
 FinTheEndThatsAllFolks.Props = {
   bgImage: images.thankYou

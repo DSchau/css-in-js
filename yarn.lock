@@ -65,6 +65,12 @@
     d3-shape "^1.2.0"
     prop-types "^15.5.10"
 
+"@vx/text@^0.0.136":
+  version "0.0.136"
+  resolved "https://registry.yarnpkg.com/@vx/text/-/text-0.0.136.tgz#694a781c4b8ebbc2a9a279b18c8d054e382f0992"
+  dependencies:
+    classnames "^2.2.5"
+
 Base64@~0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/Base64/-/Base64-0.2.1.tgz#ba3a4230708e186705065e66babdd4c35cf60028"

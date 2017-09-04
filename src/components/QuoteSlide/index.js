@@ -13,7 +13,9 @@ import { Image } from '../Image';
 const Author = ({ author, to: href }) => {
   return (
     <Cite>
-      <Link href={href} textColor="white">{author}</Link>
+      <Link href={href} textColor="white">
+        {author}
+      </Link>
     </Cite>
   );
 };

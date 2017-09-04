@@ -6,7 +6,8 @@ import {
   Heading,
   Fill,
   Layout,
-  Link
+  Link,
+  S as Span
 } from 'spectacle';
 
 import Person from 'emojione/assets/svg/1f3c3-1f3fb.svg';
@@ -17,12 +18,15 @@ import { Button, ButtonLink, Image, QuoteSlide } from 'components';
 import { CODE_BACKGROUND } from 'style';
 
 const images = {
-  cssImportant: require('./assets/images/css-important-optimized.jpeg'),
   dodds: require('./assets/images/kent-c-dodds-optimized.jpeg'),
   hardStuff: require('./assets/images/hard-stuff-optimized.jpeg'),
   cssModules: require('./assets/images/css-modules-optimized.png'),
   shadowDom: require('./assets/images/shadow-dom-optimized.jpeg'),
-  shadowDomCanIUse: require('./assets/images/shadow-dom-can-i-use-optimized.png')
+  shadowDomCanIUse: require('./assets/images/shadow-dom-can-i-use-optimized.png'),
+  scale: require('./assets/images/scale-optimized.jpeg'),
+  deadCodeElimination: require('./assets/images/dead-code-elimination-optimized.jpeg'),
+  sharingConstants: require('./assets/images/sharing-constants-optimized.jpeg'),
+  cssProblemsVjeux: require('./assets/images/vjeux-problems-optimized.png')
 };
 
 const snippets = {
@@ -33,13 +37,15 @@ const snippets = {
   buttonLink: require('./assets/snippets/button-link.html'),
   cssFive: require('./assets/snippets/button-5.css'),
   cssSix: require('./assets/snippets/button-6.css'),
-  bem: require('./assets/snippets/bem.css')
+  bem: require('./assets/snippets/bem.css'),
+  cssConstant: require('./assets/snippets/button-constant.css'),
+  jsConstant: require('./assets/snippets/button-constant.js')
 };
 
 preloader(images);
 
 export const TheProblems = () =>
-  <Heading size={1} fit caps>
+  <Heading size={1} fit caps textFont="Bitter">
     The problems with CSS
   </Heading>;
 
@@ -203,14 +209,6 @@ export const GlobalProblems = class GlobalProblems extends Component {
   }
 };
 
-export const ImportantBatman = () => (
-  <Image src={images.cssImportant} />
-);
-
-ImportantBatman.Props = {
-  bgColor: 'secondary'
-};
-
 export const ButWait = () =>
   <Heading size={1} fit caps>
     But Wait&hellip;
@@ -267,7 +265,7 @@ export const HardStuff = () =>
 
 HardStuff.Props = {
   bgImage: images.hardStuff,
-  bgDarken: 0.5
+  bgDarken: 0.75
 };
 
 export const Alternatives = () =>
@@ -281,7 +279,13 @@ export const Alternatives = () =>
   </Layout>;
 
 Alternatives.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- But this problem of globals has been solved
+- Why should we care about CSS in JS when we have the shadow dom and/or CSS modules?
+- CSS Modules is CSS in JS
+- Shadow modules are going to be great, but not quite ready yet
+  `
 };
 
 export const ShadowDomSupport = class extends Component {
@@ -307,4 +311,62 @@ export const ShadowDomSupport = class extends Component {
       </div>
     );
   }
+};
+
+export const ItDoesNotScale = () =>
+  <Heading size={1} caps>
+    CSS Does <Span type="underline">Not</Span> Scale
+  </Heading>;
+
+ItDoesNotScale.Props = {
+  bgImage: images.scale,
+  bgDarken: 0.5,
+  notes: `
+- In order to work around CSS's inherent scaling issues, tools like BEM, LESS, SASS, etc. are often utilized
+- CSS in JS removes this cognitive overload
+  `
+};
+
+export const DeadCodeElimination = () => <Heading size={1} caps>Dead code Elimination</Heading>;
+
+DeadCodeElimination.Props = {
+  bgImage: images.deadCodeElimination,
+  bgDarken: 0.5,
+  notes: `
+- Anyone who's ever re-factored a large app knows that it can be incredibly difficult to re-factor "unused" CSS
+- Any rule could be used in unforseen places
+- CSS in JS gives you confidence that by removing this component/CSS, you are only removing code applicable to this component  
+  `
+};
+
+export const SharingConstants = () => <Heading size={1} caps>Sharing Constants</Heading>;
+
+SharingConstants.Props = {
+  bgImage: images.sharingConstants,
+  bgDarken: 0.5
+};
+
+export const SharingConstantsExample = () =>
+  <Layout>
+    <Fill>
+      <CodePane lang="css" source={snippets.cssConstant} textSize={20} />
+    </Fill>
+    <Fill>
+      <CodePane lang="js" source={snippets.jsConstant} textSize={20} />
+    </Fill>
+  </Layout>;
+
+SharingConstantsExample.Props = {
+  bgColor: CODE_BACKGROUND
+};
+
+export const FacebookProblems = () => (
+  <div>
+    <Image src={images.cssProblemsVjeux} style={{ maxHeight: 500 }} />
+    <Heading size={6} textColor="white" textSize={14}>Christopher Chedeau</Heading>
+  </div>
+);
+
+FacebookProblems.Props = {
+  bgColor: 'black'
 };

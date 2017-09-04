@@ -1,9 +1,20 @@
 import React from 'react';
-import { Appear, Heading, Layout, Fill, List, ListItem, S, Text } from 'spectacle';
+import {
+  Appear,
+  CodePane,
+  Heading,
+  Layout,
+  Fill,
+  List,
+  ListItem,
+  S,
+  Text
+} from 'spectacle';
 
 import preloader from 'spectacle/lib/utils/preloader';
 
 import { Image, QuoteSlide } from 'components';
+import { CODE_BACKGROUND } from 'style';
 
 const images = {
   logos: {
@@ -13,46 +24,79 @@ const images = {
     paypal: require('./assets/images/paypal.svg'),
     reddit: require('./assets/images/reddit.svg'),
     target: require('./assets/images/target.svg')
-  },
-  lesh: require('./assets/images/ben-lesh-optimized.jpeg'),
-  hardDrive: require('./assets/images/hard-drive-optimized.jpeg'),
-  seperationOfConcerns: require('./assets/images/seperation-of-concerns-optimized.jpeg')
+  }
+};
+
+const snippets = {
+  semanticElements: require('./assets/snippets/semantic-elements.js'),
+  classNameElements: require('./assets/snippets/class-name-elements.js')
 };
 
 preloader(images);
 
-export const LeshTweet = () => (
-  <QuoteSlide
-    quote={require('./assets/quotes/seperation-of-concerns.raw')}
-    image={images.lesh}
-    author="Ben Lesh"
-    to="https://twitter.com/benlesh/status/812092408519413761"
-  />
-);
+export const BenefitsIntro = () =>
+  <Heading size={1} fit caps textFont="Bitter">
+    OK&hellip; what then?
+  </Heading>;
 
-LeshTweet.Props = {
-  bgImage: images.hardDrive,
-  bgDarken: 0.75
-};
-
-export const SeperationOfConcerns = () => (
-  <div>
-    <Heading size={1} fit caps textFont="Bitter">Seperation of Concerns</Heading>
-    <Heading size={1} caps textFont="Bitter" textColor="primary"><S type="italic">not</S></Heading>
-    <Heading size={1} fit caps textFont="Bitter">Seperation of Technologies</Heading>
-  </div>
-);
-
-SeperationOfConcerns.Props = {
+BenefitsIntro.Props = {
   bgColor: 'secondary'
 };
 
-export const SeperationOfConcernsImage = () => (
-  <Text textSize={18}>Cristiano Rastelli</Text>
+export const NonSemanticElement = () => (
+  <CodePane lang="jsx" source={snippets.classNameElements} textSize={16} />
 );
 
-SeperationOfConcernsImage.Props = {
-  bgImage: images.seperationOfConcerns
+NonSemanticElement.Props = {
+  bgColor: CODE_BACKGROUND
+};
+
+export const SemanticComparison = () =>
+  <CodePane lang="jsx" source={snippets.semanticElements} textSize={16} />
+
+SemanticComparison.Props = {
+  bgColor: CODE_BACKGROUND
+};
+
+export const StyleCognitiveLoad = () => {
+  const centered = {
+    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+  };
+  const arrow = '↓';
+  const VerticalHeading = ({ items }) => {
+    const len = items.length;
+    return (
+      <div>
+        {
+          items
+            .reduce((arr, el, index) => {
+              arr = arr.concat(el).concat(index + 1 < len ? [arrow] : []);
+              return arr;
+            }, [])
+            .map((text, index) => <Heading textColor="secondary" size={text === arrow ? 6 : 4} key={index}>{text}</Heading>)
+        }
+      </div>
+    );
+  };
+
+  return (
+    <Layout>
+      <Fill style={centered}>
+        <VerticalHeading items={[
+            'HTML',
+            'Class names',
+            'Cascading rules',
+            'Styles'
+          ]} />
+      </Fill>
+      <Fill style={centered}>
+        <VerticalHeading items={[
+          'HTML',
+          'Styles'
+        ]} />
+      </Fill>
+    </Layout>
+  );
 };
 
 /*

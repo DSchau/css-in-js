@@ -8,6 +8,8 @@ import { Image, QuoteSlide } from 'components';
 const images = {
   notScrapeable: require('./assets/images/not-scrapeable-optimized.jpeg'),
   editorTooling: require('./assets/images/editor-tooling-optimized.png'),
+  editorToolingPlugin:
+    'https://thumbs.gfycat.com/IdioticShimmeringAfricanwildcat-size_restricted.gif',
   nail: require('./assets/images/nail-optimized.jpeg'),
   max: require('./assets/images/max-stoiber-optimized.jpeg')
 };
@@ -89,6 +91,9 @@ NotScrapeable.Props = {
 
 export const EditorTooling = () => <Image src={images.editorTooling} />;
 
+export const EditorToolingPlugin = () =>
+  <Image src={images.editorToolingPlugin} />;
+
 export const EditorToolingButWait = () =>
   <QuoteSlide
     quote={require('./assets/quotes/ide-integration.raw')}
@@ -100,3 +105,14 @@ export const EditorToolingButWait = () =>
 EditorToolingButWait.Props = {
   bgColor: 'secondary'
 };
+
+export const SanitizationConcerns = () =>
+  <Heading size={2} caps>
+    User input must be sanitized
+  </Heading>;
+
+export const Runtime = () => (
+  <Heading size={2} caps>
+    Runtime Cost (for most)
+  </Heading>
+);
