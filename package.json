@@ -12,7 +12,8 @@
     "lint": "eslint --ext .js,.jsx .",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --port 3000 --content-base dist --no-info --config webpack.config.development.js"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --port 3000 --content-base dist --no-info --config webpack.config.development.js",
+    "test": "echo \"Kinda hard to test a presentation, huh?\""
   },
   "author": "Dustin Schau <dustinschau@gmail.com> (https://dustinschau.com)",
   "license": "MIT",
