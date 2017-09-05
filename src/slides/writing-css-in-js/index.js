@@ -5,7 +5,6 @@ import { CODE_BACKGROUND } from 'style';
 
 const snippets = {
   props: require('./assets/snippets/props-styled-components.js'),
-  propsGlamorous: require('./assets/snippets/props-glamorous.js'),
   composition: require('./assets/snippets/composition.js'),
   animation: require('./assets/snippets/keyframes.js'),
   realCSS: require('./assets/snippets/real-css.js'),
@@ -49,25 +48,6 @@ UsingProps.Props = {
   notes: `
 - Props injection can be super handy to just make a little change here or there
 - For instance, a button may want to take an inverted style, or even a backgroundColor prop to change the bgColor
-  `
-};
-
-export const UsingPropsWithGlamorous = () =>
-  <CodePane
-    lang="jsx"
-    source={snippets.propsGlamorous}
-    textSize={16}
-    style={{
-      marginTop: 12
-    }}
-  />;
-
-UsingPropsWithGlamorous.Props = {
-  bgColor: CODE_BACKGROUND,
-  notes: `
-- Glamorous' API is similar, but again, focuses on objects
-- The API can take 1 to many arguments, each of which can be an object or a function that returns an object
-- These are cleanly merged (ignoring undefined), in a similar fashion to Object.asign
   `
 };
 
