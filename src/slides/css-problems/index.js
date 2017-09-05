@@ -50,7 +50,11 @@ export const TheProblems = () =>
   </Heading>;
 
 TheProblems.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- This section will discuss the problems (as I see them) of CSS
+- The goal is by the outset that these problems will be clear, and from this foundation we can begin to construct the argument for CSS in JS solutions
+  `
 };
 
 export const FirstButton = () => {
@@ -72,7 +76,11 @@ export const FirstButton = () => {
 };
 
 FirstButton.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- We design a button component used in our application
+- It looks great, works great, and meets every need we have
+  `
 };
 
 export const SecondButton = () => {
@@ -92,7 +100,11 @@ export const SecondButton = () => {
 };
 
 SecondButton.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- We get a request for an alternately styled variant for one particular screen of the application
+- We add some CSS and style it with a "secondary class"
+  `
 };
 
 export const ThirdButton = () => {
@@ -114,7 +126,11 @@ export const ThirdButton = () => {
 };
 
 ThirdButton.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- We get another request that the button is far too large
+- We add a "tiny" class that can be added so that the button displays with a smaller font, padding, etc.
+  `
 };
 
 export const FourthButton = () => {
@@ -141,7 +157,10 @@ export const FourthButton = () => {
 };
 
 FourthButton.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- We get a final request that the button needs to have a hover state that is inverted for a certain screen
+  `
 };
 
 export const TheGlobals = {
@@ -164,13 +183,24 @@ export const TheGlobals = {
     ],
     style: {
       fontSize: 24
-    }
+    },
+    notes: `
+- Our clean CSS is no longer so clean
+- Each of the "simple" requests are adding what is effectively globals, thereby making the CSS harder to maintain and use
+- If one developer, this global problem can be maintained, but imagine bringing in new developers, or tens or hundreds of developers working on the same application?
+- It's easy to imagine collision occurring
+  `
   }
 };
 
 export const GlobalProblems = class GlobalProblems extends Component {
   static Props = {
-    bgColor: CODE_BACKGROUND
+    bgColor: CODE_BACKGROUND,
+    notes: `
+- Let's say down the road another developer is working on the project, and I'm long gone
+- He/she simply wants to add a link styled like a button, and wants to style it in a certain way
+- We can see how easy it is to begin combatting these globals, and how they can make it a worse developer experience (and worse code quality!) via the use of these globals
+  `
   };
 
   state = {
@@ -228,10 +258,21 @@ export const Bem = () =>
   </div>;
 
 Bem.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- CSS naming methodologies like BEM exist to solve this problem!
+- Also see Atomic CSS, SMACSS, Object oriented CSS, etc.
+  `
 };
 
 export const Run = class extends React.Component {
+  static Props = {
+    notes: `
+- Personally, I am not a fan of these methodologies
+- They introduce cognitive overhead and introduce naming concerns (and anyone in CS knows how hard naming is!)
+    `
+  };
+
   state = {
     flipped: false
   };
@@ -265,7 +306,12 @@ export const HardStuff = () =>
 
 HardStuff.Props = {
   bgImage: images.hardStuff,
-  bgDarken: 0.75
+  bgDarken: 0.75,
+  notes: `
+- Consider this code by Kent C Dodds
+- Why not use tools to automate these trivial naming concerns
+- This is why we use tools, to automate and make something that can be hard, easy or easier
+  `
 };
 
 export const Alternatives = () =>
@@ -289,6 +335,14 @@ Alternatives.Props = {
 };
 
 export const ShadowDomSupport = class extends Component {
+  static Props = {
+    notes: `
+- Shadow DOM is definitely going to be something I want to keep an eye on
+- That said, it may not quite be ready for prime time, as it doesn't have the greatest browser support (nor do web components)
+- However, a polyfill does exist, so if you want to investigate whether shadow dom adequately solves the "global problem" of CSS, give it a shot!
+    `
+  };
+
   state = {
     clicked: false
   };
@@ -324,6 +378,9 @@ ItDoesNotScale.Props = {
   notes: `
 - In order to work around CSS's inherent scaling issues, tools like BEM, LESS, SASS, etc. are often utilized
 - CSS in JS removes this cognitive overload
+- Generally when I hear "does not scale," that can be a sign that the person just doesn't like the technology; however, it's actually true here!
+- The earlier example with the button is an illustration of the underlying issue
+- The bigger your application gets, the more CSS you will write, which creates more globals and a harder to maintain application
   `
 };
 
@@ -338,6 +395,7 @@ DeadCodeElimination.Props = {
   notes: `
 - Anyone who's ever re-factored a large app knows that it can be incredibly difficult to re-factor "unused" CSS
 - Any rule could be used in unforseen places
+- Removing rules can be spooky, and you need automated testing or a person who really knows the code to validate 0 unforeseen effects
 - CSS in JS gives you confidence that by removing this component/CSS, you are only removing code applicable to this component  
   `
 };
@@ -363,7 +421,12 @@ export const SharingConstantsExample = () =>
   </Layout>;
 
 SharingConstantsExample.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- Anyone who's developed an application before has probably ran into this problem
+- We can solve this with a build process and some defined constants, but that can oftentimes be fragile and/or brittle
+- Why not use one "source of truth" for all shared application constants, whether it's constants used in the HTML, CSS, or JavaScript
+  `
 };
 
 export const FacebookProblems = () =>
@@ -375,5 +438,10 @@ export const FacebookProblems = () =>
   </div>;
 
 FacebookProblems.Props = {
-  bgColor: 'black'
+  bgColor: 'black',
+  notes: `
+- Credit where credit is due
+- Christopher Cheudeau (a developer at Facebook) illustrates these problems in a great talk a few years ago
+- It's linked at the end if you want to take a look!
+  `
 };

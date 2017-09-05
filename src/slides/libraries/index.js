@@ -52,7 +52,10 @@ export const LibrariesIntro = () =>
   </Heading>;
 
 LibrariesIntro.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- Now that we've talked about all this CSS in JS for quite some time, let's talk about some libraries to instrument this practice
+  `
 };
 
 export const Caveat = () =>
@@ -67,7 +70,12 @@ export const Caveat = () =>
 
 Caveat.Props = {
   bgImage: images.mostlyReact,
-  bgDarken: 0.25
+  bgDarken: 0.25,
+  notes: `
+- Most of these are tied to React
+- However, some of them (or the underlying dependencies that power them) are library/framework-agnostic
+- So while you may have the tendency to gloss over the ones that are all React, try to resist, because you may still be able to use techniques or practices from that ecosystem
+  `
 };
 
 export const StyledComponents = () =>
@@ -77,6 +85,14 @@ export const StyledComponents = () =>
     </Heading>
     <StyledComponentsEmoji height={128} width={128} />
   </div>;
+
+StyledComponents.Props = {
+  notes: `
+- The gateway drug to CSS in JS libraries
+- You use tagged template literals, which basically means you call a function with all arguments specified as an array
+- You can pretty much copy and paste CSS (even nesting, although it's not recommended!) from an existing CSS architecture
+  `
+};
 
 export const StyledComponentsExample = () =>
   <CodePane lang="jsx" source={snippets.styledComponents} textSize={20} />;
@@ -93,6 +109,14 @@ export const Glamorous = () =>
     <GlamorousEmoji height={128} width={128} />
   </div>;
 
+Glamorous.Props = {
+  notes: `
+- Glamorous built on some of the ideas, particularly the exporting of "tags" to remove the need for wrapping elements
+- However, the major difference is that it expects style objects, rather than style strings
+- Another difference is the general API of injecting props/calling functions, etc.
+  `
+};
+
 export const GlamorousExample = () =>
   <CodePane lang="jsx" source={snippets.glamorous} textSize={20} />;
 
@@ -108,6 +132,14 @@ export const Emotion = () =>
     <EmotionEmoji height={128} width={128} />
   </div>;
 
+Emotion.Props = {
+  notes: `
+- Leverages ideas from both Glamorous and styled-components
+- Can write styles as string or as a style object
+- Has a really interesting babel plugin that compiles away the compiler at build time (think Angular AOT compilation for CSS in JS)
+  `
+};
+
 export const EmotionExample = () =>
   <CodePane lang="jsx" source={snippets.emotion} textSize={20} />;
 
@@ -122,6 +154,15 @@ export const Polished = () =>
     </Heading>
     <PolishedEmoji height={128} width={128} />
   </div>;
+
+Polished.Props = {
+  notes: `
+- SASS/LESS helpers for CSS in JS
+- lighten/darken/rgba/etc/etc
+- I've heard it described as the lodash of CSS in JS libraries, and I think that's a fair comparison
+- It was originally designed for usage in styled-components, but should work in any CSS in JS lib
+  `
+};
 
 export const PolishedExample = () =>
   <CodePane lang="jsx" source={snippets.polished} textSize={20} />;
@@ -144,7 +185,15 @@ export const PolishedMethods = () =>
   </div>;
 
 PolishedMethods.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+These are just the color methods, but polished contains a bunch more including:
+
+- em/rem helpers
+- radial gradient generators
+- normalize.css injection
+- shorthands for common things such as text-overflow ellipsis, font-face, etc.
+  `
 };
 
 export const LibraryDownloadCount = () =>
@@ -156,7 +205,12 @@ export const LibraryDownloadCount = () =>
   </div>;
 
 LibraryDownloadCount.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- styled-components is probably the most popular, but of these, it was also the first
+- glamorous requires glamor, so a lot of the glamor downloads are likely from glamorous
+- aphrodite and radium were huge players (and may still be a good choice in certain scenarios), but I tend to like the others a bit more; radium is inline style based
+  `
 };
 
 export const GithubStarsCount = () =>
@@ -168,7 +222,11 @@ export const GithubStarsCount = () =>
   </div>;
 
 GithubStarsCount.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- Similar story here, styled-components tends to be the most starred of each of them
+- radium was a huge player prior to the introduction of the CSS injection style of libraries, which I think tend to be a bit more useful
+  `
 };
 
 export const PayloadSizeChart = () =>
@@ -180,7 +238,11 @@ export const PayloadSizeChart = () =>
   </div>;
 
 PayloadSizeChart.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- The cost of using these libraries is non-null
+- However, each of them is a fairly small payload GZipped
+  `
 };
 
 /*
@@ -202,7 +264,11 @@ export const Companies = () => {
 
   const style = {
     opacity: 0.8,
-    filter: `brightness(0) invert(1)`
+    filter: `brightness(0) invert(1)`,
+    transition: '175ms ease-in-out',
+    ':hover': {
+      opacity: 1
+    }
   };
 
   return (
@@ -218,5 +284,10 @@ export const Companies = () => {
 };
 
 Companies.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- I always like seeing lists of companies using tech.
+- Makes me personally feel like there's validity to the practice if these other, big companies are also using it
+- Also, Twitter, Facebook, and probably others!
+  `
 };

@@ -46,7 +46,12 @@ export const Intro = () =>
         width: '100%'
       }}
     >
-      <Image src={images.nebraskaJs} style={{ maxHeight: 50 }} />
+      <Link
+        href="https://www.meetup.com/nebraskajs/events/238363540/"
+        target="_blank"
+      >
+        <Image src={images.nebraskaJs} style={{ maxHeight: 50 }} />
+      </Link>
     </div>
     <Layout>
       <Fill
@@ -88,7 +93,7 @@ Intro.Props = {
   bgImage: images.titleSlide,
   bgDarken: 0.5,
   notes: `
-My name is Dustin Schau, and I'm going to hopefully teach you all about CSS in JS today. We'll start with some drawbacks of CSS that led to the creation of these libraries, then discuss advantages of these libraries over CSS, and then end with some common patterns, utilities, and libraries to instrument CSS in JS. Let's get started!
+My name is Dustin Schau, and I'm going to hopefully teach you all about CSS in JS today. We'll start with some drawbacks of CSS that led to the creation of these libraries, then discuss advantages of CSS in JS over CSS, shift to discussion of some common patterns, utilities, and libraries to instrument CSS in JS, and then finally end with a (hopefully fair!) illustration of the drawbacks of CSS in JS. Let's get started!
   `
 };
 
@@ -152,7 +157,7 @@ AboutMe.Props = {
   notes: `
 - Frontend developer specializing in all things JavaScript
 - Done a bit of everything, whether that's jQuery, Angular, React, you name it
-- I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and/or (of course) CSS in JS
+- I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and (of course) CSS in JS
   `
 };
 
@@ -180,6 +185,7 @@ ThunderPlains.Props = {
 - I'll be giving this presentation at a great JS conference in Oklahoma City called Thunderplains
 - November 3rd
 - This is a bit of a dry run, so any feedback (good, bad, or otherwise) afterwards is sincerely appreciated  
+- I'll have a feedback form, and I would sincerely appreciate if anyone would be willing to fill it out!
   `
 };
 
@@ -231,5 +237,7 @@ ToHere.Props = {
 
 - Discussion of the problems of CSS
 - Defining what CSS in JS is, and how it can solve some of these problems
+- Discussing some various CSS in JS libraries, any real world examples of usage of these
+- Finishing up with some discussion of drawbacks of CSS in JS and some quick demos
   `
 };

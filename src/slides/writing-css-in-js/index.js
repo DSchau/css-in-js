@@ -20,7 +20,13 @@ export const WritingCssIntro = () =>
   </Heading>;
 
 WritingCssIntro.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- Wanted to give each of you a feel for what it feels like actually writing code in each of these libraries
+- Doing some common things like theming, using props, composing/extending components, etc.
+- Note I'm not endorsing any particular library, so I tried to show each of them at their best!
+- Additionally note, nearly all of these examples are React based, but the underlying ideas could likely be utilized in other frameworks/libraries
+  `
 };
 
 export const UsingProps = () =>
@@ -39,7 +45,11 @@ export const UsingProps = () =>
   </div>;
 
 UsingProps.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- Props injection can be super handy to just make a little change here or there
+- For instance, a button may want to take an inverted style, or even a backgroundColor prop to change the bgColor
+  `
 };
 
 export const UsingPropsWithGlamorous = () =>
@@ -53,7 +63,12 @@ export const UsingPropsWithGlamorous = () =>
   />;
 
 UsingPropsWithGlamorous.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- Glamorous' API is similar, but again, focuses on objects
+- The API can take 1 to many arguments, each of which can be an object or a function that returns an object
+- These are cleanly merged (ignoring undefined), in a similar fashion to Object.asign
+  `
 };
 
 export const Composition = () =>
@@ -72,7 +87,12 @@ export const Composition = () =>
   </div>;
 
 Composition.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- How do we extend a component?
+- You use it like a function, and the extension takes precedence over the underyling style
+- styled-components has a similar API, as well as a new \`.extend\` function that exists on a styled component
+  `
 };
 
 export const RealCSS = () =>
@@ -91,7 +111,12 @@ export const RealCSS = () =>
   </div>;
 
 RealCSS.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- Just wanted to drive home that this is truly real CSS
+- Most of these libraries (particularly styled-components and glamorous) inject real stylesheets with a unique class name
+- This means you get the full power of CSS including media queries, pseduo styles, etc.
+  `
 };
 
 export const Animation = () =>
@@ -110,7 +135,11 @@ export const Animation = () =>
   </div>;
 
 Animation.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- But what about animations, particularly keyframe animations? Those are global!
+- Most libraries include some type of helper to return a unique identifier for these animations so no globals are introduced!
+  `
 };
 
 export const UsingClassName = () =>
@@ -129,7 +158,14 @@ export const UsingClassName = () =>
   </div>;
 
 UsingClassName.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+If you're designing a component library and want to make it CSS in JS friendly, consider exposing the className prop
+
+- these libraries inject a className, which would then be applied on top of the existing styles
+- Note this may not work perfectly, but it's worth checking out!
+- Additionally, if you are "wrapping" your styled elements, this is a great way to make those wrappers extensible, as well
+  `
 };
 
 export const ExternalLibraries = () =>
@@ -148,7 +184,11 @@ export const ExternalLibraries = () =>
   </div>;
 
 ExternalLibraries.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- Libraries that require a certain class structure (e.g. Bootstrap), can also work with CSS in JS libraries!
+- This example exposes a wrapped bootstrap Alert, which can then be used as a regular React component
+  `
 };
 
 export const ExternalLibrariesStyled = () =>
@@ -162,5 +202,8 @@ export const ExternalLibrariesStyled = () =>
   />;
 
 ExternalLibrariesStyled.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- The styled-components variant
+  `
 };

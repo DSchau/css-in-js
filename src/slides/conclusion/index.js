@@ -29,7 +29,11 @@ export const Attributions = () =>
       {[
         [
           'https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660',
-          'A Unified Styling Language'
+          'A Unified Styling Language (Blog Post)'
+        ],
+        [
+          'https://markdalgleish.github.io/presentation-a-unified-styling-language/#14',
+          'A Unified Styling Language (Presentation)'
         ],
         ['https://speakerdeck.com/vjeux/react-css-in-js', 'React: CSS in JS'],
         [
@@ -39,6 +43,10 @@ export const Attributions = () =>
         [
           'https://speakerdeck.com/didoo/let-there-be-peace-on-css',
           'Let there be Peace on CSS'
+        ],
+        [
+          'https://reactarmory.com/answers/how-can-i-use-css-in-js-securely',
+          'How Can I use CSS in JS Securely?'
         ]
       ].map(([href, description]) => {
         return (

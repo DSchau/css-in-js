@@ -8,7 +8,7 @@ import { TextOutline } from '@vx/text';
 import { extent, max } from 'd3-array';
 import { darken, lighten, rgba } from 'polished';
 
-import { PRIMARY, SECONDARY } from 'style';
+import { getColorFromString, PRIMARY, SECONDARY } from 'style';
 
 export const BarChart = ({
   data = [],
@@ -46,7 +46,7 @@ export const BarChart = ({
 
   return (
     <svg width={width} height={height}>
-      <LinearGradient id="bg" from={PRIMARY} to={darken(0.15, PRIMARY)} />
+      <LinearGradient id="bg" from={lighten(0.15, SECONDARY)} to={SECONDARY} />
       <rect
         x={0}
         y={0}
@@ -65,7 +65,7 @@ export const BarChart = ({
                 height={barHeight}
                 x={xScale(x(d))}
                 y={yMax - barHeight}
-                fill={rgba(lighten(0.2, PRIMARY), 0.7)}
+                fill={getColorFromString(d.name, 85, 50)}
                 data={{ x: x(d), y: y(d) }}
               />
               <TextOutline

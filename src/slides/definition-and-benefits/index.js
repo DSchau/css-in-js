@@ -28,7 +28,7 @@ export const BenefitsIntro = () => null;
 BenefitsIntro.Props = {
   bgImage: images.k,
   notes: `
-In an early job of mine, I was in a meeting where I said that a solution/idea wasn't good and left it at that. Another person in the meeting said something to the effect of "If you can't bring anything to the table, then don't say anything at all." Dude was a total dick, but that doesn't detract from the fact that he wasn't wrong. So now that we've illustrates some of the problems of CSS, the discussion will shift into what CSS in JS is, and how it can fix some of these aforementioned problems.  
+Early on in my career, I was in a meeting where I said that a solution/idea wasn't good and left it at that. Another person in the meeting said something to the effect of "If you can't bring anything to the table, then don't say anything at all." Dude was a total dick, but that doesn't detract from the fact that he wasn't wrong. So now that we've illustrated some of the problems of CSS, the discussion will shift into what CSS in JS is, and how it can fix some of these aforementioned problems aka I'm trying to bring something to the table :).  
   `
 };
 
@@ -38,7 +38,12 @@ export const NotBroken = () =>
   </Heading>;
 
 NotBroken.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- I want to be *very* clear here, if you haven't seen yourself running into any of the aforementioned problems, and if you leave here unconvinced, that's fine!
+- CSS as it exists will continue to exist
+- It's not CSS in JS or CSS. CSS in JS uses CSS and uses what I think are the best parts of CSS (aka the rules) and avoids the worst parts (aka the nesting, globals, etc.)
+  `
 };
 
 export const ButMaybeItIs = () =>
@@ -47,7 +52,13 @@ export const ButMaybeItIs = () =>
   </Heading>;
 
 ButMaybeItIs.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- Maybe we can use JS to solve some of the ills of CSS
+- Maybe there's actually some validity to this practice, and
+- Maybe it can really improve the quality and maintainability of your styling solution to your apps/websites/etc.
+- Maybe we'll see :)
+  `
 };
 
 export const LeshTweet = () =>
@@ -60,7 +71,11 @@ export const LeshTweet = () =>
 
 LeshTweet.Props = {
   bgImage: images.hardDrive,
-  bgDarken: 0.75
+  bgDarken: 0.75,
+  notes: `
+- So Ben Lesh (sarcastically) puts into words what I think is going to be the most common reaction to CSS in JS
+- It goes against everything we've been taught, and the kind of "hyper modularization" that we've been saying in the JS ecosystem lately
+  `
 };
 
 export const SeperationOfConcerns = () =>
@@ -77,7 +92,10 @@ export const SeperationOfConcerns = () =>
   </div>;
 
 SeperationOfConcerns.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+However... seperation of concerns is not the same as seperation of technologies. It is incredibly likely that the rendering of a component will require intermingling between HTML, CSS, and JavaScript, and if we can make this intermingling as clean as possible, that's a win for code clarity and maintainability, not a loss.
+  `
 };
 
 export const SeperationOfConcernsImage = () =>
@@ -86,7 +104,12 @@ export const SeperationOfConcernsImage = () =>
   </div>;
 
 SeperationOfConcernsImage.Props = {
-  bgImage: images.seperationOfConcerns
+  bgImage: images.seperationOfConcerns,
+  notes: `
+- Consider this great slide by Cristiano Rastelli
+- The whole "component driven" model blurs the lines between HTML, CSS, and JavaScript because there inevitably will be shared concerns between a single component which is composed of each of these pieces
+- A great illustration of this is with Vue's single file components, which a lot of people love
+  `
 };
 
 export const IsNot = () =>
@@ -95,13 +118,30 @@ export const IsNot = () =>
   </Heading>;
 
 IsNot.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- Definition by contradiction :)
+- CSS in JS is not, or not exclusively, inline styles
+- CSS in JS, at its best, leverages CSS and the power of CSS
+- This mines the best parts of CSS (e.g. rules, media queries, pseudo styles, etc.) still exist and are usable
+- You can certainly go that route, and many libraries exist to go that route
+  `
 };
 
 export const InlineStyles = class extends Component {
+  static Props = {
+    bgColor: CODE_BACKGROUND,
+    notes: `
+- This is an inline style
+- This is not what I'd consider the best way to write CSS in JS
+- You lose out on some of the best parts of CSS, including media queries, animations, pseudo styles (:hover, :focus, etc.), etc.!
+    `
+  };
+
   state = {
     count: 0
   };
+
   render() {
     return (
       <div onClick={() => this.setState({ count: this.state.count + 1 })}>
@@ -123,10 +163,6 @@ export const InlineStyles = class extends Component {
   }
 };
 
-InlineStyles.Props = {
-  bgColor: CODE_BACKGROUND
-};
-
 export const Is = () =>
   <div>
     <Heading size={1} fit caps textFont="Bitter">
@@ -138,7 +174,12 @@ export const Is = () =>
   </div>;
 
 Is.Props = {
-  bgColor: 'secondary'
+  bgColor: 'secondary',
+  notes: `
+- High time to actually begin talking about what CSS in JS **is**
+- We'll go over some high-level goals of CSS in JS, as well as what it can do
+- We'll also discuss in some detail how it can solve some of the previously mentioned problems with CSS in JS
+  `
 };
 
 export const Abstractions = () =>
@@ -146,10 +187,27 @@ export const Abstractions = () =>
     Abstractions upon CSS
   </Heading>;
 
+Abstractions.Props = {
+  notes: `
+- CSS abstracts style to the document level
+- CSS in JS abstracts style to the component level
+- CSS in JS brings CSS into the "component age"
+- In a similar way that React/Angular are abstractions on JavaScript, CSS in JS abstracts upon the base model of CSS and improves it
+  `
+};
+
 export const ScopedStyles = () =>
   <Heading size={2} fit caps>
     True Encapsulation
   </Heading>;
+
+ScopedStyles.Props = {
+  notes: `
+- Creating a hash for the class name inherently scopes the styles
+- This gives us a shadow-dom like effect today, without a polyfill
+- It truly brings the component-era to CSS, and eliminates issues with CSS such as globals and dead code elimination
+  `
+};
 
 export const Powerful = () =>
   <Heading size={2} fit caps>
@@ -160,6 +218,7 @@ Powerful.Props = {
   notes: `
 - Leveraging the full power of JS teaches CSS new ways of doing things
 - Full sharing of any constants; particulaly useful for breakpoints, colors, etc.
+- Injection/modification via props
   `
 };
 
@@ -172,6 +231,7 @@ RealStyles.Props = {
   notes: `
 - It takes the good parts of CSS (flexbox, styling, etc.)
 - It "cures" the bad parts of CSS (globals, leaky abstractions, etc.)
+- If you already know CSS, great! CSS in JS presumes that you do; use the properties/rules/etc. of CSS that you already know
   `
 };
 
@@ -225,6 +285,7 @@ JavaScriptStyling.Props = {
   notes: `
 - It uses JavaScript to write styles
 - This leverages the full power of the JS ecosystem
+- Easy to use, distribute, load with module bundler of choice
   `
 };
 
@@ -232,6 +293,14 @@ export const SemanticElements = () =>
   <Heading size={2} fit caps>
     Semantic Elements
   </Heading>;
+
+SemanticElements.Props = {
+  notes: `
+- True, unlimited semantic elements
+- HTML5 gave us header, footer, section, aside, etc.
+- Some of these libraries give us unlimited semantic "tags"
+  `
+};
 
 export const SemanticComparison = () =>
   <Layout style={{ width: '85vw' }}>
@@ -244,7 +313,10 @@ export const SemanticComparison = () =>
   </Layout>;
 
 SemanticComparison.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: CODE_BACKGROUND,
+  notes: `
+- Makes it incredibly clear what the element is doing, just via its tag
+  `
 };
 
 export const StyleCognitiveLoad = () => {
@@ -289,4 +361,11 @@ export const StyleCognitiveLoad = () => {
       </Fill>
     </Layout>
   );
+};
+
+StyleCognitiveLoad.Props = {
+  notes: `
+- Removes the need to keep a mental modal (or debug!) stacking rule priorities
+- Cures the global ailment
+  `
 };
