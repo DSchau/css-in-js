@@ -1,5 +1,5 @@
 {
-  "name": "css-in-js-presentation",
+  "name": "css-in-js",
   "version": "1.0.0",
   "description": "ReactJS Powered Presentation Framework",
   "main": "dist/bundle.js",
