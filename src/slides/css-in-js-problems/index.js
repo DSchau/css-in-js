@@ -1,8 +1,6 @@
 import React from 'react';
 import { BlockQuote, Cite, Heading, Fill, Layout, Link, Text } from 'spectacle';
 
-import preloader from 'spectacle/lib/utils/preloader';
-
 import { Image, QuoteSlide } from 'components';
 
 const images = {
@@ -19,8 +17,6 @@ const images = {
 const snippets = {
   notScrapeable: require('./assets/quotes/not-scrapeable.raw')
 };
-
-preloader(images);
 
 export const DrawbacksIntro = () =>
   <Heading size={1} textFont="Bitter" caps>

@@ -25,7 +25,9 @@ const images = {
   nebraskaPerception: require('./assets/images/nebraska-perception-optimized.jpeg')
 };
 
-preloader(images);
+preloader({
+  titleSlide: images.titleSlide
+});
 
 export const Intro = () =>
   <div

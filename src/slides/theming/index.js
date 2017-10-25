@@ -8,7 +8,6 @@ import {
   Layout,
   Link
 } from 'spectacle';
-import preloader from 'spectacle/lib/utils/preloader';
 
 import { CODE_BACKGROUND } from 'style';
 
@@ -19,8 +18,6 @@ const images = {
 const snippets = {
   themeProvider: require('./assets/snippets/theme-provider')
 };
-
-preloader(images);
 
 export const ThemingIntro = () =>
   <Heading size={1} caps fit textFont="Bitter">

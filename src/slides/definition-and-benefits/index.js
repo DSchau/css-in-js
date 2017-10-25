@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Appear, CodePane, Fill, Heading, Layout, S, Text } from 'spectacle';
 
-import preloader from 'spectacle/lib/utils/preloader';
-
 import CrossArms from 'emojione/assets/svg/1f645-1f3fb.svg';
 
 import { QuoteSlide } from 'components';
@@ -15,8 +13,6 @@ const images = {
   hardDrive: require('./assets/images/hard-drive-optimized.jpeg'),
   seperationOfConcerns: require('./assets/images/seperation-of-concerns-optimized.jpeg')
 };
-
-preloader(images);
 
 const snippets = {
   inlineStyles: require('./assets/snippets/inline-styles.js'),

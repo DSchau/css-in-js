@@ -1,6 +1,5 @@
 import React from 'react';
 import { Code, CodePane, Heading } from 'spectacle';
-import preloader from 'spectacle/lib/utils/preloader';
 
 import { CODE_BACKGROUND } from 'style';
 
@@ -17,8 +16,6 @@ const snippets = {
   externalLibrariesGlamorous: require('./assets/snippets/external-libraries-glamorous.js'),
   externalLibrariesStyledComponents: require('./assets/snippets/external-libraries-styled.js')
 };
-
-preloader(images);
 
 export const Usage = () =>
   <div

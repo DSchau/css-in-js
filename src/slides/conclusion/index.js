@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Heading, Link, List, ListItem } from 'spectacle';
 import GlobeIcon from 'react-icons/lib/fa/globe';
 
-import preloader from 'spectacle/lib/utils/preloader';
-
 import TwitterIcon from 'react-icons/lib/fa/twitter';
 import GithubIcon from 'react-icons/lib/fa/github';
 import WebsiteIcon from 'react-icons/lib/md/web';
@@ -17,8 +15,6 @@ const images = {
   questions: 'https://media.giphy.com/media/l4FGroaKiE5uuMBiM/giphy.gif',
   feedback: require('./assets/images/feedback-optimized.png')
 };
-
-preloader(images);
 
 export const Attributions = () =>
   <div>

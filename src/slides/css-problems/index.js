@@ -13,7 +13,6 @@ import {
 import Person from 'emojione/assets/svg/1f3c3-1f3fb.svg';
 import PersonThinking from 'emojione/assets/svg/1f914.svg';
 
-import preloader from 'spectacle/lib/utils/preloader';
 import { Button, ButtonLink, Image, QuoteSlide } from 'components';
 import { CODE_BACKGROUND } from 'style';
 
@@ -42,8 +41,6 @@ const snippets = {
   cssConstant: require('./assets/snippets/button-constant.css'),
   jsConstant: require('./assets/snippets/button-constant.js')
 };
-
-preloader(images);
 
 export const TheProblems = () =>
   <Heading size={1} fit caps textFont="Bitter">

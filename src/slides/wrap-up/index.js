@@ -1,8 +1,6 @@
 import React from 'react';
 import { Heading, Link } from 'spectacle';
 
-import preloader from 'spectacle/lib/utils/preloader';
-
 import { Image } from 'components';
 
 const images = {
@@ -10,8 +8,6 @@ const images = {
   happy: `https://media.giphy.com/media/44b1ABtsG7VTy/giphy.gif`,
   cssPlayground: require('./assets/images/css-in-js-playground-optimized.png')
 };
-
-preloader(images);
 
 export const WrapUpIntro = () =>
   <Heading size={1} fit caps textFont="Bitter">

@@ -10,7 +10,6 @@ import {
   S,
   Text
 } from 'spectacle';
-import preloader from 'spectacle/lib/utils/preloader';
 
 import PolishedEmoji from 'emojione/assets/svg/2728.svg';
 
@@ -47,8 +46,6 @@ const snippets = {
   emotion: require('./assets/snippets/emotion.js'),
   polished: require('./assets/snippets/polished.js')
 };
-
-preloader(images);
 
 export const LibrariesIntro = () =>
   <Heading size={1} fit caps textFont="Bitter">
