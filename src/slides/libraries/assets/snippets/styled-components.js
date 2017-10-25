@@ -1,17 +1,12 @@
 const primaryStyle = css`
-  background-color: white;
-  color: palevioletred;
+  background-color: #7795f8;
+  color: white;
 `;
 
-const Button = styled.a`
-  display: inline-block;
-  border-radius: 3px;
-  padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
-  width: 11rem;
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
+const Button = styled.button`
+  background-color: white;
+  color: #7795f8;
+  border: none;
 
   ${props => props.primary && primaryStyle};
 `;

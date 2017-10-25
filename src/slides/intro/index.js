@@ -25,7 +25,9 @@ const images = {
   nebraskaPerception: require('./assets/images/nebraska-perception-optimized.jpeg')
 };
 
-preloader(images);
+preloader({
+  titleSlide: images.titleSlide
+});
 
 export const Intro = () =>
   <div
@@ -83,6 +85,8 @@ export const Intro = () =>
       <Link
         href="https://css-in-js.dustinschau.com"
         textColor="rgba(255, 255, 255, 0.7)"
+        target="_blank"
+        rel="noopener"
       >
         https://css-in-js.dustinschau.com
       </Link>
@@ -108,36 +112,36 @@ export const AboutMe = () =>
         paddingRight: 20
       }}
     >
-      <Heading size={2} caps fit>
+      <Heading size={2} caps fit textColor="white">
         Who?
       </Heading>
-      <Heading size={6} style={{ display: 'flex' }}>
-        <TwitterIcon
-          color="white"
-          style={{ display: 'inline-block', marginRight: 8 }}
-        />
-        <Link href="https://twitter.com/schaudustin" textColor="white">
-          schaudustin
-        </Link>
-      </Heading>
-      <Heading size={6} style={{ display: 'flex' }}>
-        <GithubIcon
-          color="white"
-          style={{ display: 'inline-block', marginRight: 8 }}
-        />
-        <Link href="https://github.com/dschau" textColor="white">
-          dschau
-        </Link>
-      </Heading>
-      <Heading size={6} style={{ display: 'flex' }}>
-        <WebsiteIcon
-          color="white"
-          style={{ display: 'inline-block', marginRight: 8 }}
-        />
-        <Link href="https://dustinschau.com" textColor="white">
-          website
-        </Link>
-      </Heading>
+      {[
+        {
+          Icon: TwitterIcon,
+          href: 'https://twitter.com/schaudustin',
+          text: '@schaudustin'
+        },
+        {
+          Icon: GithubIcon,
+          href: 'https://github.com/dschau',
+          text: 'dschau'
+        },
+        {
+          Icon: WebsiteIcon,
+          href: 'https://dustinschau.com',
+          text: 'website'
+        }
+      ].map(({ Icon, href, text }) =>
+        <Heading size={6} style={{ display: 'flex' }} key={text}>
+          <Icon
+            color="white"
+            style={{ display: 'inline-block', marginRight: 8 }}
+          />
+          <Link href={href} textColor="white" target="_blank" rel="noopener">
+            {text}
+          </Link>
+        </Heading>
+      )}
     </Fill>
     <Fill
       style={{
@@ -149,11 +153,20 @@ export const AboutMe = () =>
   </Layout>;
 
 AboutMe.Props = {
+  bgImage: images.nebraskaPerception,
+  bgDarken: 0.4,
   notes: `
 - Frontend developer specializing in all things JavaScript
 - Done a bit of everything, whether that's jQuery, Angular, React, you name it
 - I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and (of course) the gamut of CSS in JS solutions
   `
+};
+
+export const NebraskaActual = {
+  Props: {
+    bgImage: images.nebraskaActual,
+    bgDarken: 0.2
+  }
 };
 
 export const Sponsors = () =>
@@ -175,21 +188,11 @@ ObjectPartners.Props = {
   `
 };
 
-export const NebraskaPerception = {
-  Props: {
-    bgImage: images.nebraskaPerception,
-    bgDarken: 0.2
-  }
-};
-
-export const NebraskaActual = {
-  Props: {
-    bgImage: images.nebraskaActual,
-    bgDarken: 0.2
-  }
-};
-
-export const FromHere = () => <WtfFace height={256} width={256} />;
+export const FromHere = () =>
+  <span>
+    <WtfFace height={256} width={256} />
+    <Heading size={2}>(you&hellip; possibly)</Heading>
+  </span>;
 
 FromHere.Props = {
   notes: `
@@ -203,10 +206,12 @@ export const ToHere = () =>
   <Layout>
     <Fill>
       <Ambivalence height={256} width={256} />
+      <Heading size={2}>to here</Heading>
     </Fill>
     <Appear>
       <Fill>
         <HeartEyes height={256} width={256} />
+        <Heading size={2}>or even here</Heading>
       </Fill>
     </Appear>
   </Layout>;

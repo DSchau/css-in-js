@@ -1,10 +1,12 @@
-const Avatar = styled('img')`
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  transition: transform 400ms ease-in-out;
+const primaryStyle = css`
+  background-color: #7795f8;
+  color: white;
+`;
 
-  &:hover {
-    transform: scale(1.2);
-  }
+const Button = styled('button')`
+  background-color: white;
+  color: #7795f8;
+  border: none;
+
+  ${props => props.primary && primaryStyle};
 `;

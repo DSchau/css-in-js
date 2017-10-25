@@ -1,11 +1,10 @@
 import React from 'react';
 import { BlockQuote, Cite, Heading, Fill, Layout, Link, Text } from 'spectacle';
 
-import preloader from 'spectacle/lib/utils/preloader';
-
 import { Image, QuoteSlide } from 'components';
 
 const images = {
+  drawbacks: require('./assets/images/drawbacks-optimized.jpeg'),
   notScrapeable: require('./assets/images/not-scrapeable-optimized.jpeg'),
   editorTooling: require('./assets/images/editor-tooling-optimized.png'),
   editorToolingPlugin:
@@ -19,15 +18,14 @@ const snippets = {
   notScrapeable: require('./assets/quotes/not-scrapeable.raw')
 };
 
-preloader(images);
-
 export const DrawbacksIntro = () =>
   <Heading size={1} textFont="Bitter" caps>
     Drawbacks
   </Heading>;
 
 DrawbacksIntro.Props = {
-  bgColor: 'secondary',
+  bgImage: images.drawbacks,
+  bgDarken: 0.3,
   notes: `
 - In the interest of fairness, CSS in JS certainly has some drawbacks worth considering
   `
@@ -88,6 +86,8 @@ export const NotScrapeable = () =>
           <Link
             href="https://twitter.com/Rich_Harris/status/899687506123251712"
             textColor="white"
+            target="_blank"
+            rel="noopener"
           >
             Rich Harris
           </Link>

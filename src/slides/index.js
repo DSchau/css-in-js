@@ -7,7 +7,7 @@ import * as Intro from './intro';
 import * as CSSProblems from './css-problems';
 import * as Definition from './definition-and-benefits';
 import * as Libraries from './libraries';
-import * as WritingCssInJs from './writing-css-in-js';
+import * as RealWorldUsage from './real-world-usage';
 import * as Theming from './theming';
 import * as CSSInJsProblems from './css-in-js-problems';
 import * as WrapUp from './wrap-up';
@@ -25,7 +25,7 @@ export default function makeSlides() {
     CSSProblems,
     Definition,
     Libraries,
-    WritingCssInJs,
+    RealWorldUsage,
     Theming,
     CSSInJsProblems,
     WrapUp,

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Heading, Link, List, ListItem } from 'spectacle';
 import GlobeIcon from 'react-icons/lib/fa/globe';
 
-import preloader from 'spectacle/lib/utils/preloader';
-
 import TwitterIcon from 'react-icons/lib/fa/twitter';
 import GithubIcon from 'react-icons/lib/fa/github';
 import WebsiteIcon from 'react-icons/lib/md/web';
@@ -17,8 +15,6 @@ const images = {
   questions: 'https://media.giphy.com/media/l4FGroaKiE5uuMBiM/giphy.gif',
   feedback: require('./assets/images/feedback-optimized.png')
 };
-
-preloader(images);
 
 export const Attributions = () =>
   <div>
@@ -52,7 +48,7 @@ export const Attributions = () =>
         return (
           <ListItem key={description}>
             <GlobeIcon color="white" style={{ marginRight: 8 }} />
-            <Link href={href} textColor="white">
+            <Link href={href} textColor="white" target="_blank" rel="noopener">
               {description}
             </Link>
           </ListItem>
@@ -77,7 +73,7 @@ export const Links = () =>
         return (
           <ListItem key={description}>
             <GlobeIcon color="white" style={{ marginRight: 8 }} />
-            <Link href={href} textColor="white">
+            <Link href={href} textColor="white" target="_blank" rel="noopener">
               {description}
             </Link>
           </ListItem>
@@ -97,27 +93,35 @@ export const FinTheEndThatsAllFolks = () =>
       justifyContent: 'flex-end'
     }}
   >
-    <Link
-      href="https://twitter.com/schaudustin"
-      textColor="white"
-      style={{ display: 'block' }}
-    >
-      <TwitterIcon color="white" style={{ marginRight: 6 }} />@schaudustin
-    </Link>
-    <Link
-      href="https://github.com/dschau"
-      textColor="white"
-      style={{ display: 'block' }}
-    >
-      <GithubIcon color="white" style={{ marginRight: 6 }} />dschau
-    </Link>
-    <Link
-      href="https://dustinschau.com"
-      textColor="white"
-      style={{ display: 'block' }}
-    >
-      <WebsiteIcon color="white" style={{ marginRight: 6 }} />website
-    </Link>
+    {[
+      {
+        href: 'https://twitter.com/schaudustin',
+        Icon: TwitterIcon,
+        text: '@schaudustin'
+      },
+      {
+        href: 'https://github.com/dschau',
+        Icon: GithubIcon,
+        text: 'dschau'
+      },
+      {
+        href: 'https://dustinschau.com',
+        Icon: WebsiteIcon,
+        text: 'website'
+      }
+    ].map(({ href, Icon, text }) =>
+      <Link
+        href={href}
+        textColor="white"
+        style={{ display: 'block' }}
+        target="_blank"
+        rel="noopener"
+        key={text}
+      >
+        <Icon color="white" style={{ marginRight: 6 }} />
+        {text}
+      </Link>
+    )}
   </div>;
 
 FinTheEndThatsAllFolks.Props = {

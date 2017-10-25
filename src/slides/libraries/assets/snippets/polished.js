@@ -1,18 +1,15 @@
-import { darken, lighten } from 'polished';
-import glamorous from 'glamorous';
+import { complement, lighen, invert } from 'polished';
 
-const theme = {
+const primary = {
   base: '#EEE',
-  text: '#666',
-  dark: false
+  accent: 'blue',
+  text: '#666'
 };
 
-const Container = glamorous.main(
-  {
-    fontFamily: 'sans-serif'
-  },
-  ({ theme }) => ({
-    backgroundColor: theme.dark ? darken(0.4, theme.base) : theme.base,
-    color: theme.dark ? lighten(0.4, theme.base) : theme.base
-  })
-);
+const secondary = {
+  base: invert(primary.base),
+  accent: complement(primary.accent),
+  text: lighten(0.5, primary.base)
+};
+
+// use these themes!

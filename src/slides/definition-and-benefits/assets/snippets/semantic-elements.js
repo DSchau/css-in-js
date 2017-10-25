@@ -1,12 +1,11 @@
 const Header = ({ userName, userEmail, logOut }) =>
   <StyledHeader>
     <Brand>
-      <Logo src={logo} alt="Brand Image" />
+      <Logo src={logo} alt="Company X Logo" />
     </Brand>
-    <UserWelcome>
+    <UserContainer>
       <UserName>
         {userName || userEmail}
       </UserName>
-      <LogoutLink onClick={logOut}>( log out )</LogoutLink>
-    </UserWelcome>
+    </UserContainer>
   </StyledHeader>;
