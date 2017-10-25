@@ -18,6 +18,7 @@ import { Button, ButtonLink, Image, QuoteSlide } from 'components';
 import { CODE_BACKGROUND } from 'style';
 
 const images = {
+  cssProblems: require('./assets/images/css-problems-optimized.jpeg'),
   dodds: require('./assets/images/kent-c-dodds-optimized.jpeg'),
   hardStuff: require('./assets/images/hard-stuff-optimized.jpeg'),
   cssModules: require('./assets/images/css-modules-optimized.png'),
@@ -50,7 +51,8 @@ export const TheProblems = () =>
   </Heading>;
 
 TheProblems.Props = {
-  bgColor: 'secondary',
+  bgImage: images.cssProblems,
+  bgDarken: 0.5,
   notes: `
 - This section will discuss the problems (as I see them) of CSS
 - The goal is by the outset that these problems will be clear, and from this foundation we can begin to construct the argument for CSS in JS solutions
@@ -60,17 +62,16 @@ TheProblems.Props = {
 export const FirstButton = () => {
   return (
     <div>
-      <Button backgroundColor="#3ecf8e" color="white">
+      <Button
+        backgroundColor="#3ecf8e"
+        color="white"
+        style={{
+          marginBottom: 20
+        }}
+      >
         Ooooh-wee. Look at me!
       </Button>
-      <CodePane
-        lang="css"
-        source={snippets.cssOne}
-        textSize={18}
-        style={{
-          marginTop: 20
-        }}
-      />
+      <CodePane lang="css" source={snippets.cssOne} textSize={18} />
     </div>
   );
 };
@@ -86,15 +87,14 @@ FirstButton.Props = {
 export const SecondButton = () => {
   return (
     <div>
-      <Button>Ooooh-wee. Look at me!</Button>
-      <CodePane
-        lang="css"
-        source={snippets.cssTwo}
-        textSize={18}
+      <Button
         style={{
-          marginTop: 20
+          marginBottom: 20
         }}
-      />
+      >
+        Ooooh-wee. Look at me!
+      </Button>
+      <CodePane lang="css" source={snippets.cssTwo} textSize={18} />
     </div>
   );
 };
@@ -110,17 +110,16 @@ SecondButton.Props = {
 export const ThirdButton = () => {
   return (
     <div>
-      <Button fontSize="1rem" textTransform="lowercase">
+      <Button
+        fontSize="1rem"
+        textTransform="lowercase"
+        style={{
+          marginBottom: 20
+        }}
+      >
         Ooooh-wee. Look at me!
       </Button>
-      <CodePane
-        lang="css"
-        source={snippets.cssThree}
-        textSize={18}
-        style={{
-          marginTop: 20
-        }}
-      />
+      <CodePane lang="css" source={snippets.cssThree} textSize={18} />
     </div>
   );
 };
@@ -141,17 +140,13 @@ export const FourthButton = () => {
         textTransform="lowercase"
         backgroundHoverColor="#7795f8"
         hoverColor="white"
+        style={{
+          marginBottom: 20
+        }}
       >
         Ooooh-wee. Look at me!
       </Button>
-      <CodePane
-        lang="css"
-        source={snippets.cssFour}
-        textSize={18}
-        style={{
-          marginTop: 20
-        }}
-      />
+      <CodePane lang="css" source={snippets.cssFour} textSize={18} />
     </div>
   );
 };
@@ -165,7 +160,7 @@ FourthButton.Props = {
 
 export const TheGlobals = {
   Props: {
-    bgColor: 'secondary',
+    bgColor: CODE_BACKGROUND,
     code: [
       snippets.cssOne,
       snippets.cssTwo,
@@ -251,9 +246,6 @@ export const Bem = () =>
       lang="css"
       source={`.Block__element--modifier {}`}
       textSize={20}
-      style={{
-        marginTop: 12
-      }}
     />
   </div>;
 

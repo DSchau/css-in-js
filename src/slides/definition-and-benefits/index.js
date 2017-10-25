@@ -10,6 +10,7 @@ import { CODE_BACKGROUND } from 'style';
 
 const images = {
   k: 'https://media.giphy.com/media/10sXTCdlsdKn8k/giphy.gif',
+  doBetter: require('./assets/images/do-better-optimized.jpeg'),
   lesh: require('./assets/images/ben-lesh-optimized.jpeg'),
   hardDrive: require('./assets/images/hard-drive-optimized.jpeg'),
   seperationOfConcerns: require('./assets/images/seperation-of-concerns-optimized.jpeg')
@@ -28,17 +29,18 @@ export const BenefitsIntro = () => null;
 BenefitsIntro.Props = {
   bgImage: images.k,
   notes: `
-Early on in my career, I was in a meeting where I said that a solution/idea wasn't good and left it at that. Another person in the meeting said something to the effect of "If you can't bring anything to the table, then don't say anything at all." Dude was a total dick, but that doesn't detract from the fact that he wasn't wrong. So now that we've illustrated some of the problems of CSS, the discussion will shift into what CSS in JS is, and how it can fix some of these aforementioned problems aka I'm trying to bring something to the table :).  
+Early on in my career, I was in a meeting where I said that a solution/idea wasn't good and left it at that. Another person in the meeting said something to the effect of "If you can't bring anything to the table, then don't say anything at all." Obviously I don't agree with his sentiment, but that doesn't detract from the fact that he wasn't wrong. So now that we've illustrated some of the problems of CSS, the discussion will shift into what CSS in JS is, and how it can fix some of these aforementioned problems aka I'm trying to bring something to the table :).  
   `
 };
 
 export const NotBroken = () =>
-  <Heading size={1} textColor="primary" caps fit>
+  <Heading size={1} textColor="white" caps fit>
     CSS is not Broken
   </Heading>;
 
 NotBroken.Props = {
-  bgColor: 'secondary',
+  bgImage: images.doBetter,
+  bgDarken: 0.3,
   notes: `
 - I want to be *very* clear here, if you haven't seen yourself running into any of the aforementioned problems, and if you leave here unconvinced, that's fine!
 - CSS as it exists will continue to exist
@@ -48,7 +50,7 @@ NotBroken.Props = {
 
 export const ButMaybeItIs = () =>
   <Heading size={1} textColor="primary" caps fit>
-    <S type="italic">Maybe</S> we can do better
+    <S type="italic">Maybe</S> we can make CSS better
   </Heading>;
 
 ButMaybeItIs.Props = {
@@ -122,8 +124,8 @@ IsNot.Props = {
   notes: `
 - Definition by contradiction :)
 - CSS in JS is not, or not exclusively, inline styles
-- CSS in JS, at its best, leverages CSS and the power of CSS
-- This mines the best parts of CSS (e.g. rules, media queries, pseudo styles, etc.) still exist and are usable
+- CSS in JS, at its "best," leverages CSS and the power of CSS
+- This means the best parts of CSS (e.g. rules, media queries, pseudo styles, etc.) still exist and are usable in this CSS in JS paradigm
 - You can certainly go that route, and many libraries exist to go that route
   `
 };
@@ -145,7 +147,7 @@ export const InlineStyles = class extends Component {
   render() {
     return (
       <div onClick={() => this.setState({ count: this.state.count + 1 })}>
-        <CodePane lang="jsx" source={snippets.inlineStyles} textSize={18} />
+        <CodePane lang="jsx" source={snippets.inlineStyles} textSize={24} />
         {this.state.count > 0 &&
           <div
             style={{

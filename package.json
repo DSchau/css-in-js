@@ -33,12 +33,12 @@
     "es6-promise": "^4.1.1",
     "isomorphic-fetch": "^2.2.1",
     "normalize.css": "3.0.3",
-    "polished": "^1.6.2",
+    "polished": "~1.8.1",
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-icons": "^2.2.5",
     "spectacle": "^2.2.0",
-    "spectacle-code-slide": "^0.4.0",
+    "spectacle-code-slide": "~0.5.1",
     "styled-components": "^2.1.2"
   },
   "devDependencies": {

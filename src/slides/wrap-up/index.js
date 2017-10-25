@@ -6,6 +6,7 @@ import preloader from 'spectacle/lib/utils/preloader';
 import { Image } from 'components';
 
 const images = {
+  wrapUp: require('./assets/images/wrap-up-optimized.jpeg'),
   happy: `https://media.giphy.com/media/44b1ABtsG7VTy/giphy.gif`,
   cssPlayground: require('./assets/images/css-in-js-playground-optimized.png')
 };
@@ -18,7 +19,8 @@ export const WrapUpIntro = () =>
   </Heading>;
 
 WrapUpIntro.Props = {
-  bgColor: 'secondary',
+  bgImage: images.wrapUp,
+  bgDarken: 0.4,
   notes: `
 - So what are we to make of all of this?
 - CSS in JS solves real problems of CSS
@@ -38,12 +40,22 @@ Happy.Props = {
 };
 
 export const CSSInJSPlayground = () =>
-  <Link href="https://dschau.github.io/css-in-js-playground" target="_blank">
-    <Image src={images.cssPlayground} />
-  </Link>;
+  <Link
+    style={{
+      flex: '1 1 auto',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100vh',
+      height: '100vw'
+    }}
+    href="https://css-in-js-playground.com"
+    target="_blank"
+    rel="noopener"
+  />;
 
 CSSInJSPlayground.Props = {
-  bgColor: 'secondary',
+  bgImage: images.cssPlayground,
   notes: `
 - On that note, I recently finished a project using and demonstrating (you guessed it!) CSS in JS libraries
 - Let's do a quick demo

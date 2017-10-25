@@ -8,21 +8,28 @@ import {
   Layout,
   Link
 } from 'spectacle';
+import preloader from 'spectacle/lib/utils/preloader';
 
 import { CODE_BACKGROUND } from 'style';
 
-const snippets = {
-  themeProviderOne: require('./assets/snippets/theme-provider-1'),
-  themeProviderTwo: require('./assets/snippets/theme-provider-2')
+const images = {
+  theming: require('./assets/images/theming-optimized.jpeg')
 };
 
+const snippets = {
+  themeProvider: require('./assets/snippets/theme-provider')
+};
+
+preloader(images);
+
 export const ThemingIntro = () =>
-  <Heading size={1} caps textFont="Bitter">
+  <Heading size={1} caps fit textFont="Bitter">
     Theming
   </Heading>;
 
 ThemingIntro.Props = {
-  bgColor: 'secondary',
+  bgImage: images.theming,
+  bgDarken: 0.6,
   notes: `
 - Theming is a common concern (and can be kinda hard!) for CSS
 - CSS in JS libraries generally expose a ThemeProvider, which then makes the theme rules & colors available to the underlying components
@@ -30,22 +37,20 @@ ThemingIntro.Props = {
   `
 };
 
-export const ThemeProvider = () =>
-  <CodePane lang="jsx" source={snippets.themeProviderOne} textSize={18} />;
+export const ThemeProvider = () => null;
 
 ThemeProvider.Props = {
   bgColor: CODE_BACKGROUND,
+  code: snippets.themeProvider,
+  lang: 'jsx',
+  ranges: [
+    { title: 'Theming', loc: [0, 0] },
+    { loc: [0, 1], title: 'ThemeProvider' },
+    { loc: [2, 13] },
+    { loc: [14, 22] },
+    { loc: [29, 39] }
+  ],
   notes: `
 - I'm showing a theme object here, and then a component consuming the current theme value(s)
-  `
-};
-
-export const ThemeProviderTwo = () =>
-  <CodePane lang="jsx" source={snippets.themeProviderTwo} textSize={18} />;
-
-ThemeProviderTwo.Props = {
-  bgColor: CODE_BACKGROUND,
-  notes: `
-- Showing the ThemeProvider in usage (this sets context values)
   `
 };

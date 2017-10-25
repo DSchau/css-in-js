@@ -1,20 +1,15 @@
-const BigLink = glamorous.a(
+const Button = glamorous.button(
   {
-    border: '1px solid #F67982',
-    width: '11em',
-    padding: '0.7em 0',
-    textDecoration: 'none',
-    borderRadius: 4,
-    display: 'inline-block',
-    margin: '.5em 1em',
-    transition: 'all .3s'
+    backgroundColor: 'white',
+    color: '#7795f8',
+    border: 'none'
   },
   ({ primary }) => ({
-    backgroundColor: primary ? '#CC3A4B' : 'rgba(255, 255, 255, 0.5)',
-    color: primary ? '#fff' : '#DA233C',
-    ':hover': {
-      backgroundColor: primary ? 'rgba(255, 255, 255, 0.5)' : '#CC3A4B',
-      color: primary ? '#DA233C' : '#fff'
-    }
+    ...(primary
+      ? {
+          backgroundColor: '#7795f8',
+          color: 'white'
+        }
+      : {})
   })
 );

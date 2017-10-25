@@ -52,7 +52,7 @@ export const Attributions = () =>
         return (
           <ListItem key={description}>
             <GlobeIcon color="white" style={{ marginRight: 8 }} />
-            <Link href={href} textColor="white">
+            <Link href={href} textColor="white" target="_blank" rel="noopener">
               {description}
             </Link>
           </ListItem>
@@ -77,7 +77,7 @@ export const Links = () =>
         return (
           <ListItem key={description}>
             <GlobeIcon color="white" style={{ marginRight: 8 }} />
-            <Link href={href} textColor="white">
+            <Link href={href} textColor="white" target="_blank" rel="noopener">
               {description}
             </Link>
           </ListItem>
@@ -97,27 +97,35 @@ export const FinTheEndThatsAllFolks = () =>
       justifyContent: 'flex-end'
     }}
   >
-    <Link
-      href="https://twitter.com/schaudustin"
-      textColor="white"
-      style={{ display: 'block' }}
-    >
-      <TwitterIcon color="white" style={{ marginRight: 6 }} />@schaudustin
-    </Link>
-    <Link
-      href="https://github.com/dschau"
-      textColor="white"
-      style={{ display: 'block' }}
-    >
-      <GithubIcon color="white" style={{ marginRight: 6 }} />dschau
-    </Link>
-    <Link
-      href="https://dustinschau.com"
-      textColor="white"
-      style={{ display: 'block' }}
-    >
-      <WebsiteIcon color="white" style={{ marginRight: 6 }} />website
-    </Link>
+    {[
+      {
+        href: 'https://twitter.com/schaudustin',
+        Icon: TwitterIcon,
+        text: '@schaudustin'
+      },
+      {
+        href: 'https://github.com/dschau',
+        Icon: GithubIcon,
+        text: 'dschau'
+      },
+      {
+        href: 'https://dustinschau.com',
+        Icon: WebsiteIcon,
+        text: 'website'
+      }
+    ].map(({ href, Icon, text }) =>
+      <Link
+        href={href}
+        textColor="white"
+        style={{ display: 'block' }}
+        target="_blank"
+        rel="noopener"
+        key={text}
+      >
+        <Icon color="white" style={{ marginRight: 6 }} />
+        {text}
+      </Link>
+    )}
   </div>;
 
 FinTheEndThatsAllFolks.Props = {

@@ -34,6 +34,7 @@ const logos = {
 };
 
 const images = {
+  libraries: require('./assets/images/libraries-optimized.jpeg'),
   mostlyReact:
     'https://thumbs.gfycat.com/RegalFlickeringAmphibian-size_restricted.gif',
   ...libraries,
@@ -55,7 +56,8 @@ export const LibrariesIntro = () =>
   </Heading>;
 
 LibrariesIntro.Props = {
-  bgColor: 'secondary',
+  bgImage: images.libraries,
+  bgDarken: 0.3,
   notes: `
 - Now that we've talked about all this CSS in JS for quite some time, let's talk about some libraries to instrument this practice
   `
@@ -82,9 +84,7 @@ Caveat.Props = {
 };
 
 export const StyledComponents = () =>
-  <div>
-    <Image src={libraries.styledComponents} />
-  </div>;
+  <Image src={libraries.styledComponents} />;
 
 StyledComponents.Props = {
   bgColor: `rgb(219,112,147)`,
@@ -96,16 +96,13 @@ StyledComponents.Props = {
 };
 
 export const StyledComponentsExample = () =>
-  <CodePane lang="jsx" source={snippets.styledComponents} textSize={20} />;
+  <CodePane lang="jsx" source={snippets.styledComponents} textSize={24} />;
 
 StyledComponentsExample.Props = {
   bgColor: CODE_BACKGROUND
 };
 
-export const Glamorous = () =>
-  <div>
-    <Image src={libraries.glamorous} style={{ maxWidth: '75%' }} />
-  </div>;
+export const Glamorous = () => <Image src={libraries.glamorous} />;
 
 Glamorous.Props = {
   bgColor: '#FFF2F2',
@@ -117,7 +114,7 @@ Glamorous.Props = {
 };
 
 export const GlamorousExample = () =>
-  <CodePane lang="jsx" source={snippets.glamorous} textSize={20} />;
+  <CodePane lang="jsx" source={snippets.glamorous} textSize={24} />;
 
 GlamorousExample.Props = {
   bgColor: CODE_BACKGROUND
@@ -141,7 +138,7 @@ Emotion.Props = {
 };
 
 export const EmotionExample = () =>
-  <CodePane lang="jsx" source={snippets.emotion} textSize={20} />;
+  <CodePane lang="jsx" source={snippets.emotion} textSize={24} />;
 
 EmotionExample.Props = {
   bgColor: CODE_BACKGROUND
@@ -166,7 +163,7 @@ Polished.Props = {
 };
 
 export const PolishedExample = () =>
-  <CodePane lang="jsx" source={snippets.polished} textSize={20} />;
+  <CodePane lang="jsx" source={snippets.polished} textSize={24} />;
 
 PolishedExample.Props = {
   bgColor: CODE_BACKGROUND
@@ -175,11 +172,7 @@ PolishedExample.Props = {
 export const PolishedMethods = () =>
   <div>
     {require('./assets/data/polished-colors.json').map(text =>
-      <Code
-        key={text}
-        style={{ display: 'inline-block', marginTop: 12, marginLeft: 12 }}
-        textColor="white"
-      >
+      <Code key={text} style={{ display: 'inline-block' }} textColor="white">
         {text}
       </Code>
     )}
