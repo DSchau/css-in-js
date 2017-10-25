@@ -1,7 +1,7 @@
 {
   "name": "css-in-js",
   "version": "1.0.0",
-  "description": "ReactJS Powered Presentation Framework",
+  "description": "CSS in JS: Benefits, Drawbacks, & Tooling",
   "main": "dist/bundle.js",
   "scripts": {
     "precommit": "lint-staged",

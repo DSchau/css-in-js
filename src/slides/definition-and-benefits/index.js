@@ -81,13 +81,13 @@ LeshTweet.Props = {
 export const SeperationOfConcerns = () =>
   <div>
     <Heading size={1} fit caps textFont="Bitter">
-      Seperation of Concerns
+      Separation of Concerns
     </Heading>
     <Heading size={1} caps textFont="Bitter" textColor="primary">
       <S type="italic">not</S>
     </Heading>
     <Heading size={1} fit caps textFont="Bitter">
-      Seperation of Technologies
+      Separation of Technologies
     </Heading>
   </div>;
 

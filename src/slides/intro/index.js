@@ -27,7 +27,6 @@ const images = {
 
 preloader(images);
 
-// TODO: Replace nebraskaJS with Thunderplains
 export const Intro = () =>
   <div
     style={{
@@ -47,10 +46,11 @@ export const Intro = () =>
       }}
     >
       <Link
-        href="https://www.meetup.com/nebraskajs/events/238363540/"
+        href="http://2017.thunderplainsconf.com"
         target="_blank"
+        rel="noopener"
       >
-        <Image src={images.nebraskaJs} style={{ maxHeight: 50 }} />
+        <Image src={images.thunderPlains} style={{ maxHeight: 50 }} />
       </Link>
     </div>
     <Layout>
@@ -68,7 +68,7 @@ export const Intro = () =>
       </Fill>
       <Fill margin={10}>
         <Heading size={4} textColor="primary" textAlign="left">
-          Benefits, Drawbacks, and Tools
+          Benefits, Drawbacks, and Tooling
         </Heading>
       </Fill>
     </Layout>
@@ -81,10 +81,10 @@ export const Intro = () =>
       }}
     >
       <Link
-        href="https://dschau.github.io/css-in-js-presentation/"
+        href="https://css-in-js.dustinschau.com"
         textColor="rgba(255, 255, 255, 0.7)"
       >
-        https://dschau.github.io/css-in-js-presentation
+        https://css-in-js.dustinschau.com
       </Link>
     </div>
   </div>;
@@ -97,11 +97,6 @@ My name is Dustin Schau, and I'm going to hopefully teach you all about CSS in J
   `
 };
 
-/* TODO: Add back for Thunderplains
-export const Sponsors = () => (
-  <Heading size={2} caps fit>Sponsors</Heading>
-);
-*/
 export const AboutMe = () =>
   <Layout>
     <Fill
@@ -157,9 +152,14 @@ AboutMe.Props = {
   notes: `
 - Frontend developer specializing in all things JavaScript
 - Done a bit of everything, whether that's jQuery, Angular, React, you name it
-- I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and (of course) CSS in JS
+- I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and (of course) the gamut of CSS in JS solutions
   `
 };
+
+export const Sponsors = () =>
+  <Heading size={2} caps fit>
+    Sponsors
+  </Heading>;
 
 export const ObjectPartners = () =>
   <Image src={images.opiLogo} style={{ width: '100%' }} />;
@@ -171,26 +171,10 @@ ObjectPartners.Props = {
 - I work at a great company called Object Partners
 - Specialize in JVM and frontend development of all sorts
 - About 100 consultants between here, MN, and Chicago
-- Come talk to me after if you'd like to learn more!  
+- Come talk to me after if you'd like to learn more (and I'll have some swag to give out too)
   `
 };
 
-// TODO: Remove for Thunderplains
-export const ThunderPlains = () => <Image src={images.thunderPlains} />;
-
-ThunderPlains.Props = {
-  bgImage: images.okc,
-  bgDarken: 0.6,
-  notes: `
-- I'll be giving this presentation at a great JS conference in Oklahoma City called Thunderplains
-- November 3rd
-- This is a bit of a dry run, so any feedback (good, bad, or otherwise) afterwards is sincerely appreciated  
-- I'll have a feedback form, and I would sincerely appreciate if anyone would be willing to fill it out!
-  `
-};
-
-/*
- * TODO: Add back for Thunderplains
 export const NebraskaPerception = {
   Props: {
     bgImage: images.nebraskaPerception,
@@ -204,14 +188,13 @@ export const NebraskaActual = {
     bgDarken: 0.2
   }
 };
-*/
 
 export const FromHere = () => <WtfFace height={256} width={256} />;
 
 FromHere.Props = {
   notes: `
 - Many of you probably have a pretty negative perception of CSS in JS
-- It goes against the "seperation of concerns" that has been ingrained and regularly re-enforced
+- It goes against the "separation of concerns" that has been ingrained and regularly re-enforced
 - It feels weird, feels unclean, and feels like it's a solution looking for a problem
   `
 };

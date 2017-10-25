@@ -12,15 +12,17 @@ import {
 } from 'spectacle';
 import preloader from 'spectacle/lib/utils/preloader';
 
-import StyledComponentsEmoji from 'emojione/assets/svg/1f485-1f3fb.svg';
-import GlamorousEmoji from 'emojione/assets/svg/1f484.svg';
-import EmotionEmoji from 'emojione/assets/svg/26a1.svg';
 import PolishedEmoji from 'emojione/assets/svg/2728.svg';
 
-import { GithubStars, LibraryPayload, NpmDownloads } from 'components';
+import { GithubStars, Image, LibraryPayload, NpmDownloads } from 'components';
 
-import { Image } from 'components';
 import { CODE_BACKGROUND } from 'style';
+
+const libraries = {
+  styledComponents: require('./assets/images/styled-components.png'),
+  glamorous: require('./assets/images/glamorous.svg'),
+  emotion: require('./assets/images/emotion.png')
+};
 
 const logos = {
   atlassian: require('./assets/images/atlassian.svg'),
@@ -34,6 +36,7 @@ const logos = {
 const images = {
   mostlyReact:
     'https://thumbs.gfycat.com/RegalFlickeringAmphibian-size_restricted.gif',
+  ...libraries,
   ...logos
 };
 
@@ -80,13 +83,11 @@ Caveat.Props = {
 
 export const StyledComponents = () =>
   <div>
-    <Heading size={1}>
-      <Code textColor="white">styled-components</Code>
-    </Heading>
-    <StyledComponentsEmoji height={128} width={128} />
+    <Image src={libraries.styledComponents} />
   </div>;
 
 StyledComponents.Props = {
+  bgColor: `rgb(219,112,147)`,
   notes: `
 - The gateway drug to CSS in JS libraries
 - You use tagged template literals, which basically means you call a function with all arguments specified as an array
@@ -103,13 +104,11 @@ StyledComponentsExample.Props = {
 
 export const Glamorous = () =>
   <div>
-    <Heading size={1}>
-      <Code textColor="white">glamorous</Code>
-    </Heading>
-    <GlamorousEmoji height={128} width={128} />
+    <Image src={libraries.glamorous} style={{ maxWidth: '75%' }} />
   </div>;
 
 Glamorous.Props = {
+  bgColor: '#FFF2F2',
   notes: `
 - Glamorous built on some of the ideas, particularly the exporting of "tags" to remove the need for wrapping elements
 - However, the major difference is that it expects style objects, rather than style strings
@@ -126,13 +125,14 @@ GlamorousExample.Props = {
 
 export const Emotion = () =>
   <div>
-    <Heading size={1}>
-      <Code textColor="white">emotion</Code>
+    <Heading size={4} textTransform="lowercase">
+      emotion
     </Heading>
-    <EmotionEmoji height={128} width={128} />
+    <Image src={libraries.emotion} style={{ maxWidth: '25%' }} />
   </div>;
 
 Emotion.Props = {
+  bgColor: 'rgb(248, 249, 250)',
   notes: `
 - Leverages ideas from both Glamorous and styled-components
 - Can write styles as string or as a style object
@@ -149,13 +149,14 @@ EmotionExample.Props = {
 
 export const Polished = () =>
   <div>
-    <Heading size={1}>
-      <Code textColor="white">polished</Code>
+    <Heading size={4} textColor="white" textTransform="lowercase">
+      polished
     </Heading>
-    <PolishedEmoji height={128} width={128} />
+    <PolishedEmoji height={192} width={192} style={{ marginTop: 40 }} />
   </div>;
 
 Polished.Props = {
+  bgColor: '#65daa2',
   notes: `
 - SASS/LESS helpers for CSS in JS
 - lighten/darken/rgba/etc/etc
