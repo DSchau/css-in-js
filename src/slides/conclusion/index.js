@@ -86,46 +86,6 @@ export const Links = () =>
     </List>
   </div>;
 
-export const Questions = class extends Component {
-  static Props = {
-    bgImage: images.questions
-  };
-
-  state = {
-    current: 0,
-    all: [
-      'Questions',
-      'Preguntas',
-      '问题',
-      'Fragen',
-      '質問',
-      'quaestiones',
-      'pytania',
-      'вопросов',
-      'الأسئلة'
-    ]
-  };
-
-  componentDidMount() {
-    setInterval(() => {
-      const current = this.state.current;
-      const next = this.state.all[current + 1] ? current + 1 : 0;
-      this.setState({
-        current: next
-      });
-    }, 5000);
-  }
-
-  render() {
-    const text = this.state.all[this.state.current];
-    return (
-      <Heading size={1} caps textColor="black">
-        {text}?
-      </Heading>
-    );
-  }
-};
-
 export const FinTheEndThatsAllFolks = () =>
   <div
     style={{
@@ -163,17 +123,7 @@ export const FinTheEndThatsAllFolks = () =>
 FinTheEndThatsAllFolks.Props = {
   bgImage: images.thankYou,
   notes: `
-- Special thanks to Tim Hemmer for helping get this set up, as well as to all of the NebraskaJS coordinators
-- An extra special thanks to each of you for coming, it means a lot!
+- One final thanks to the organizers and sponsors of this conference, and for giving me an opportunity to present at my first ever conference
+- Come talk to me tonight at the after party :)
   `
-};
-
-// TODO: Remove this slide for Thunderplains
-export const Feedback = () =>
-  <Link href="https://dustinschau.com/css-in-js-feedback" target="_blank">
-    <Image src={images.feedback} />
-  </Link>;
-
-Feedback.Props = {
-  bgColor: 'secondary'
 };

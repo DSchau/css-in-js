@@ -51,10 +51,10 @@ UsingProps.Props = {
   `
 };
 
-export const Composition = () =>
+export const Inheritance = () =>
   <div>
     <Heading size={2} caps textColor="white">
-      Composition
+      Inheritance
     </Heading>
     <CodePane
       lang="jsx"
@@ -66,7 +66,7 @@ export const Composition = () =>
     />
   </div>;
 
-Composition.Props = {
+Inheritance.Props = {
   bgColor: CODE_BACKGROUND,
   notes: `
 - How do we extend a component?
