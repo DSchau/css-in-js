@@ -14,12 +14,13 @@ import SlideDeck from './slides/';
 import 'normalize.css';
 import 'spectacle/lib/themes/default/index.css';
 
-import { PRIMARY, SECONDARY } from 'style';
+import { CODE_BACKGROUND, PRIMARY, SECONDARY } from 'style';
 
 const theme = createTheme(
   {
     primary: PRIMARY,
-    secondary: SECONDARY
+    secondary: SECONDARY,
+    code: CODE_BACKGROUND
   },
   {
     primary: { name: 'Montserrat', googleFont: true, styles: ['400', '700i'] },
@@ -28,11 +29,19 @@ const theme = createTheme(
 );
 
 export default class Presentation extends React.Component {
+  state = {
+    theme
+  };
+
+  componentDidMount() {
+    // make a request to an endpoint to retrieve primary, secondary
+  }
+
   render() {
     return (
       <Deck
         transition={['slide']}
-        theme={theme}
+        theme={this.state.theme}
         progress="bar"
         transitionDuration={500}
       >

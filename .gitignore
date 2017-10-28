@@ -4,3 +4,6 @@ npm-debug.log
 dist
 *-optimized.jpeg
 
+notes.json
+screenshots/
+BLOG_POST.md
