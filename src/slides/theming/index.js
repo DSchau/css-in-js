@@ -9,8 +9,6 @@ import {
   Link
 } from 'spectacle';
 
-import { CODE_BACKGROUND } from 'style';
-
 const images = {
   theming: require('./assets/images/theming-optimized.jpeg')
 };
@@ -37,7 +35,7 @@ ThemingIntro.Props = {
 export const ThemeProvider = () => null;
 
 ThemeProvider.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   code: snippets.themeProvider,
   lang: 'jsx',
   ranges: [

@@ -15,8 +15,6 @@ import PolishedEmoji from 'emojione/assets/svg/2728.svg';
 
 import { GithubStars, Image, LibraryPayload, NpmDownloads } from 'components';
 
-import { CODE_BACKGROUND } from 'style';
-
 const libraries = {
   styledComponents: require('./assets/images/styled-components.png'),
   glamorous: require('./assets/images/glamorous.svg'),
@@ -96,7 +94,7 @@ export const StyledComponentsExample = () =>
   <CodePane lang="jsx" source={snippets.styledComponents} textSize={24} />;
 
 StyledComponentsExample.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: 'code'
 };
 
 export const Glamorous = () => <Image src={libraries.glamorous} />;
@@ -114,7 +112,7 @@ export const GlamorousExample = () =>
   <CodePane lang="jsx" source={snippets.glamorous} textSize={24} />;
 
 GlamorousExample.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: 'code'
 };
 
 export const Emotion = () =>
@@ -138,7 +136,7 @@ export const EmotionExample = () =>
   <CodePane lang="jsx" source={snippets.emotion} textSize={24} />;
 
 EmotionExample.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: 'code'
 };
 
 export const Polished = () =>
@@ -163,7 +161,7 @@ export const PolishedExample = () =>
   <CodePane lang="jsx" source={snippets.polished} textSize={24} />;
 
 PolishedExample.Props = {
-  bgColor: CODE_BACKGROUND
+  bgColor: 'code'
 };
 
 export const PolishedMethods = () =>
@@ -176,7 +174,7 @@ export const PolishedMethods = () =>
   </div>;
 
 PolishedMethods.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 These are just the color methods, but polished contains a bunch more including:
 

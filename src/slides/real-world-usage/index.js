@@ -1,8 +1,6 @@
 import React from 'react';
 import { Code, CodePane, Heading } from 'spectacle';
 
-import { CODE_BACKGROUND } from 'style';
-
 const images = {
   realWorldUsage: require('./assets/images/real-world-usage-optimized.jpeg')
 };
@@ -52,7 +50,7 @@ export const UsingProps = () =>
   </div>;
 
 UsingProps.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - Props injection can be super handy to just make a little change here or there
 - For instance, a button may want to take an inverted style, or even a backgroundColor prop to change the bgColor
@@ -68,7 +66,7 @@ export const Inheritance = () =>
   </div>;
 
 Inheritance.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - How do we extend a component?
 - You use it like a function, and the extension takes precedence over the underyling style
@@ -85,7 +83,7 @@ export const RealCSS = () =>
   </div>;
 
 RealCSS.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - Just wanted to drive home that this is truly real CSS
 - Most of these libraries (particularly styled-components and glamorous) inject real stylesheets with a unique class name
@@ -102,7 +100,7 @@ export const Animation = () =>
   </div>;
 
 Animation.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - But what about animations, particularly keyframe animations? Those are global!
 - Most libraries include some type of helper to return a unique identifier for these animations so no globals are introduced!
@@ -121,7 +119,7 @@ export const UsingClassName = () =>
   </div>;
 
 UsingClassName.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 If you're designing a component library and want to make it CSS in JS friendly, consider exposing the className prop
 
@@ -144,7 +142,7 @@ export const ExternalLibraries = () =>
   </div>;
 
 ExternalLibraries.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - Libraries that require a certain class structure (e.g. Bootstrap), can also work with CSS in JS libraries!
 - This example exposes a wrapped bootstrap Alert, which can then be used as a regular React component
@@ -159,7 +157,7 @@ export const ExternalLibrariesStyled = () =>
   />;
 
 ExternalLibrariesStyled.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - The styled-components variant
   `

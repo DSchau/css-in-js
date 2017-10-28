@@ -1,5 +1,6 @@
 import React from 'react';
-import { Heading, Link } from 'spectacle';
+import { CodePane, Heading, Fill, Link, Layout } from 'spectacle';
+import DownArrow from 'react-icons/lib/fa/arrow-down';
 
 import { Image } from 'components';
 
@@ -7,6 +8,10 @@ const images = {
   wrapUp: require('./assets/images/wrap-up-optimized.jpeg'),
   happy: `https://media.giphy.com/media/44b1ABtsG7VTy/giphy.gif`,
   cssPlayground: require('./assets/images/css-in-js-playground-optimized.png')
+};
+
+const snippets = {
+  component: require('./assets/snippets/component')
 };
 
 export const WrapUpIntro = () =>
@@ -23,6 +28,30 @@ WrapUpIntro.Props = {
 - It does so in a very clean, and developer friendly way
 - Performance may be a concern, as is the reliance on JS
   `
+};
+
+export const Instructions = () =>
+  <Layout>
+    <Fill
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <CodePane
+        source={`yarn add styled-components`}
+        lang="bash"
+        textSize={20}
+      />
+      <DownArrow color="white" />
+      <CodePane source={snippets.component} lang="jsx" textSize={20} />
+    </Fill>
+  </Layout>;
+
+Instructions.Props = {
+  bgColor: 'code'
 };
 
 export const Happy = () => null;

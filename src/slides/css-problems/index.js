@@ -14,7 +14,6 @@ import Person from 'emojione/assets/svg/1f3c3-1f3fb.svg';
 import PersonThinking from 'emojione/assets/svg/1f914.svg';
 
 import { Button, ButtonLink, Image, QuoteSlide } from 'components';
-import { CODE_BACKGROUND } from 'style';
 
 const images = {
   cssProblems: require('./assets/images/css-problems-optimized.jpeg'),
@@ -74,7 +73,7 @@ export const FirstButton = () => {
 };
 
 FirstButton.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - We design a button component used in our application
 - It looks great, works great, and meets every need we have
@@ -91,13 +90,13 @@ export const SecondButton = () => {
       >
         Ooooh-wee. Look at me!
       </Button>
-      <CodePane lang="css" source={snippets.cssTwo} textSize={18} />
+      <CodePane lang="css" source={snippets.cssTwo} textSize={24} />
     </div>
   );
 };
 
 SecondButton.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - We get a request for an alternately styled variant for one particular screen of the application
 - We add some CSS and style it with a "secondary class"
@@ -116,13 +115,13 @@ export const ThirdButton = () => {
       >
         Ooooh-wee. Look at me!
       </Button>
-      <CodePane lang="css" source={snippets.cssThree} textSize={18} />
+      <CodePane lang="css" source={snippets.cssThree} textSize={24} />
     </div>
   );
 };
 
 ThirdButton.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - We get another request that the button is far too large
 - We add a "tiny" class that can be added so that the button displays with a smaller font, padding, etc.
@@ -143,13 +142,13 @@ export const FourthButton = () => {
       >
         Ooooh-wee. Look at me!
       </Button>
-      <CodePane lang="css" source={snippets.cssFour} textSize={18} />
+      <CodePane lang="css" source={snippets.cssFour} textSize={24} />
     </div>
   );
 };
 
 FourthButton.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - We get a final request that the button needs to have a hover state that is inverted for a certain screen
   `
@@ -157,7 +156,7 @@ FourthButton.Props = {
 
 export const TheGlobals = {
   Props: {
-    bgColor: CODE_BACKGROUND,
+    bgColor: 'code',
     code: [
       snippets.cssOne,
       snippets.cssTwo,
@@ -167,10 +166,10 @@ export const TheGlobals = {
     lang: 'css',
     ranges: [
       { title: 'Our clean CSS', loc: [0, 0] },
-      { loc: [14, 15], title: '...is no so longer so clean' },
-      { loc: [18, 19] },
-      { loc: [23, 24] },
-      { loc: [28, 29] },
+      { loc: [13, 14], title: '...is no so longer so clean' },
+      { loc: [17, 18] },
+      { loc: [22, 23] },
+      { loc: [27, 28] },
       { title: 'Globals!', loc: [0, 0] }
     ],
     style: {
@@ -187,7 +186,7 @@ export const TheGlobals = {
 
 export const GlobalProblems = class GlobalProblems extends Component {
   static Props = {
-    bgColor: CODE_BACKGROUND,
+    bgColor: 'code',
     notes: `
 - Let's say down the road another developer is working on the project, and I'm long gone
 - He/she simply wants to add a link styled like a button, and wants to style it in a certain way
@@ -247,7 +246,7 @@ export const Bem = () =>
   </div>;
 
 Bem.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - CSS naming methodologies like BEM exist to solve this problem!
 - Also see Atomic CSS, SMACSS, Object oriented CSS, etc.
@@ -410,7 +409,7 @@ export const SharingConstantsExample = () =>
   </Layout>;
 
 SharingConstantsExample.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - Anyone who's developed an application before has probably ran into this problem
 - We can solve this with a build process and some defined constants, but that can oftentimes be fragile and/or brittle
@@ -422,7 +421,7 @@ export const FacebookProblems = () =>
   <div>
     <Image src={images.cssProblemsVjeux} style={{ maxHeight: 500 }} />
     <Heading size={6} textColor="white" textSize={14}>
-      Christopher Chedeau
+      Christopher Chedeau (@vjeux)
     </Heading>
   </div>;
 

@@ -4,7 +4,6 @@ import { Appear, CodePane, Fill, Heading, Layout, S, Text } from 'spectacle';
 import CrossArms from 'emojione/assets/svg/1f645-1f3fb.svg';
 
 import { QuoteSlide } from 'components';
-import { CODE_BACKGROUND } from 'style';
 
 const images = {
   k: 'https://media.giphy.com/media/10sXTCdlsdKn8k/giphy.gif',
@@ -98,7 +97,7 @@ However... seperation of concerns is not the same as seperation of technologies.
 
 export const SeperationOfConcernsImage = () =>
   <div style={{ display: 'flex', alignItems: 'flex-end', height: '85vh' }}>
-    <Text textSize={18}>Cristiano Rastelli</Text>
+    <Text textSize={18}>Cristiano Rastelli (@areaweb)</Text>
   </div>;
 
 SeperationOfConcernsImage.Props = {
@@ -128,7 +127,7 @@ IsNot.Props = {
 
 export const InlineStyles = class extends Component {
   static Props = {
-    bgColor: CODE_BACKGROUND,
+    bgColor: 'code',
     notes: `
 - This is an inline style
 - This is not what I'd consider the best way to write CSS in JS
@@ -311,7 +310,7 @@ export const SemanticComparison = () =>
   </Layout>;
 
 SemanticComparison.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
 - Makes it incredibly clear what the element is doing, just via its tag
   `
