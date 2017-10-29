@@ -21,6 +21,9 @@ const getNotes = ast => {
           .forEach(property => {
             const { key, value } = property;
             if (key.name === 'notes') {
+              if (name === 'intro') {
+                notes.0 = value.quasis[0].value.raw;
+              }
               notes[kebab(name)] = value.quasis[0].value.raw;
             }
           });

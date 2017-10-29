@@ -27,7 +27,7 @@ DrawbacksIntro.Props = {
   bgImage: images.drawbacks,
   bgDarken: 0.3,
   notes: `
-- In the interest of fairness, CSS in JS certainly has some drawbacks worth considering
+However, there aren't any silver bullets it seems in frontend web technology. While CSS in JS may seem like a great fit for most applications, there are certainly some drawbacks that are worth considering.
   `
 };
 
@@ -47,11 +47,15 @@ export const JavaScriptDisabled = () =>
 
 JavaScriptDisabled.Props = {
   notes: `
-- When JavaScript is disabled (still a concern!), how do we progressively enhance?
-- This is precisely where Progressive Enhancement rears its head
-- You can mitigate with statically rendering or server-side rendering (hydrating) some launch HTML, or at least using the 'noscript' tag to display some content
-- 0.2% may not seem like much, but if you're Facebook scale or driving a lot of traffic it's a concern
-  - 1,000,000 monthly users means 2,000 users may not be getting a usable site
+When JavaScript is disabled (still can be a concern!), how do we progressively enhance? If JavaScript is our styling and rendering solution, we're serving effectively an unstyled mess of content, which goes directly contrary to the ideas of progressive enhancement.
+
+0.2% of users may not seem like much, but if you're Facebook scale or driving a lot of traffic it's a concern
+
+- 1,000,000 monthly users means 2,000 users may not be getting a usable site
+
+How can we fix this?
+
+You can mitigate with server side rendering (something like next would be terrific) or statically rendering to HTML (with something like Gatsby)
   `
 };
 
@@ -100,10 +104,7 @@ NotScrapeable.Props = {
   bgImage: images.nail,
   bgDarken: 0.5,
   notes: `
-- To get the style scoping working, a unique identifier/className is generated
-- However, this takes away some of the semantic meaning when viewing the compiled version
-- I'm not overly concerned about this, but it is worth mentioning
-- There are some ways you can guide to generate more human readable class names, but haven't done a ton of research into that
+Rich Harris, creator of such tools as Rollup, Buble, Svelte, etc. raises an interesting point. Not only are the styles not scrapeable, but the styles can be hard to query, as well. Things like e2e tests or integration tests should not be pointed to a unique hash, and so it's certainly a best practice to either use one of the existing babel plugins for most libraries that adds a humanized class name, or manually add your own!
   `
 };
 
@@ -111,8 +112,7 @@ export const EditorTooling = () => <Image src={images.editorTooling} />;
 
 EditorTooling.Props = {
   notes: `
-- Editor tooling is still in its infancy
-- Autocomplete in particular has room for improvement
+Editor tooling is still in its infancy, but as CSS in JS continues to grow in popularity, I think we'll see marked improvement on this front.
   `
 };
 
@@ -121,20 +121,8 @@ export const EditorToolingPlugin = () =>
 
 EditorToolingPlugin.Props = {
   notes: `
-- But it seems like every week there are new developments to get this working as seamlessly as possible
+However, it seems like every week there are new developments to get this working as seamlessly as possible
   `
-};
-
-export const EditorToolingButWait = () =>
-  <QuoteSlide
-    quote={require('./assets/quotes/ide-integration.raw')}
-    image={images.max}
-    author="Max Stoiber"
-    to="https://twitter.com/mxstbr/status/903277984739667970"
-  />;
-
-EditorToolingButWait.Props = {
-  bgColor: 'secondary'
 };
 
 export const SanitizationConcerns = () =>
@@ -144,8 +132,9 @@ export const SanitizationConcerns = () =>
 
 SanitizationConcerns.Props = {
   notes: `
-- As with anything, if you're directly injecting user input (even into CSS!) you open yourself up to issues
-- Great article on React-Armory that just came out this week, linked to at the end
+As with anything, if you're directly injecting user input (even into CSS!) you open yourself up to issues
+
+_Great article on [React Armory](https://reactarmory.com/answers/how-can-i-use-css-in-js-securely)_
   `
 };
 
@@ -158,9 +147,8 @@ PerformanceConcerns.Props = {
   bgImage: images.unsure,
   bgDarken: 0.5,
   notes: `
-- This is a big question mark for me currently
-- It's something I'd like to investigate for my talk in November
-- In general, it seems hard to believe CSS in JS is 1:1 with CSS because of the layers of abstraction/libraries we're adding, but I'm not sure (yet!) if this performance difference is meaningful
-- But stay tuned! I'll probably be posting on twitter some findings as I start investigating this
+Performance can be a concern, but I'd urge you here to not prematurely optimize. The difference between each of the libraries is arguably minimal, and the difference between CSS is relatively minimal as well.
+
+However, if you're pushing Facebook-scale™, or after measuring your application's performance, then it may be worth re-visiting whether these libraries are for you, or whether there are performance optimizations you can make to improve perf.
   `
 };

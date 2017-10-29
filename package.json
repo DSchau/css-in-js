@@ -14,12 +14,14 @@
     "notes": "node scripts/notes && node scripts/blog-post",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
+    "screenshots": "screenie -a screenie-adapter-spectacle -f screenshots -u http://localhost:3000",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --port 3000 --content-base dist --no-info --config webpack.config.development.js",
     "test": "echo \"Kinda hard to test a presentation, huh?\""
   },
   "author": "Dustin Schau <dustinschau@gmail.com> (https://dustinschau.com)",
   "license": "MIT",
   "dependencies": {
+    "@dschau/spectacle-code-slide": "~0.4.0",
     "@vx/axis": "^0.0.136",
     "@vx/curve": "^0.0.136",
     "@vx/gradient": "^0.0.136",
@@ -39,10 +41,12 @@
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-icons": "^2.2.5",
-    "spectacle": "^2.2.0",
-    "spectacle-code-slide": "~0.5.1"
+    "spectacle": "^2.2.0"
   },
   "devDependencies": {
+    "@screenie/screenie-adapter-default": "~0.0.1-6",
+    "@screenie/screenie-adapter-spectacle": "~0.0.1-3",
+    "@screenie/screenie-cli": "~0.0.1-13",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.18.0",
     "babel-eslint": "^7.0.0",
