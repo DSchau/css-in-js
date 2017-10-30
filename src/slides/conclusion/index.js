@@ -57,6 +57,14 @@ export const Attributions = () =>
     </List>
   </div>;
 
+Attributions.Props = {
+  notes: `
+This talk, and so many other things in the front-end community, would not be possible without the work of so many others. To them, I am so very grateful. Hopefully I, too, have contributed to the conversation!
+
+> If I have seen further, it is by standing on the shoulders of giants
+  `
+};
+
 export const Links = () =>
   <div>
     <Heading size={3} textColor="secondary" caps>
@@ -66,7 +74,7 @@ export const Links = () =>
       {[
         [
           'https://dschau.github.io/css-in-js-playground/',
-          'CSS in JS Playground'
+          'CSS in JS Playground Source'
         ],
         ['https://github.com/DSchau/css-in-js-presentation', 'Slidedeck Repo']
       ].map(([href, description]) => {
@@ -127,7 +135,8 @@ export const FinTheEndThatsAllFolks = () =>
 FinTheEndThatsAllFolks.Props = {
   bgImage: images.thankYou,
   notes: `
-- One final thanks to the organizers and sponsors of this conference, and for giving me an opportunity to present at my first ever conference
-- Come talk to me tonight at the after party :)
+One final thank you to the organizers and sponsors of this conference, and for giving me an opportunity to present at my first ever conference.
+
+I'd like to also thank each of the attendees. Without you, each of us would be speaking to an empty room, and where's the fun in that!?
   `
 };

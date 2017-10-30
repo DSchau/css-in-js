@@ -97,7 +97,7 @@ Intro.Props = {
   bgImage: images.titleSlide,
   bgDarken: 0.5,
   notes: `
-My name is Dustin Schau, and I'm going to hopefully teach you all about CSS in JS today. We'll start with some drawbacks of CSS that led to the creation of these libraries, then discuss advantages of CSS in JS over CSS, shift to discussion of some common patterns, utilities, and libraries to instrument CSS in JS, and then finally end with a (hopefully fair!) illustration of the drawbacks of CSS in JS. Let's get started!
+My name is Dustin Schau, and I'm going to hopefully teach you all about CSS in JS today. We'll start with some drawbacks of CSS that led to the creation of these libraries, then discuss advantages of CSS in JS over CSS, shift to discussion of some common patterns, utilities, and libraries to instrument CSS in JS, and then finally end with an illustration of the drawbacks of CSS in JS. Let's get started!
   `
 };
 
@@ -156,16 +156,17 @@ AboutMe.Props = {
   bgImage: images.nebraskaPerception,
   bgDarken: 0.4,
   notes: `
-- Frontend developer specializing in all things JavaScript
-- Done a bit of everything, whether that's jQuery, Angular, React, you name it
-- I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and (of course) the gamut of CSS in JS solutions
+I'm a frontend developer speciailizing in all things JavaScript. Throughout my career, I've done a fair bit of everything: Angular, React, jQuery, you name it. Of course, I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and (of course) the gamut of CSS in JS solutions. I'm from little ol' Omaha, Nebraska, which I think most people looks a bit like this.
   `
 };
 
 export const NebraskaActual = {
   Props: {
     bgImage: images.nebraskaActual,
-    bgDarken: 0.2
+    bgDarken: 0.2,
+    notes: `
+But... here's what Omaha actually looks like. It's been a great city for me to hone my craft, and I think it's a great technology city for professionals young and old.
+    `
   }
 };
 
@@ -174,6 +175,12 @@ export const Sponsors = () =>
     Sponsors
   </Heading>;
 
+Sponsors.Props = {
+  notes: `
+Every presentation has this prerequisite sponsors slide, but they truly deserve so much credit. Without their support, we wouldn't have all gotten together for this great conference, so it is _sincerely_ appreciated. Thank you so much!
+  `
+};
+
 export const ObjectPartners = () =>
   <Image src={images.opiLogo} style={{ width: '100%' }} />;
 
@@ -181,10 +188,7 @@ ObjectPartners.Props = {
   bgImage: images.opiMn,
   bgDarken: 0.8,
   notes: `
-- I work at a great company called Object Partners
-- Specialize in JVM and frontend development of all sorts
-- About 100 consultants between here, MN, and Chicago
-- Come talk to me after if you'd like to learn more (and I'll have some swag to give out too)
+I work at a great company called Object Partners. Specialize in JVM and frontend development of all sorts. Between Omaha, Minneapolis, and Chicago, we have about 100 consultants. Come talk to me after if you'd like to learn more--and I'll have some swag to give out to.
   `
 };
 
@@ -196,9 +200,7 @@ export const FromHere = () =>
 
 FromHere.Props = {
   notes: `
-- Many of you probably have a pretty negative perception of CSS in JS
-- It goes against the "separation of concerns" that has been ingrained and regularly re-enforced
-- It feels weird, feels unclean, and feels like it's a solution looking for a problem
+I feel like some of you _may_ have a pretty negative perception of CSS in JS, or at least not an overtly positive perception. This can be for a variety of reasons, but I thik paramount in some people's minds is that it goes against the "separation of concerns" that have been ingrained in our minds and regularly re-enforced. It can feel weird, it can feel unclean, and it may even feel like a solution looking for a problem.
   `
 };
 
@@ -218,8 +220,7 @@ export const ToHere = () =>
 
 ToHere.Props = {
   notes: `
-- My goal is to take you from that initial perception/feeling to at least understanding/slightly skeptical of the practice
-- If I'm successful, maybe even a few of you will leave and want to use/experiment with some of these technologies
+My goal is to take you from this initial possibly negative stance to an understanding of why CSS in JS exists, and how it can solve some some very real developmental problems.  I'm I'm successful, maybe even several of you will leave and want to use/experiment with some of these technologies 😍
 
 ## Agenda
 

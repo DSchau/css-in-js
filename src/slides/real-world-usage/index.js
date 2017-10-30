@@ -1,8 +1,6 @@
 import React from 'react';
 import { Code, CodePane, Heading } from 'spectacle';
 
-import { CODE_BACKGROUND } from 'style';
-
 const images = {
   realWorldUsage: require('./assets/images/real-world-usage-optimized.jpeg')
 };
@@ -36,10 +34,11 @@ Usage.Props = {
   bgImage: images.realWorldUsage,
   bgDarken: 0.15,
   notes: `
-- Wanted to give each of you a feel for what it feels like actually writing code in each of these libraries
-- Doing some common things like theming, using props, composing/extending components, etc.
-- Note I'm not endorsing any particular library, so I tried to show each of them at their best!
-- Additionally note, nearly all of these examples are React based, but the underlying ideas could likely be utilized in other frameworks/libraries
+I think it's important to actually show some real-world usage and common patterns for writing "real world" code in each of these libraries.
+
+Common things like theming, utilizing props, inheriting/composing styles, etc.
+
+_Note: I'm not endorsing any particular library, so I'll jump around a bit to give you a better idea of what each library feels like._
   `
 };
 
@@ -52,10 +51,9 @@ export const UsingProps = () =>
   </div>;
 
 UsingProps.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- Props injection can be super handy to just make a little change here or there
-- For instance, a button may want to take an inverted style, or even a backgroundColor prop to change the bgColor
+Props injection is a natural, React-y method of altering a given component's style under certain conditions. For instance, if re-visit our earlier CSS only button, we can create the same with props, but with complete encapsulation to that single button component.
   `
 };
 
@@ -68,11 +66,9 @@ export const Inheritance = () =>
   </div>;
 
 Inheritance.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- How do we extend a component?
-- You use it like a function, and the extension takes precedence over the underyling style
-- styled-components has a similar API, as well as a new \`.extend\` function that exists on a styled component
+A common question is that one of CSS' great features is inheritance and easy extension of base classes. Inheritance is typically accomplished in these libraries by injecting a previously styled component (😉) and adding additional styles.
   `
 };
 
@@ -85,11 +81,9 @@ export const RealCSS = () =>
   </div>;
 
 RealCSS.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- Just wanted to drive home that this is truly real CSS
-- Most of these libraries (particularly styled-components and glamorous) inject real stylesheets with a unique class name
-- This means you get the full power of CSS including media queries, pseduo styles, etc.
+One final reminder that in each of these libraries, real CSS and real stylesheets are added to the DOM. The value of CSS remains but with the clear and numerous benefits that CSS in JS provides.
   `
 };
 
@@ -102,10 +96,11 @@ export const Animation = () =>
   </div>;
 
 Animation.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- But what about animations, particularly keyframe animations? Those are global!
-- Most libraries include some type of helper to return a unique identifier for these animations so no globals are introduced!
+But what about animations? Those are inherently global!
+
+Most libraries include some type of helper utility to return a unique identifier/hash for those animations so that globals remain stripped from the code base.
   `
 };
 
@@ -121,12 +116,11 @@ export const UsingClassName = () =>
   </div>;
 
 UsingClassName.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-If you're designing a component library and want to make it CSS in JS friendly, consider exposing the className prop
+If you're designing a component library and want to make it CSS in JS friendly, consider exposing the className prop for consumption
 
-- these libraries inject a className, which would then be applied on top of the existing styles
-- Note this may not work perfectly, but it's worth checking out!
+- these libraries inject a className (and a \`style\` tag in the DOM), which would then be applied on top of the existing styles
 - Additionally, if you are "wrapping" your styled elements, this is a great way to make those wrappers extensible, as well
   `
 };
@@ -144,23 +138,10 @@ export const ExternalLibraries = () =>
   </div>;
 
 ExternalLibraries.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- Libraries that require a certain class structure (e.g. Bootstrap), can also work with CSS in JS libraries!
-- This example exposes a wrapped bootstrap Alert, which can then be used as a regular React component
-  `
-};
+Libraries that require a certain class structure (e.g. Bootstrap), can also work with CSS in JS libraries!
 
-export const ExternalLibrariesStyled = () =>
-  <CodePane
-    lang="jsx"
-    source={snippets.externalLibrariesStyledComponents}
-    textSize={20}
-  />;
-
-ExternalLibrariesStyled.Props = {
-  bgColor: CODE_BACKGROUND,
-  notes: `
-- The styled-components variant
+This example exposes a wrapped bootstrap Alert, which can then be used as a regular React component
   `
 };

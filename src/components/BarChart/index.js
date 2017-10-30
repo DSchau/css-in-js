@@ -13,7 +13,7 @@ import { getColorFromString, PRIMARY, SECONDARY } from 'style';
 export const BarChart = ({
   data = [],
   height = window.innerHeight / 1.5,
-  width = window.innerWidth / 1.5
+  width = window.innerWidth / 1.35
 }) => {
   if (width < 10) return null;
 

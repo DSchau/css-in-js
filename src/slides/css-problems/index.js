@@ -14,7 +14,6 @@ import Person from 'emojione/assets/svg/1f3c3-1f3fb.svg';
 import PersonThinking from 'emojione/assets/svg/1f914.svg';
 
 import { Button, ButtonLink, Image, QuoteSlide } from 'components';
-import { CODE_BACKGROUND } from 'style';
 
 const images = {
   cssProblems: require('./assets/images/css-problems-optimized.jpeg'),
@@ -51,8 +50,9 @@ TheProblems.Props = {
   bgImage: images.cssProblems,
   bgDarken: 0.5,
   notes: `
-- This section will discuss the problems (as I see them) of CSS
-- The goal is by the outset that these problems will be clear, and from this foundation we can begin to construct the argument for CSS in JS solutions
+Let's start with a brief discussion of some of the problems of CSS. I will attempt to construct real-world examples, problems that not only I've faced, but I think many developers have experienced whether or not they're aware they have been facing these issues. In illustrating these problems, the foundational basis for the creation of these CSS in JS techniques will be made apparent.
+
+I also want to note that I've attempted to focus these problems on real-world applications, not necessarily problems oftentimes described "at scale." It's so valuable to consider that perspective if you're devoloping those kind of applications, but by narrowing the scope we can more clearly define the problem in more approachable terms and concepts.
   `
 };
 
@@ -74,10 +74,9 @@ export const FirstButton = () => {
 };
 
 FirstButton.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- We design a button component used in our application
-- It looks great, works great, and meets every need we have
+We get a requirement from our UX team to design a button component that will be used throughout our application suite. This button looks great, meets every current need we have, and the code is quite succinct, to boot. This is great!
   `
 };
 
@@ -91,16 +90,15 @@ export const SecondButton = () => {
       >
         Ooooh-wee. Look at me!
       </Button>
-      <CodePane lang="css" source={snippets.cssTwo} textSize={18} />
+      <CodePane lang="css" source={snippets.cssTwo} textSize={24} />
     </div>
   );
 };
 
 SecondButton.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- We get a request for an alternately styled variant for one particular screen of the application
-- We add some CSS and style it with a "secondary class"
+Our UX team makes another request of our team. We now need a secondary style, and the previous button will be considered the primary style. So&hellip; we add this secondary class, we complete the objective, and we're feeling fairly good about our button component.
   `
 };
 
@@ -116,16 +114,15 @@ export const ThirdButton = () => {
       >
         Ooooh-wee. Look at me!
       </Button>
-      <CodePane lang="css" source={snippets.cssThree} textSize={18} />
+      <CodePane lang="css" source={snippets.cssThree} textSize={24} />
     </div>
   );
 };
 
 ThirdButton.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- We get another request that the button is far too large
-- We add a "tiny" class that can be added so that the button displays with a smaller font, padding, etc.
+We get another request that the button is far too large for certain applications, and the request has been made that we add a button with reduced padding, font-size, etc. We add this \`tiny\` class, and we complete the business requirements. This is fine&hellip;
   `
 };
 
@@ -143,21 +140,21 @@ export const FourthButton = () => {
       >
         Ooooh-wee. Look at me!
       </Button>
-      <CodePane lang="css" source={snippets.cssFour} textSize={18} />
+      <CodePane lang="css" source={snippets.cssFour} textSize={24} />
     </div>
   );
 };
 
 FourthButton.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- We get a final request that the button needs to have a hover state that is inverted for a certain screen
+We get a final request that the button neds to a have a hover state for accessibility and more intuitive feedback on desktop screens. We add this class, and our button is completed, for now. This is _not_ fine 😫
   `
 };
 
 export const TheGlobals = {
   Props: {
-    bgColor: CODE_BACKGROUND,
+    bgColor: 'code',
     code: [
       snippets.cssOne,
       snippets.cssTwo,
@@ -167,31 +164,27 @@ export const TheGlobals = {
     lang: 'css',
     ranges: [
       { title: 'Our clean CSS', loc: [0, 0] },
-      { loc: [14, 15], title: '...is no so longer so clean' },
-      { loc: [18, 19] },
-      { loc: [23, 24] },
-      { loc: [28, 29] },
+      { loc: [13, 14], title: '...is no so longer so clean' },
+      { loc: [17, 18] },
+      { loc: [22, 23] },
+      { loc: [27, 28] },
       { title: 'Globals!', loc: [0, 0] }
     ],
+    showLineNumbers: false,
     style: {
       fontSize: 24
     },
     notes: `
-- Our clean CSS is no longer so clean
-- Each of the "simple" requests are adding what is effectively globals, thereby making the CSS harder to maintain and use
-- If one developer, this global problem can be maintained, but imagine bringing in new developers, or tens or hundreds of developers working on the same application?
-- It's easy to imagine collision occurring
+Our clean, pristine button component and CSS are no longer so clean. Each of these simple requests stack and increase the complexity of the component. In effect, we've introduced a number of CSS globals. As anyone is aware, globals are a common enemy of any codebase, and the introduction of globals will make this CSS harder to maintain and use. This is especially evident if designing something like a component library, where hundreds of other developers will use this button, extend upon it, and introduce their own globals. It's incredibly easy to imagine a scenario where collision occurs and this practice makes this approach untenable.
   `
   }
 };
 
-export const GlobalProblems = class GlobalProblems extends Component {
+export const GlobalProblems = class extends Component {
   static Props = {
-    bgColor: CODE_BACKGROUND,
+    bgColor: 'code',
     notes: `
-- Let's say down the road another developer is working on the project, and I'm long gone
-- He/she simply wants to add a link styled like a button, and wants to style it in a certain way
-- We can see how easy it is to begin combatting these globals, and how they can make it a worse developer experience (and worse code quality!) via the use of these globals
+Let's consider the usage of this button component by a developer who comes on the project long down the road, far after the team that designed the component has left for greener pastures. This developer is relatively inexperienced, and is just trying to add in style that makes a link look like a button. This seemingly simple task is more complicated than it apepars at first glance. These globals make the job _far_ more diffiult than expected.
   `
   };
 
@@ -236,6 +229,12 @@ export const ButWait = () =>
     But Wait&hellip;
   </Heading>;
 
+ButWait.Props = {
+  notes: `
+But wait&hellip; we've invented techniques to solve these problems!
+  `
+};
+
 export const Bem = () =>
   <div>
     <CodePane lang="css" source={snippets.bem} textSize={20} />
@@ -247,18 +246,16 @@ export const Bem = () =>
   </div>;
 
 Bem.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- CSS naming methodologies like BEM exist to solve this problem!
-- Also see Atomic CSS, SMACSS, Object oriented CSS, etc.
+CSS naming methodologies like BEM exist to solve this exact problem re: name collision and CSS globals. Also consider other solutions like Atomic CSS, SMACSS, Object-oriented CSS, etc.
   `
 };
 
 export const Run = class extends React.Component {
   static Props = {
     notes: `
-- Personally, I am not a fan of these methodologies
-- They introduce cognitive overhead and introduce naming concerns (and anyone in CS knows how hard naming is!)
+I am very much not a fan of these methodologies. They introduce cognitive overhead and introduce naming concerns. Is this particular thing a modifier? An element? A block? Naming is already notoriously hard; this technique certainly does solve the class name collision problem, but I contend it imposes extraneous concerns on behalf of the developer that can be solved in other, cleaner ways.
     `
   };
 
@@ -297,9 +294,7 @@ HardStuff.Props = {
   bgImage: images.hardStuff,
   bgDarken: 0.75,
   notes: `
-- Consider this code by Kent C Dodds
-- Why not use tools to automate these trivial naming concerns
-- This is why we use tools, to automate and make something that can be hard, easy or easier
+Consider this quote by Kent C. Dodds. Why would we not use tooling to automate trivial naming concerns? Development is oftentimes all about automating hard problems, ans is naming not one of the most (unecessarily) difficult ones we face?
   `
 };
 
@@ -316,19 +311,16 @@ export const Alternatives = () =>
 Alternatives.Props = {
   bgColor: 'secondary',
   notes: `
-- But this problem of globals has been solved
-- Why should we care about CSS in JS when we have the shadow dom and/or CSS modules?
-- CSS Modules is CSS in JS
-- Shadow modules are going to be great, but not quite ready yet
+But others will note that this problem of globals has been solved with tooling in other areas. CSS Modules and Shadow DOM (a staged spec introduced in web components to isolate styling to a particular subset of the DOM) _both_ are intended to solve this problem.
+
+CSS Modules is an implement of CSS in JS, so if you leave here with nothing else, consider integrating CSS Modules support into your application. It'll generate a unique hash based on a user supplied class name. Shadow modules are similarly going to be great, but I'm not quite sure they're ready for primetime yet (nor are web components _quite_ there).
   `
 };
 
 export const ShadowDomSupport = class extends Component {
   static Props = {
     notes: `
-- Shadow DOM is definitely going to be something I want to keep an eye on
-- That said, it may not quite be ready for prime time, as it doesn't have the greatest browser support (nor do web components)
-- However, a polyfill does exist, so if you want to investigate whether shadow dom adequately solves the "global problem" of CSS, give it a shot!
+Shadow DOM, and web components as a whole, are certainly something that I think will continue to grow in popularity in the coming months and years. That said, the web component implementations are still slightly in flux, and for full browser support, you'll certainly have to ship a polyfill.
     `
   };
 
@@ -365,11 +357,11 @@ ItDoesNotScale.Props = {
   bgImage: images.scale,
   bgDarken: 0.5,
   notes: `
-- In order to work around CSS's inherent scaling issues, tools like BEM, LESS, SASS, etc. are often utilized
-- CSS in JS removes this cognitive overload
-- Generally when I hear "does not scale," that can be a sign that the person just doesn't like the technology; however, it's actually true here!
-- The earlier example with the button is an illustration of the underlying issue
-- The bigger your application gets, the more CSS you will write, which creates more globals and a harder to maintain application
+The bigger your application gets (and the more CSS you write), the more globals you will create which is quite simply making your application harder to maintain and use. In order to work around these scaling issues, naming strategies or tools--LESS, SASS, etc.--are often utilized.
+
+CSS in JS solves this problems cleanly, clearly, and simply.
+
+Also I'd like to note here that, in general, I tend to think "does not scale," is a perjorative used by people who are just not fans of that particular technology. That is not the case here though, as most advocates of CSS in JS _love_ CSS. You'll also see soon that when you're writing CSS in JS, you're using all the funcitionality that we know and love available in CSS.
   `
 };
 
@@ -382,10 +374,11 @@ DeadCodeElimination.Props = {
   bgImage: images.deadCodeElimination,
   bgDarken: 0.5,
   notes: `
-- Anyone who's ever re-factored a large app knows that it can be incredibly difficult to re-factor "unused" CSS
-- Any rule could be used in unforseen places
-- Removing rules can be spooky, and you need automated testing or a person who really knows the code to validate 0 unforeseen effects
-- CSS in JS gives you confidence that by removing this component/CSS, you are only removing code applicable to this component  
+Your class names and styles (i.e. \`.css\` files) are separately located to what is being styled, typically JSX with \`className\` or in non-React projects, as separate HTML files. Additionally, as previously mentioned, as CSS is global by default, your styles could be styling unrelated functionality in your application. Jointly, these two concerns make it incredibly difficult to re-factor unused CSS.
+
+Removing styles can be a spooky (👻) endeavour, and many regression tests, QA, or manual testing is often required to validate with certainty that only certain functionality was impacted.
+
+CSS in JS gives you confidence that by removing this particular component, you're removing code applicable to this component _only_.
   `
 };
 
@@ -396,7 +389,10 @@ export const SharingConstants = () =>
 
 SharingConstants.Props = {
   bgImage: images.sharingConstants,
-  bgDarken: 0.5
+  bgDarken: 0.5,
+  notes: `
+Theming, stylistic concerns (e.g. padding, line-height, etc.), and other possibly shared constants are a naturual and intuitive fit to be colocated within your JavaScript. Want to re-use that branding color in your header for a button? Sure makes sense to share that with your CSS and JS. Media query breakpoints? Another intuitive and obvious fit.
+  `
 };
 
 export const SharingConstantsExample = () =>
@@ -410,11 +406,11 @@ export const SharingConstantsExample = () =>
   </Layout>;
 
 SharingConstantsExample.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   notes: `
-- Anyone who's developed an application before has probably ran into this problem
-- We can solve this with a build process and some defined constants, but that can oftentimes be fragile and/or brittle
-- Why not use one "source of truth" for all shared application constants, whether it's constants used in the HTML, CSS, or JavaScript
+Oftentimes, I know I've needed to share things like colors, breakpoints, etc. between my CSS and JavaScript. I've oftentimes resorted to using a brittle build process, which inevitably can fall out of sync or require tweaks at some later point.
+
+Why not use one source of truth for all application constants, and why not make that source of truth a JavaScript file with CSS in JS?
   `
 };
 
@@ -422,15 +418,13 @@ export const FacebookProblems = () =>
   <div>
     <Image src={images.cssProblemsVjeux} style={{ maxHeight: 500 }} />
     <Heading size={6} textColor="white" textSize={14}>
-      Christopher Chedeau
+      Christopher Chedeau (@vjeux)
     </Heading>
   </div>;
 
 FacebookProblems.Props = {
   bgColor: 'black',
   notes: `
-- Credit where credit is due
-- Christopher Cheudeau (a developer at Facebook) illustrates these problems in a great talk a few years ago
-- It's linked at the end if you want to take a look!
+Many of these problems were identified in a formative CSS in JS presentation by Christopher Chedeau (a developer at Facebook), who delivered a great presentation targeting many of these issues in 2014!
   `
 };

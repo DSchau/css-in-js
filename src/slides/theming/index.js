@@ -9,8 +9,6 @@ import {
   Link
 } from 'spectacle';
 
-import { CODE_BACKGROUND } from 'style';
-
 const images = {
   theming: require('./assets/images/theming-optimized.jpeg')
 };
@@ -28,16 +26,16 @@ ThemingIntro.Props = {
   bgImage: images.theming,
   bgDarken: 0.6,
   notes: `
-- Theming is a common concern (and can be kinda hard!) for CSS
-- CSS in JS libraries generally expose a ThemeProvider, which then makes the theme rules & colors available to the underlying components
-- Super easy to make a light/dark variant, for example
+Theming is a particularly common use case that can be semi-difficult to architect cleanly. Most of these major libraries expose a \`ThemeProvider\` component which can be used to provide a theme (via context) to each styled component.
+
+It is, for instance, incredibly easy to make a light/dark theme for an application, or any number of color variants.
   `
 };
 
 export const ThemeProvider = () => null;
 
 ThemeProvider.Props = {
-  bgColor: CODE_BACKGROUND,
+  bgColor: 'code',
   code: snippets.themeProvider,
   lang: 'jsx',
   ranges: [
@@ -47,7 +45,8 @@ ThemeProvider.Props = {
     { loc: [14, 22] },
     { loc: [29, 39] }
   ],
+  showLineNumbers: false,
   notes: `
-- I'm showing a theme object here, and then a component consuming the current theme value(s)
+Check out the [code slide](https://cssinjs.dustinschau.com/#/theme-provider) to see the full, navigable example
   `
 };
