@@ -14,3 +14,8 @@ const getHSL = (number, saturation, lightness) => {
 export const getColorFromString = (str, lightness = 20, saturation = 90) => {
   return getHSL(getHashCode(str), saturation, lightness);
 };
+
+export const FULL_WIDTH = {
+  maxHeight: '100vh',
+  maxWidth: '100vw'
+};

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Heading, Link, List, ListItem } from 'spectacle';
+import { Heading, Layout, Fill, Link, List, ListItem, Text } from 'spectacle';
+import chunk from 'lodash.chunk';
 import GlobeIcon from 'react-icons/lib/fa/globe';
 
 import TwitterIcon from 'react-icons/lib/fa/twitter';
@@ -10,10 +11,63 @@ import Smiley from 'emojione/assets/svg/1f642.svg';
 
 import { Image } from 'components';
 
+const people = {
+  glen: ['glenmaddern', require('./assets/images/people/glen-maddern.png')],
+  kent: ['kentcdodds', require('./assets/images/people/kent-dodds.jpg')],
+  kye: ['tkh44', require('./assets/images/people/kye-hohenberger.jpg')],
+  mark: ['markdalgleish', require('./assets/images/people/mark-dalgleish.jpg')],
+  max: ['mxstbr', require('./assets/images/people/max-stoiber.jpg')],
+  oleg: ['oleg008', require('./assets/images/people/oleg-slobodskoi.jpg')],
+  phil: ['_philpl', require('./assets/images/people/phil-pluckthun.jpg')],
+  sunil: ['threepointone', require('./assets/images/people/sunil-pai.jpg')],
+  vjeux: ['vjeux', require('./assets/images/people/vjeux.jpg')]
+};
+
 const images = {
   thankYou: 'https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif',
-  questions: 'https://media.giphy.com/media/l4FGroaKiE5uuMBiM/giphy.gif',
-  feedback: require('./assets/images/feedback-optimized.png')
+  questions: 'https://media.giphy.com/media/l4FGroaKiE5uuMBiM/giphy.gif'
+};
+
+export const PeopleToFollow = () =>
+  <div>
+    {chunk(Object.keys(people), 3).map(list =>
+      <Layout key={list.join(' ')} style={{ padding: 10 }}>
+        {list.map(person => {
+          const [handle, image] = people[person];
+          return (
+            <Fill key={person}>
+              <Link
+                href={`https://twitter.com/${handle}`}
+                target="_blank"
+                rel="noopener"
+              >
+                <Image
+                  src={image}
+                  style={{ borderRadius: '20vh', height: '20vh' }}
+                />
+                <Text
+                  style={{ margin: 0, padding: 0 }}
+                  textColor="secondary"
+                  textSize={18}
+                  textAlign="center"
+                >
+                  @{handle}
+                </Text>
+              </Link>
+            </Fill>
+          );
+        })}
+      </Layout>
+    )}
+  </div>;
+
+PeopleToFollow.Props = {
+  bgColor: 'white',
+  notes: `
+One of the best ways I've found to keep up with the latest technology updates, as well as just edify your currenet knowledge of common front-end (read: CSS in JS!) knowledge is to follow active community leaders on Twitter.
+
+Each of the people listed here are worth a follow, as they have some really interesting, great things to say and share about CSS in JS.
+  `
 };
 
 export const Attributions = () =>
@@ -138,5 +192,7 @@ FinTheEndThatsAllFolks.Props = {
 One final thank you to the organizers and sponsors of this conference, and for giving me an opportunity to present at my first ever conference.
 
 I'd like to also thank each of the attendees. Without you, each of us would be speaking to an empty room, and where's the fun in that!?
+  
+... and finally, I'd like to thank everyone who attended my NebraskaJS meetup, in particular [Matthew Steele](https://twitter.com/mattdsteele?lang=en), for invaluable advice and support with an earlier iteration of this talk. In addition, [Phil Plückthun](https://twitter.com/_philpl) for some great advice, as well.
   `
 };

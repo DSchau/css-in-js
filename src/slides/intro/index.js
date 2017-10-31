@@ -1,5 +1,5 @@
 import React from 'react';
-import { Appear, Heading, Fill, Layout, Link } from 'spectacle';
+import { Appear, Heading, Fill, Layout, Link, S as Span } from 'spectacle';
 
 import preloader from 'spectacle/lib/utils/preloader';
 
@@ -12,6 +12,7 @@ import GithubIcon from 'react-icons/lib/fa/github';
 import WebsiteIcon from 'react-icons/lib/md/web';
 
 import { Image } from 'components';
+import { FULL_WIDTH } from 'style';
 
 const images = {
   titleSlide: require('./assets/images/title-slide-optimized.jpeg'),
@@ -22,7 +23,19 @@ const images = {
   okc: require('./assets/images/okc-optimized.jpeg'),
   thunderPlains: require('./assets/images/thunder-plains-optimized.png'),
   nebraskaActual: require('./assets/images/nebraska-actual-optimized.jpeg'),
-  nebraskaPerception: require('./assets/images/nebraska-perception-optimized.jpeg')
+  nebraskaPerception: require('./assets/images/nebraska-perception-optimized.jpeg'),
+  sponsors: {
+    churchMint: require('./assets/images/sponsors/church-mint.png'),
+    mozilla: require('./assets/images/sponsors/mozilla.png'),
+    msEdge: require('./assets/images/sponsors/ms-edge.png'),
+    nobleSystems: require('./assets/images/sponsors/noble-systems.png'),
+    npm: require('./assets/images/sponsors/npm.png'),
+    simian: require('./assets/images/sponsors/simian.png'),
+    sonic: require('./assets/images/sponsors/sonic.png'),
+    tailwind: require('./assets/images/sponsors/tailwind.png'),
+    thunder: require('./assets/images/sponsors/thunder.png'),
+    wegolook: require('./assets/images/sponsors/wegolook.png')
+  }
 };
 
 preloader({
@@ -34,9 +47,9 @@ export const Intro = () =>
     style={{
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'flex-start',
+      alignItems: 'center',
       justifyContent: 'center',
-      minHeight: '85vh'
+      minHeight: '100vh'
     }}
   >
     <div
@@ -64,8 +77,8 @@ export const Intro = () =>
           paddingRight: 20
         }}
       >
-        <Heading size={1} caps fit textFont="Bitter">
-          CSS in JS
+        <Heading size={2} caps fit textFont="Bitter" textColor="white">
+          CSS in JS:
         </Heading>
       </Fill>
       <Fill margin={10}>
@@ -94,6 +107,7 @@ export const Intro = () =>
   </div>;
 
 Intro.Props = {
+  ...FULL_WIDTH,
   bgImage: images.titleSlide,
   bgDarken: 0.5,
   notes: `
@@ -170,17 +184,6 @@ But... here's what Omaha actually looks like. It's been a great city for me to h
   }
 };
 
-export const Sponsors = () =>
-  <Heading size={2} caps fit>
-    Sponsors
-  </Heading>;
-
-Sponsors.Props = {
-  notes: `
-Every presentation has this prerequisite sponsors slide, but they truly deserve so much credit. Without their support, we wouldn't have all gotten together for this great conference, so it is _sincerely_ appreciated. Thank you so much!
-  `
-};
-
 export const ObjectPartners = () =>
   <Image src={images.opiLogo} style={{ width: '100%' }} />;
 
@@ -192,10 +195,37 @@ I work at a great company called Object Partners. Specialize in JVM and frontend
   `
 };
 
+export const Sponsors = () => {
+  const renderSponsors = sponsors =>
+    <Layout>
+      {sponsors.map(sponsor =>
+        <Fill key={sponsor}>
+          <Image src={images.sponsors[sponsor]} style={{ paddingRight: 10 }} />
+        </Fill>
+      )}
+    </Layout>;
+  return (
+    <div>
+      {renderSponsors(['sonic', 'mozilla'])}
+      {renderSponsors(['wegolook', 'tailwind', 'thunder', 'msEdge'])}
+      {renderSponsors(['nobleSystems', 'npm', 'simian', 'churchMint'])}
+    </div>
+  );
+};
+
+Sponsors.Props = {
+  bgColor: 'white',
+  notes: `
+Every presentation has this prerequisite sponsors slide, but they truly deserve so much credit. Without their support, we wouldn't have all gotten together for this great conference, so it is _sincerely_ appreciated. Thank you so much!
+  `
+};
+
 export const FromHere = () =>
   <span>
     <WtfFace height={256} width={256} />
-    <Heading size={2}>(you&hellip; possibly)</Heading>
+    <Heading size={2}>
+      (you&hellip; <Span type="italic">possibly</Span>)
+    </Heading>
   </span>;
 
 FromHere.Props = {
@@ -213,7 +243,7 @@ export const ToHere = () =>
     <Appear>
       <Fill>
         <HeartEyes height={256} width={256} />
-        <Heading size={2}>or even here</Heading>
+        <Heading size={2}>or here</Heading>
       </Fill>
     </Appear>
   </Layout>;

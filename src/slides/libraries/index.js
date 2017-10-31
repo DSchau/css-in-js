@@ -10,15 +10,22 @@ import {
   S,
   Text
 } from 'spectacle';
+import chunk from 'lodash.chunk';
 
 import PolishedEmoji from 'emojione/assets/svg/2728.svg';
 
 import { GithubStars, Image, LibraryPayload, NpmDownloads } from 'components';
+import { FULL_WIDTH } from 'style';
 
 const libraries = {
   styledComponents: require('./assets/images/styled-components.png'),
   glamorous: require('./assets/images/glamorous.svg'),
-  emotion: require('./assets/images/emotion.png')
+  emotion: require('./assets/images/emotion.png'),
+  jss: require('./assets/images/extra-libraries/jss.png'),
+  linaria: require('./assets/images/extra-libraries/linaria.png'),
+  styletron: require('./assets/images/extra-libraries/styletron.svg'),
+  fela: require('./assets/images/extra-libraries/fela.png'),
+  aphrodite: require('./assets/images/extra-libraries/aphrodite.svg')
 };
 
 const logos = {
@@ -202,6 +209,35 @@ These are just the color methods, but polished contains a bunch more including:
   `
 };
 
+export const OtherLibraries = () =>
+  <div>
+    {chunk(
+      ['jss', 'linaria', 'styletron', 'fela', 'aphrodite'],
+      2
+    ).map(libraries =>
+      <Layout key={libraries.join(' ')}>
+        {libraries.map(library =>
+          <Image key={library} src={images[library]} />
+        )}
+      </Layout>
+    )}
+  </div>;
+
+OtherLibraries.Props = {
+  bgColor: 'white',
+  notes: `
+If I had more time, I'd love to cover _every_ major library that can be used. Unfortunately, in the interest of time, I'm only able to cover a few. That said, there are _so_ many libraries in the frontend ecosystem that can be utilized.
+
+Also note that every single one of these libraries is framework agnostic!
+
+- [JSS](https://github.com/cssinjs/jss)
+- [linaria](https://github.com/callstack/linaria)
+- [styletron](https://github.com/rtsao/styletron)
+- [fela](https://github.com/rofrischmann/fela)
+- [aphrodite](https://github.com/Khan/aphrodite)
+  `
+};
+
 export const LibraryDownloadCount = () =>
   <div>
     <Heading size={2} caps textColor="white">
@@ -211,6 +247,7 @@ export const LibraryDownloadCount = () =>
   </div>;
 
 LibraryDownloadCount.Props = {
+  ...FULL_WIDTH,
   bgColor: 'secondary',
   notes: `
 It _can_ be helpful to consider library downlaod count, but that is in no way, shape, or form indicative of a library's quality or usefulness for your application.
@@ -233,6 +270,7 @@ export const GithubStarsCount = () =>
   </div>;
 
 GithubStarsCount.Props = {
+  ...FULL_WIDTH,
   bgColor: 'secondary',
   notes: `
 Similar story here, styled-components tends to be the most starred of each of them.
@@ -250,6 +288,7 @@ export const PayloadSizeChart = () =>
   </div>;
 
 PayloadSizeChart.Props = {
+  ...FULL_WIDTH,
   bgColor: 'secondary',
   notes: `
 The cost of using these libraries is non-null, even when using babel plugins or other techniques to reduce the file size as much as possible.
