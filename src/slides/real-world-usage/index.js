@@ -12,7 +12,9 @@ const snippets = {
   realCSS: require('./assets/snippets/real-css.js'),
   className: require('./assets/snippets/class-name.js'),
   externalLibrariesGlamorous: require('./assets/snippets/external-libraries-glamorous.js'),
-  externalLibrariesStyledComponents: require('./assets/snippets/external-libraries-styled.js')
+  externalLibrariesStyledComponents: require('./assets/snippets/external-libraries-styled.js'),
+  injectingGlobals: require('./assets/snippets/injecting-globals.js'),
+  nesting: require('./assets/snippets/nesting.js')
 };
 
 export const Usage = () =>
@@ -22,7 +24,7 @@ export const Usage = () =>
       display: 'flex',
       alignItems: 'flex-end',
       justifyContent: 'center',
-      height: '85vh'
+      height: '75vh'
     }}
   >
     <Heading size={1} caps textFont="Bitter" style={{ margin: 0, padding: 0 }}>
@@ -143,5 +145,37 @@ ExternalLibraries.Props = {
 Libraries that require a certain class structure (e.g. Bootstrap), can also work with CSS in JS libraries!
 
 This example exposes a wrapped bootstrap Alert, which can then be used as a regular React component
+  `
+};
+
+export const InjectingGlobals = () =>
+  <div>
+    <Heading size={2} caps textColor="white">
+      Injecting Globals
+    </Heading>
+    <CodePane lang="jsx" source={snippets.injectingGlobals} textSize={20} />
+  </div>;
+
+InjectingGlobals.Props = {
+  bgColor: 'code',
+  notes: `
+_Some_ of the time, it may be necessary to inject globals, in particular when targeting \`html\`, \`body\`, etc.
+
+For these times, most libraries include a mechanism to inject a global into a DOM style tag.
+  `
+};
+
+export const Nesting = () =>
+  <div>
+    <Heading size={2} caps textColor="white">
+      Nesting Rules
+    </Heading>
+    <CodePane lang="jsx" source={snippets.nesting} textSize={20} />
+  </div>;
+
+Nesting.Props = {
+  bgColor: 'code',
+  notes: `
+Nesting _is_ supported in most of these libraries, but it can be seen as a kind of anti-pattern in certain circumstances, _especially_ if you're targeting a child selector.
   `
 };

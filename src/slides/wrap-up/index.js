@@ -80,17 +80,19 @@ export const CSSInJSPlayground = () =>
       flex: '1 1 auto',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
-      width: '100vh',
-      height: '100vw'
+      justifyContent: 'center'
     }}
     href="https://css-in-js-playground.com"
     target="_blank"
     rel="noopener"
-  />;
+  >
+    <Image src={images.cssPlayground} />
+  </Link>;
 
 CSSInJSPlayground.Props = {
-  bgImage: images.cssPlayground,
+  bgColor: 'code',
+  width: '100vh',
+  height: '100vw',
   notes: `
 The React community can certainly inspire what many have called "selection anxiety." The proliferation of libraries, techniques, etc. can make it incredibly hard--especially as a beginner--to know what choice to make, and whether the choice is _most_ correct.
 

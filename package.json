@@ -35,6 +35,7 @@
     "emojione": "2.2.5",
     "es6-promise": "^4.1.1",
     "isomorphic-fetch": "^2.2.1",
+    "lodash.chunk": "~4.2.0",
     "lodash.kebabcase": "~4.1.1",
     "normalize.css": "3.0.3",
     "polished": "~1.8.1",

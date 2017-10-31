@@ -13,7 +13,7 @@ import { getColorFromString, PRIMARY, SECONDARY } from 'style';
 export const BarChart = ({
   data = [],
   height = window.innerHeight / 1.5,
-  width = window.innerWidth / 1.35
+  width = window.innerWidth / 1.25
 }) => {
   if (width < 10) return null;
 
@@ -69,13 +69,13 @@ export const BarChart = ({
                 data={{ x: x(d), y: y(d) }}
               />
               <TextOutline
-                fontSize={16}
+                fontSize={24}
                 x={xScale(x(d)) + xScale.bandwidth() / 2}
                 y={yMax - barHeight}
                 textAnchor={'middle'}
                 fill={'white'}
-                outlineStroke={`rgba(255, 255, 255, 0.5)`}
-                outlineStrokeWidth={0}
+                outlineStroke={`rgba(0, 0, 0, 1)`}
+                outlineStrokeWidth={4}
                 fontFamily={'Roboto Mono'}
               >
                 {d.size}

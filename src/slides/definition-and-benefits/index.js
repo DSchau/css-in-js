@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Appear, CodePane, Fill, Heading, Layout, S, Text } from 'spectacle';
 
 import CrossArms from 'emojione/assets/svg/1f645-1f3fb.svg';
+import DownArrow from 'react-icons/lib/fa/arrow-down';
 
-import { QuoteSlide } from 'components';
+import { Image, QuoteSlide } from 'components';
 
 const images = {
   k: 'https://media.giphy.com/media/10sXTCdlsdKn8k/giphy.gif',
@@ -15,6 +16,10 @@ const images = {
 
 const snippets = {
   inlineStyles: require('./assets/snippets/inline-styles.js'),
+  realStyles: {
+    input: require('./assets/snippets/real-styles.input.js'),
+    output: require('./assets/snippets/real-styles.output.html')
+  },
   semanticElements: require('./assets/snippets/semantic-elements.js'),
   classNameElements: require('./assets/snippets/class-name-elements.js')
 };
@@ -241,6 +246,17 @@ It lessens the bad parts of CSS (globals!) by scoping to a class name
 
 If you already know CSS, great! CSS in JS presumes that you do; use the properties, rules, etc. of CSS that you already know and love.
   `
+};
+
+export const RealStylesExample = () =>
+  <div>
+    <CodePane source={snippets.realStyles.input} lang="jsx" textSize={24} />
+    <DownArrow color="white" />
+    <CodePane source={snippets.realStyles.output} lang="html" textSize={24} />
+  </div>;
+
+RealStylesExample.Props = {
+  bgColor: 'code'
 };
 
 export const ComponentStyling = () =>
