@@ -47,6 +47,13 @@ ThemeProvider.Props = {
   ],
   showLineNumbers: false,
   notes: `
-Check out the [code slide](https://cssinjs.dustinschau.com/#/theme-provider) to see the full, navigable example
+Check out the [code slide](https://css-in-js.dustinschau.com/#/theme-provider) to see the full, navigable example
+
+To actually add theming to an application, the process is _quite_ simple:
+
+- Import the \`ThemeProvider\` component that most libs export
+- Wrap your base component (e.g. App.js) in a \`ThemeProvider\`
+- Provide a \`theme\` prop to the \`ThemeProvider\`
+- All contained components will be injected via props/context with the current \`theme\`
   `
 };

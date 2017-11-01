@@ -13,7 +13,7 @@ import { getColorFromString, PRIMARY, SECONDARY } from 'style';
 export const BarChart = ({
   data = [],
   height = window.innerHeight / 1.5,
-  width = window.innerWidth / 1.25
+  width = window.innerWidth / 1.15
 }) => {
   if (width < 10) return null;
 
@@ -64,7 +64,7 @@ export const BarChart = ({
                 width={xScale.bandwidth()}
                 height={barHeight}
                 x={xScale(x(d))}
-                y={yMax - barHeight}
+                y={yMax - barHeight + 2}
                 fill={getColorFromString(d.name, 85, 50)}
                 data={{ x: x(d), y: y(d) }}
               />
@@ -90,7 +90,11 @@ export const BarChart = ({
         stroke="#fff"
         tickStroke="#fff"
         tickLabelComponent={
-          <text fill="#fff" fontSize={18} textAnchor="middle" />
+          <text
+            fill="#fff"
+            fontSize={Math.round(Math.sqrt(width) / 2)}
+            textAnchor="middle"
+          />
         }
       />
     </svg>

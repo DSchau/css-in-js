@@ -1,7 +1,8 @@
 import React from 'react';
 import { BlockQuote, Cite, Heading, Fill, Layout, Link, Text } from 'spectacle';
+import GlobeIcon from 'react-icons/lib/fa/globe';
 
-import { Image, QuoteSlide } from 'components';
+import { Image, QuoteSlide, PerformanceChart } from 'components';
 
 const images = {
   drawbacks: require('./assets/images/drawbacks-optimized.jpeg'),
@@ -121,7 +122,7 @@ export const EditorToolingPlugin = () =>
 
 EditorToolingPlugin.Props = {
   notes: `
-However, it seems like every week there are new developments to get this working as seamlessly as possible
+It seems like every week there are new developments to get this working as seamlessly as possible. I believe this to be a space that will continue to see rapid improvements.
   `
 };
 
@@ -134,7 +135,7 @@ SanitizationConcerns.Props = {
   notes: `
 As with anything, if you're directly injecting user input (even into CSS!) you open yourself up to issues
 
-_Great article on [React Armory](https://reactarmory.com/answers/how-can-i-use-css-in-js-securely)_
+_Check out this [great article](https://reactarmory.com/answers/how-can-i-use-css-in-js-securely) from React Armory_
   `
 };
 
@@ -150,5 +151,29 @@ PerformanceConcerns.Props = {
 Performance can be a concern, but I'd urge you here to not prematurely optimize. The difference between each of the libraries is arguably minimal, and the difference between CSS is relatively minimal as well.
 
 However, if you're pushing Facebook-scale™, or after measuring your application's performance, then it may be worth re-visiting whether these libraries are for you, or whether there are performance optimizations you can make to improve perf.
+  `
+};
+
+export const PerformanceChartExample = () =>
+  <div>
+    <PerformanceChart />
+    <Link
+      textColor="white"
+      href="https://github.com/A-gambit/CSS-IN-JS-Benchmarks"
+      target="_blank"
+      rel="noopener"
+    >
+      <GlobeIcon color="white" /> Benchmark
+    </Link>
+  </div>;
+
+PerformanceChartExample.Props = {
+  bgColor: 'secondary',
+  notes: `
+This benchmark measures the mount time of various CSS in JS libraries vs. inline styles (i.e. without a library).
+
+Any benchmark should be taken with a grain of salt. It is _incredibly_ difficult to measure real-world performance, so most resort to doing large-scale operations (e.g. rendering a listview with thousands of rows, re-rendering a large table, etc.), which are generally not at all indicative of the type of application most are building.
+
+They can be helpful to get a general idea for performance, these are not necessarily what you'll see in real world applications. 
   `
 };

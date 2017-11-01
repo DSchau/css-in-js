@@ -27,6 +27,8 @@ So what should we make of all of this?
 
 1. CSS in JS solves very real problems of CSS
 1. It does so in a clean, component focused, and developer friendly way
+1. It abstracts the CSS model to the component level, rather than the document level
+1. It leverages the full power of JavaScript and the JavaScript ecosystem to _enhance_ CSS
 1. ...
 1. Profit
   `
@@ -98,6 +100,14 @@ The React community can certainly inspire what many have called "selection anxie
 
 To help alleviate this, I recently created what I'm calling the "CSS in JS Playground," which is a live-editable comparison of some of the most common CSS in JS libraries.
 
-My hope is that this tool will help each of you get a feel for each of the libraries, and hopefully be able to make a more informed decision for what is best for _your_ particular app and use cases.
+My hope is that this tool will help each of you get a feel for each of the libraries, and hopefully empower you to make a more informed decision for what is best for _your_ particular app and use cases.
+
+## Features
+
+- Live editing and near instant preview of the code changes (using a web worker and the buble transpiler!)
+- Service worker integration for better offline support
+- A _rudimentary_ file system! Add a file, and import it in the main index file!
+- Persistence! Update any file (or add additional files) and you can share that URL with your friends
+- Theming by way of a light/dark theme
   `
 };

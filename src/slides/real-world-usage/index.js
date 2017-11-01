@@ -24,10 +24,16 @@ export const Usage = () =>
       display: 'flex',
       alignItems: 'flex-end',
       justifyContent: 'center',
-      height: '75vh'
+      height: '85vh'
     }}
   >
-    <Heading size={1} caps textFont="Bitter" style={{ margin: 0, padding: 0 }}>
+    <Heading
+      size={1}
+      caps
+      textFont="Bitter"
+      textColor="primary"
+      style={{ margin: 0, padding: 0, textShadow: '0 0 12px black !important' }}
+    >
       (Usage)
     </Heading>
   </div>;
@@ -49,13 +55,13 @@ export const UsingProps = () =>
     <Heading size={2} caps textColor="white">
       Using Props
     </Heading>
-    <CodePane lang="jsx" source={snippets.props} textSize={16} />
+    <CodePane lang="jsx" source={snippets.props} textSize={18} />
   </div>;
 
 UsingProps.Props = {
   bgColor: 'code',
   notes: `
-Props injection is a natural, React-y method of altering a given component's style under certain conditions. For instance, if re-visit our earlier CSS only button, we can create the same with props, but with complete encapsulation to that single button component.
+Props injection is a natural, React-y method of altering a given component's style under certain conditions. For instance, if we were to re-visit our earlier CSS only button, we can create the same with props, but with complete encapsulation to that single button component.
   `
 };
 
@@ -70,7 +76,7 @@ export const Inheritance = () =>
 Inheritance.Props = {
   bgColor: 'code',
   notes: `
-A common question is that one of CSS' great features is inheritance and easy extension of base classes. Inheritance is typically accomplished in these libraries by injecting a previously styled component (😉) and adding additional styles.
+A common question is that one of CSS' great features is inheritance and easy extension of base classes. Inheritance is typically accomplished in these libraries by injecting a previously styled component (😉) and adding additional styles, as needed. All previously defined styles will be merged with, or possibly replaced by, the new styles.
   `
 };
 
@@ -79,7 +85,7 @@ export const RealCSS = () =>
     <Heading size={2} caps textColor="white">
       Real CSS
     </Heading>
-    <CodePane lang="jsx" source={snippets.realCSS} textSize={16} />
+    <CodePane lang="jsx" source={snippets.realCSS} textSize={20} />
   </div>;
 
 RealCSS.Props = {
@@ -100,7 +106,7 @@ export const Animation = () =>
 Animation.Props = {
   bgColor: 'code',
   notes: `
-But what about animations? Those are inherently global!
+But what about animations? Those inherently require a global animation name!
 
 Most libraries include some type of helper utility to return a unique identifier/hash for those animations so that globals remain stripped from the code base.
   `
@@ -120,9 +126,9 @@ export const UsingClassName = () =>
 UsingClassName.Props = {
   bgColor: 'code',
   notes: `
-If you're designing a component library and want to make it CSS in JS friendly, consider exposing the className prop for consumption
+If you're designing a component library and want to make it CSS in JS friendly, consider exposing the className prop for consumption.
 
-- these libraries inject a className (and a \`style\` tag in the DOM), which would then be applied on top of the existing styles
+- Most libraries inject a className--or provide a className--which would then be applied on top of the existing styles
 - Additionally, if you are "wrapping" your styled elements, this is a great way to make those wrappers extensible, as well
   `
 };
@@ -144,7 +150,7 @@ ExternalLibraries.Props = {
   notes: `
 Libraries that require a certain class structure (e.g. Bootstrap), can also work with CSS in JS libraries!
 
-This example exposes a wrapped bootstrap Alert, which can then be used as a regular React component
+This example exposes a wrapped bootstrap Alert, which can then be used as a regular React component with a prop specifying the type of alert (e.g. \`success\`, \`info\`, etc.)
   `
 };
 
@@ -177,5 +183,11 @@ Nesting.Props = {
   bgColor: 'code',
   notes: `
 Nesting _is_ supported in most of these libraries, but it can be seen as a kind of anti-pattern in certain circumstances, _especially_ if you're targeting a child selector.
+
+However, that said, [styled-components documentation](https://www.styled-components.com/docs/faqs) mentions that:
+
+> ... Used sparingly it's a great way to lighten your code by reducing the need to create explicit classes for every element.
+
+So use with caution, but it can be a decent technique to lighten some of your component's styles!
   `
 };
