@@ -5,4 +5,5 @@ export * from './GithubStars';
 export * from './Image';
 export * from './LibraryPayload';
 export * from './NpmDownloads';
+export * from './PerformanceChart';
 export * from './QuoteSlide';

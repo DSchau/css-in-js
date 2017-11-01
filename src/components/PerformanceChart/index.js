@@ -4,30 +4,30 @@ import { BarChart } from '../';
 const data = [
   {
     name: 'styled-components',
-    size: 559580
+    size: 103.35
   },
   {
     name: 'glamorous',
-    size: 645466
+    size: 183.76
   },
   {
     name: 'emotion',
-    size: 24163
-  },
-  {
-    name: 'glamor',
-    size: 693107
-  },
-  {
-    name: 'aphrodite',
-    size: 141820
+    size: 141.88
   },
   {
     name: 'radium',
-    size: 711717
+    size: 81.07
+  },
+  {
+    name: 'aphrodite',
+    size: 38.75
+  },
+  {
+    name: 'inline styles',
+    size: 27.55
   }
 ];
 
-export const NpmDownloads = ({ height, width }) => {
+export const PerformanceChart = ({ height, width }) => {
   return <BarChart height={height} width={width} data={data} />;
 };

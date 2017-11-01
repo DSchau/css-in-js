@@ -93,7 +93,7 @@ StyledComponents.Props = {
   notes: `
 styled-components is what I would call the "gateway drug" to CSS in JS libraries. You author using template strings, so you can write CSS not as an object, but as a string and dasherized just like it's authored in CSS.
 
-This means that styled-components is probably the easiest to get up and running, and I would recommend it to get your feet wet with CSS in JS techniques. In addition, it's a great choice for beginning to move off of a formerly vanilla CSS code base, because you can generally re-use most of your existing CSS, with some modifications, of course.
+This means that styled-components is probably the easiest to get up and running, and I would recommend it to get your feet wet with CSS in JS techniques. In addition, it's a great choice for beginning to move off of a formerly vanilla CSS code base, because you can generally re-use most of your existing CSS, with some small modifications here and there.
   `
 };
 
@@ -105,7 +105,7 @@ StyledComponentsExample.Props = {
   notes: `
 The css helper constructs a "mixin" that can be re-used and applied when needed. This can be particularly helpful to encapsulate rules, and then use them conditionally, when required.
 
-Additionally, you can see here another of styled-components' great features. Prop injection! This means that props can be passed to these styled-components, and then parsed and rules can be conditionally applied/removed. Very cool!
+Additionally, you can see here another of styled-components' great features. Prop injection! This means that props can be passed to these styled components, and then parsed and style rules can be conditionally applied/removed. Very cool!
   `
 };
 
@@ -116,7 +116,7 @@ Glamorous.Props = {
   notes: `
 Glamorous built on some of the ideas of not only styled-components, but also glamor, the library that powers much of Glamorous' underlying functionality.
 
-The central difference with Glamorous is that is expects objects (like the kind passed to inline styles), but that can also be merged with subsequent objects.
+The central difference with Glamorous is that is expects objects (similar to the kind passed to inline styles), but that can also be merged with subsequent objects _and_ that can also accept things like media queries, pseudo styles, etc.
 
 It might seem more natural to begin using styled-components, but as of late, I've found myself increasingly drawn to and really liking the functionality available in Glamorous, particularly with the style objects. Merging, conditional applying of rules, etc. feel very natural with Glamorous.
 
@@ -130,9 +130,9 @@ export const GlamorousExample = () =>
 GlamorousExample.Props = {
   bgColor: 'code',
   notes: `
-We can begin to get a solid feel for Glamorous' API. The function takes 0 to N objects (or functions that return an object). Any function is injected with the current props passed to the component, as well as a global theme prop if tying into Glamorous' exposed theming capability.
+We can begin to get a solid feel for Glamorous' API. The function takes 0 to n objects (or functions that return an object). Any function is injected with the current props passed to the component, as well as a global theme prop if tying into Glamorous' exposed theming capability.
 
-The code here is using the object rest spread syntax, which makse the code slightly more terse.
+The code here is using the object rest spread syntax, which makes the code slightly more terse.
   `
 };
 
@@ -147,7 +147,9 @@ export const Emotion = () =>
 Emotion.Props = {
   bgColor: 'rgb(248, 249, 250)',
   notes: `
-Emotion is another excellent library that feels very similar to styled-components because it also allows for template literals to inject styles. The key difference, and a particularly interesting idea, is that it ships with a babel plugin which attempts to pre-compile the styles that aren't dynamic, thereby reducing the payload of the resulting bundle. In general, this space will continue to be particularly interesting, so keep on eye on other libraries or enhancements that attempt to minimize the runtime that is shipped to the end user!
+Emotion is another excellent library that feels very similar to styled-components because it also allows for template literals to inject styles. The key difference, and a particularly interesting idea, is that it ships with a babel plugin which attempts to pre-compile the styles that aren't dynamic, thereby reducing the payload of the resulting bundle.
+
+In general, I think the ideas of minimizing (or removing entirely!) a runtime are particularly interesting, and will remain an area to keep an eye on as the community matures and develops further processes and tooling.
   `
 };
 
@@ -174,7 +176,7 @@ Polished.Props = {
   notes: `
 Polished is a *framework agnostic* collection of utility methods for CSS in JS functionality. Some have described it as the "lodash of CSS in JS," and that's a very fair comparison.
 
-Many helpers/mixins are provided for usage in any CSS in JS library, and functionality such as \`lighten\`, \`darken\`, \`rgba\`, etc. can be utilized in your application to do some really interesting things.
+Many helpers/mixins are provided for usage in any CSS in JS library, and functionality such as \`lighten\`, \`darken\`, \`rgba\`, etc. can be utilized in your application to do some really useful things.
   `
 };
 
@@ -254,7 +256,7 @@ It _can_ be helpful to consider library downlaod count, but that is in no way, s
 
 That said, it can be valuable just to get a baseline of relative support, community activity, etc. which can be a metric to consider when targeting a CSS in JS library to use in your application. 
 
-- styled-components is probably the most popular
+- styled-components and glamorous are two of the most popular and "hot" choices
 - glamorous requires glamor, so a lot of the glamor downloads are likely from glamorous (but note: glamor can be used outside of glamorous)
 - aphrodite and radium were huge players (and may still be a good choice in certain scenarios), but I tend to like the others a bit more
 - radium is inline style based, but adds pseudo styles and other expected CSS functionality while still using inline styles; however, it's not quite as utilized or "in vogue" as it may have once been
@@ -273,9 +275,7 @@ GithubStarsCount.Props = {
   ...FULL_WIDTH,
   bgColor: 'secondary',
   notes: `
-Similar story here, styled-components tends to be the most starred of each of them.
-
-Radium was a huge player prior to the introduction of the stylesheet injection and uniquely generated hased class names style of libraries, which arguably tend to be a bit more useful.
+Similar story here, styled-components and glamorous are on the rise, while the others are relatively constant.
   `
 };
 

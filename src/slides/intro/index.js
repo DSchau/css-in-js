@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Appear, Heading, Fill, Layout, Link, S as Span } from 'spectacle';
 
 import preloader from 'spectacle/lib/utils/preloader';
 
+import Heart from 'emojione/assets/svg/2665.svg';
 import WtfFace from 'emojione/assets/svg/1f616.svg';
 import Ambivalence from 'emojione/assets/svg/1f612.svg';
 import HeartEyes from 'emojione/assets/svg/1f60d.svg';
@@ -74,14 +75,15 @@ export const Intro = () =>
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          paddingLeft: 40,
           paddingRight: 20
         }}
       >
-        <Heading size={2} caps fit textFont="Bitter" textColor="white">
+        <Heading size={1} caps fit textFont="Bitter">
           CSS in JS:
         </Heading>
       </Fill>
-      <Fill margin={10}>
+      <Fill>
         <Heading size={4} textColor="primary" textAlign="left">
           Benefits, Drawbacks, and Tooling
         </Heading>
@@ -170,7 +172,7 @@ AboutMe.Props = {
   bgImage: images.nebraskaPerception,
   bgDarken: 0.4,
   notes: `
-I'm a frontend developer speciailizing in all things JavaScript. Throughout my career, I've done a fair bit of everything: Angular, React, jQuery, you name it. Of course, I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and (of course) the gamut of CSS in JS solutions. I'm from little ol' Omaha, Nebraska, which I think most people looks a bit like this.
+I'm a frontend developer specializing in all things JavaScript. Throughout my career, I've done a fair bit of everything: Angular, React, jQuery, you name it. Of course, I've also done a fair bit of everything in CSS land, whether it's vanilla CSS, LESS, SASS, CSS Modules, and (of course) the gamut of CSS in JS solutions. I'm from little ol' Omaha, Nebraska, which I think most people looks a bit like this.
   `
 };
 
@@ -179,7 +181,7 @@ export const NebraskaActual = {
     bgImage: images.nebraskaActual,
     bgDarken: 0.2,
     notes: `
-But... here's what Omaha actually looks like. It's been a great city for me to hone my craft, and I think it's a great technology city for professionals young and old.
+But... here's what Omaha actually looks like. It's been a great city for me to hone my craft, and I think it's a great city for professionals young and old.
     `
   }
 };
@@ -191,32 +193,55 @@ ObjectPartners.Props = {
   bgImage: images.opiMn,
   bgDarken: 0.8,
   notes: `
-I work at a great company called Object Partners. Specialize in JVM and frontend development of all sorts. Between Omaha, Minneapolis, and Chicago, we have about 100 consultants. Come talk to me after if you'd like to learn more--and I'll have some swag to give out to.
+I work at a great company called Object Partners. We specialize in JVM and frontend development of all sorts. Between Omaha, Minneapolis, and Chicago, we have about 100 excellent consultants.
   `
 };
 
-export const Sponsors = () => {
-  const renderSponsors = sponsors =>
-    <Layout>
-      {sponsors.map(sponsor =>
-        <Fill key={sponsor}>
-          <Image src={images.sponsors[sponsor]} style={{ paddingRight: 10 }} />
-        </Fill>
-      )}
-    </Layout>;
-  return (
-    <div>
-      {renderSponsors(['sonic', 'mozilla'])}
-      {renderSponsors(['wegolook', 'tailwind', 'thunder', 'msEdge'])}
-      {renderSponsors(['nobleSystems', 'npm', 'simian', 'churchMint'])}
-    </div>
-  );
+export const Sponsors = class extends Component {
+  state = {
+    clicked: false
+  };
+
+  render() {
+    const renderSponsors = sponsors =>
+      <Layout>
+        {sponsors.map(sponsor =>
+          <Fill key={sponsor}>
+            <Image
+              src={images.sponsors[sponsor]}
+              style={{ paddingRight: 10 }}
+            />
+          </Fill>
+        )}
+      </Layout>;
+    return (
+      <div onClick={() => this.setState({ clicked: true })}>
+        {renderSponsors(['sonic', 'mozilla'])}
+        {renderSponsors(['wegolook', 'tailwind', 'thunder', 'msEdge'])}
+        {renderSponsors(['nobleSystems', 'npm', 'simian', 'churchMint'])}
+        {this.state.clicked &&
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: 0,
+              right: 0,
+              transform: `translateY(-50%)`
+            }}
+          >
+            <Heart height={256} width={256} />
+          </div>}
+      </div>
+    );
+  }
 };
 
 Sponsors.Props = {
   bgColor: 'white',
   notes: `
 Every presentation has this prerequisite sponsors slide, but they truly deserve so much credit. Without their support, we wouldn't have all gotten together for this great conference, so it is _sincerely_ appreciated. Thank you so much!
+
+❤️
   `
 };
 
@@ -230,7 +255,7 @@ export const FromHere = () =>
 
 FromHere.Props = {
   notes: `
-I feel like some of you _may_ have a pretty negative perception of CSS in JS, or at least not an overtly positive perception. This can be for a variety of reasons, but I thik paramount in some people's minds is that it goes against the "separation of concerns" that have been ingrained in our minds and regularly re-enforced. It can feel weird, it can feel unclean, and it may even feel like a solution looking for a problem.
+I feel like some of you _may_ have a pretty negative perception of CSS in JS, or at least not an overtly positive perception. This can be for a variety of reasons, but I think paramount for some is that it goes against the "separation of concerns" that have been ingrained in our minds and regularly re-enforced. It can feel weird, it can feel unclean, and it can even feel like a solution looking for a problem.
   `
 };
 
@@ -250,13 +275,15 @@ export const ToHere = () =>
 
 ToHere.Props = {
   notes: `
-My goal is to take you from this initial possibly negative stance to an understanding of why CSS in JS exists, and how it can solve some some very real developmental problems.  I'm I'm successful, maybe even several of you will leave and want to use/experiment with some of these technologies 😍
+My goal is to take you from this initial _possibly_ negative stance to cautious skepticism. I hope you leave here with an understanding of why CSS in JS exists, and how it can solve some very real developmental problems. Perhaps it might not be the perfect fit for your application at this point, but you can understand why someone else would adopt some of these technologies.
+
+A stretch goal is that many of you will leave here fully convinced that CSS in JS is the solution to some of your CSS problems, and you'll adopt these techniques for your next application.
 
 ## Agenda
 
 - Discussion of the problems of CSS
 - Defining what CSS in JS is, and how it can solve some of these problems
-- Discussing some various CSS in JS libraries, any real world examples of usage of these
+- Discussing some various CSS in JS libraries, and real world examples of the usage of these
 - Finishing up with some discussion of drawbacks of CSS in JS and some quick demos
   `
 };

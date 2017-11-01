@@ -4,7 +4,8 @@ import { darken } from 'polished';
 
 const Alert = glamorous.div({
   backgroundColor: '#EEE',
-  color: '#888'
+  color: '#888',
+  padding: '0 0.5rem'
 });
 
 const AlertDanger = glamorous(Alert)({

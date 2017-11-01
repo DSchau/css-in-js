@@ -4,27 +4,27 @@ import { BarChart } from '../';
 const data = [
   {
     name: 'styled-components',
-    size: 9795
+    size: 10950
   },
   {
     name: 'glamorous',
-    size: 2346
+    size: 2614
   },
   {
     name: 'emotion',
-    size: 1532
+    size: 2062
   },
   {
     name: 'glamor',
-    size: 2546
+    size: 2669
   },
   {
     name: 'radium',
-    size: 5618
+    size: 5752
   },
   {
     name: 'aphrodite',
-    size: 3452
+    size: 3618
   }
 ];
 
