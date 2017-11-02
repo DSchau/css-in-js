@@ -1,4 +1,4 @@
-import { complement, lighen, invert } from 'polished';
+import { complement, lighten, invert } from 'polished';
 
 const primary = {
   base: '#EEE',

@@ -246,7 +246,7 @@ A real stylesheet gives you the best parts of CSS (media queries, pseudo styles,
 
 It lessens the bad parts of CSS (globals!) by scoping to a class name
 
-If you already know CSS, great! CSS in JS presumes that you do; use the properties, rules, etc. of CSS that you already know and love continue to function just as they do in vanilla CSS.
+If you already know CSS, great! CSS in JS presumes that you do; the properties, rules, etc. of CSS that you already know and love continue to function just as they do in vanilla CSS.
   `
 };
 
@@ -400,7 +400,7 @@ export const StyleCognitiveLoad = () => {
 
 StyleCognitiveLoad.Props = {
   notes: `
-The left is the mental model we must keep in our minds when writing CSS centered around HTML. We must be aware that a class we apply in HTML is styled with a class name. We must be aware that these class names can cascade and stuck, sometimes interfering in unforseen ways. These cacading rules then become stylesheets in our DOM that can themselves conflict.
+The left is the mental model we must keep in our minds when writing CSS centered around HTML. We must be aware that a class we apply in HTML is styled with a class name. We must be aware that these class names can cascade and stack, sometimes interfering in unforseen ways. These cacading rules then become stylesheets in our DOM that can themselves conflict.
 
 The right is the mental model when writing CSS in JS. Write HTML (JSX) that is encapsulated with component-scoped styles. No stacking. Never worry again about CSS rule specificity (and no \`!important\` hacks), and truly think in components!
   `
