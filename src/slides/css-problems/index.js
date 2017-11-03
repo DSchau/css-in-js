@@ -17,8 +17,9 @@ import { Button, ButtonLink, Image, QuoteSlide } from 'components';
 
 const images = {
   cssProblems: require('./assets/images/css-problems-optimized.jpeg'),
+  kyleShevlin: require('./assets/images/kyle-shevlin-optimized.jpeg'),
+  safetyThroughAutomation: require('./assets/images/safety-through-automation-optimized.jpeg'),
   dodds: require('./assets/images/kent-c-dodds-optimized.jpeg'),
-  namingIsHard: require('./assets/images/naming-is-hard-optimized.jpeg'),
   hardStuff: require('./assets/images/hard-stuff-optimized.jpeg'),
   cssModules: require('./assets/images/css-modules-optimized.png'),
   shadowDom: require('./assets/images/shadow-dom-optimized.jpeg'),
@@ -289,18 +290,19 @@ I am very much not a fan of these methodologies. They introduce cognitive overhe
   `
 };
 
-export const NamingIsHardImage = () =>
-  <div>
-    <Image src={images.namingIsHard} style={{ maxHeight: 500 }} />
-    <Heading size={6} textColor="secondary" textSize={14}>
-      Jeremy Thomas (@jgthms)
-    </Heading>
-  </div>;
+export const SafetyThroughAutomation = () =>
+  <QuoteSlide
+    quote={require('./assets/quotes/bem-vs-css-in-js.raw')}
+    image={images.kyleShevlin}
+    author="Kyle Shevlin"
+    to="https://twitter.com/kyleshevlin/status/925978213964066816"
+  />;
 
-NamingIsHardImage.Props = {
-  bgColor: 'white',
+SafetyThroughAutomation.Props = {
+  bgImage: images.safetyThroughAutomation,
+  bgDarken: 0.75,
   notes: `
-This pie chart by [Jeremy Thomas](https://twitter.com/jgthms) perfectly encapsulates the issue. Naming is an unnecessary cognitive strain on the process of writing CSS. It does not have to be!
+Consider this quote from Kyle Shevlin. CSS in JS automates this safety, via the usage of tooling and APIs.
   `
 };
 
