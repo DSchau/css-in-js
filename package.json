@@ -14,7 +14,7 @@
     "notes": "node scripts/notes && node scripts/blog-post",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "screenshots": "screenie -a screenie-adapter-spectacle -f screenshots -u http://localhost:3000 -d 1250",
+    "screenshots": "screenie -a screenie-adapter-spectacle -u http://localhost:3000 -d 1000 -f screenshots",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --port 3000 --content-base dist --no-info --config webpack.config.development.js",
     "test": "echo \"Kinda hard to test a presentation, huh?\""
   },

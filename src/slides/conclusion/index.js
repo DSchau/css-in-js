@@ -130,7 +130,11 @@ export const Links = () =>
           'https://dschau.github.io/css-in-js-playground/',
           'CSS in JS Playground Source'
         ],
-        ['https://github.com/DSchau/css-in-js-presentation', 'Slidedeck Repo']
+        ['https://github.com/DSchau/css-in-js-presentation', 'Slidedeck Repo'],
+        [
+          'https://medium.com/p/css-in-js-benefits-drawback-and-tooling-80286b03f9aa',
+          'Blog Post'
+        ]
       ].map(([href, description]) => {
         return (
           <ListItem key={description}>
